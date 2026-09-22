@@ -1,355 +1,463 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>アメリカボウル対策ドリル</title>
+<title>America Bowl Practice Material</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#232017;
-  --ink-soft:#5b5643;
-  --paper:#f2ecd9;
-  --paper-line:#d9cfae;
-  --card:#fbf8ee;
-  --red:#9c3b34;
-  --red-deep:#7a2c27;
-  --gold:#b8862f;
-  --gold-deep:#8f6521;
-  --navy:#1f2b3d;
-  --navy-deep:#141b28;
-  --navy-text:#eee6cf;
-  --focus:#2f6f8f;
-  --gold-tint:#ecdfbd;
-  --red-tint:#eed3cf;
-  --shadow: 0 1px 0 rgba(35,32,23,.06);
-  --radius: 10px;
-  --font-display:'Zen Old Mincho', serif;
-  --font-body:'Zen Kaku Gothic New', sans-serif;
-  color-scheme: light;
-  box-sizing:border-box;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --ink:#ece5d2;
-    --ink-soft:#b9b092;
-    --paper:#171c26;
-    --paper-line:#323a4a;
-    --card:#1e2531;
-    --red:#e07b73;
-    --red-deep:#c85a52;
-    --gold:#e0b45c;
-    --gold-deep:#c99a3e;
-    --navy:#0f1420;
-    --navy-deep:#0a0d15;
-    --navy-text:#efe6cc;
-    --gold-tint:#3a3220;
-    --red-tint:#3a2521;
-    --shadow: 0 1px 0 rgba(0,0,0,.4);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"]{
-  --ink:#ece5d2;
-  --ink-soft:#b9b092;
-  --paper:#171c26;
-  --paper-line:#323a4a;
-  --card:#1e2531;
-  --red:#e07b73;
-  --red-deep:#c85a52;
-  --gold:#e0b45c;
-  --gold-deep:#c99a3e;
-  --navy:#0f1420;
-  --navy-deep:#0a0d15;
-  --navy-text:#efe6cc;
-  --gold-tint:#3a3220;
-  --red-tint:#3a2521;
-  --shadow: 0 1px 0 rgba(0,0,0,.4);
+:root {
+  --bg: #000000;
+  --panel: #0d0d0d;
+  --text: #ffffff;
+  --text-muted: #888888;
+  --border: #262626;
+  --border-strong: #ffffff;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
   color-scheme: dark;
-}
-*{box-sizing:inherit}
-html,body{height:100%;}
-html{scroll-padding-top: env(safe-area-inset-top, 0px);}
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--font-body);
-  -webkit-font-smoothing:antialiased;
-  line-height:1.7;
-}
-img,svg{max-width:100%;display:block}
-button{font-family:inherit}
-:focus-visible{outline:2.5px solid var(--focus); outline-offset:2px;}
-
-.wrap{max-width:760px; margin:0 auto; padding:0 18px;}
-
-/* ---------- header ---------- */
-header.top{
-  background:var(--navy);
-  color:var(--navy-text);
-  border-bottom:3px solid var(--gold);
-  padding-top: calc(22px + env(safe-area-inset-top, 0px));
-  padding-bottom:20px;
-}
-header.top .kicker{
-  font-size:.8rem;
-  letter-spacing:.04em;
-  color:var(--gold);
-  margin:0 0 6px;
-  font-weight:500;
-}
-header.top h1{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:clamp(1.5rem, 4.4vw, 2.1rem);
-  margin:0;
-  line-height:1.35;
-}
-header.top .sub{
-  margin:8px 0 0;
-  font-size:.9rem;
-  color:#cfc6ab;
-}
-.home-link{
-  background:none;border:none;color:var(--gold);
-  font-size:.85rem; cursor:pointer; padding:4px 0;
-  text-decoration:underline; text-underline-offset:3px;
-  font-family:var(--font-body);
+  box-sizing: border-box;
 }
 
-/* ---------- layout sections ---------- */
-main{padding:26px 0 60px;}
-.screen{display:none;}
-.screen.active{display:block;}
+*, *::before, *::after { box-sizing: inherit; }
 
-/* ---------- home: intro ---------- */
-.intro{
-  font-size:.95rem;
-  color:var(--ink-soft);
-  margin:0 0 22px;
-  max-width:56ch;
-}
-.stats-line{
-  font-size:.82rem;
-  color:var(--ink-soft);
-  margin:-8px 0 22px;
-  border-top:1px solid var(--paper-line);
-  padding-top:10px;
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-.section-label{
-  font-family:var(--font-display);
-  font-size:1.05rem;
-  font-weight:700;
-  margin:0 0 12px;
-  padding-bottom:8px;
-  border-bottom:1px solid var(--paper-line);
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* review / mix cards */
-.feature-row{display:grid; gap:12px; grid-template-columns:1fr; margin-bottom:28px;}
-@media(min-width:560px){.feature-row{grid-template-columns:1fr 1fr;}}
-.feature-card{
-  background:var(--card);
-  border:1px solid var(--paper-line);
-  border-radius:var(--radius);
-  padding:16px 18px;
-  text-align:left;
-  cursor:pointer;
-  box-shadow:var(--shadow);
-  position:relative;
-  transition:transform .12s ease, border-color .12s ease;
-}
-.feature-card:hover{border-color:var(--gold);}
-.feature-card:active{transform:translateY(1px);}
-.feature-card .ttl{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:1.05rem;
-  margin:0 0 4px;
-  color:var(--ink);
-}
-.feature-card .desc{font-size:.82rem; color:var(--ink-soft); margin:0;}
-.feature-card.review{border-color:var(--red); }
-.feature-card.review .ttl{color:var(--red-deep);}
-
-/* category grid */
-.cat-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-  margin-bottom:10px;
-}
-@media(min-width:560px){.cat-grid{grid-template-columns:1fr 1fr;}}
-.cat-card{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  background:var(--card);
-  border:1px solid var(--paper-line);
-  border-radius:var(--radius);
-  padding:14px 16px;
-  cursor:pointer;
-  text-align:left;
-  box-shadow:var(--shadow);
-  transition:transform .12s ease, border-color .12s ease;
-}
-.cat-card:hover{border-color:var(--gold);}
-.cat-card:active{transform:translateY(1px);}
-.cat-card .letter{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:1.5rem;
-  color:var(--gold-deep);
-  min-width:1.4em;
-  text-align:center;
-}
-.cat-card .info{flex:1; min-width:0;}
-.cat-card .name{font-weight:700; font-size:.95rem; margin:0 0 2px;}
-.cat-card .meta{font-size:.78rem; color:var(--ink-soft); margin:0;}
-
-/* ---------- quiz screen ---------- */
-.quiz-meta{
-  display:flex; justify-content:space-between; align-items:baseline;
-  font-size:.82rem; color:var(--ink-soft); margin-bottom:8px;
-}
-.quiz-meta .cat-chip{
-  background:var(--navy); color:var(--navy-text);
-  border-radius:100px; padding:3px 11px; font-size:.74rem;
-}
-.progress-track{
-  height:6px; background:var(--paper-line); border-radius:100px; overflow:hidden; margin-bottom:22px;
-}
-.progress-fill{
-  height:100%; background:var(--gold); width:0%;
-  transition:width .3s ease;
+/* Header */
+header.top {
+  border-bottom: 1px solid var(--border);
+  padding: 40px 0 30px;
 }
 
-.q-card{
-  background:var(--card);
-  border:1px solid var(--paper-line);
-  border-radius:var(--radius);
-  padding:26px 22px 22px;
-  position:relative;
-  background-image: repeating-linear-gradient(
-    var(--card) 0px, var(--card) 37px, var(--paper-line) 38px
-  );
-  background-position: 0 64px;
-}
-.q-card .qno{
-  font-size:.78rem; color:var(--ink-soft); margin:0 0 10px;
-}
-.q-card .qtext{
-  font-family:var(--font-display);
-  font-size:clamp(1.08rem, 3.4vw, 1.32rem);
-  font-weight:600;
-  line-height:1.6;
-  margin:0 0 22px;
-}
-.stamp{
-  position:absolute; top:14px; right:16px;
-  font-family:var(--font-display);
-  font-weight:900;
-  font-size:1rem;
-  padding:5px 12px;
-  border:3px solid currentColor;
-  border-radius:6px;
-  transform:rotate(6deg) scale(0);
-  opacity:0;
-  transition:transform .28s cubic-bezier(.2,1.4,.4,1), opacity .2s ease;
-}
-.stamp.show{transform:rotate(6deg) scale(1); opacity:1;}
-.stamp.correct{color:var(--gold-deep);}
-.stamp.incorrect{color:var(--red-deep);}
-
-.options{
-  display:grid; grid-template-columns:1fr; gap:10px;
-}
-@media(min-width:520px){.options{grid-template-columns:1fr 1fr;}}
-.opt-btn{
-  background:var(--paper);
-  border:1.5px solid var(--paper-line);
-  border-radius:8px;
-  padding:13px 14px;
-  font-size:.92rem;
-  line-height:1.45;
-  text-align:left;
-  cursor:pointer;
-  color:var(--ink);
-  transition:border-color .12s ease, background .12s ease, transform .08s ease;
-}
-.opt-btn:hover:not(:disabled){border-color:var(--gold); background:var(--card);}
-.opt-btn:active:not(:disabled){transform:translateY(1px);}
-.opt-btn:disabled{cursor:default;}
-.opt-btn .mark{font-weight:700; margin-right:6px;}
-.opt-btn.correct{border-color:var(--gold); background:var(--gold-tint);}
-.opt-btn.incorrect{border-color:var(--red); background:var(--red-tint);}
-.opt-btn.dim{opacity:.55;}
-
-.q-footer{
-  margin-top:20px; display:flex; justify-content:space-between; align-items:center;
-  min-height:40px;
-}
-.next-btn{
-  background:var(--navy); color:var(--navy-text); border:none;
-  border-radius:8px; padding:11px 22px; font-size:.9rem; font-weight:700;
-  cursor:pointer; opacity:0; pointer-events:none; transition:opacity .15s ease;
-}
-.next-btn.show{opacity:1; pointer-events:auto;}
-.quit-link{
-  background:none;border:none;color:var(--ink-soft); font-size:.8rem;
-  text-decoration:underline; text-underline-offset:3px; cursor:pointer; padding:6px 0;
-  font-family:var(--font-body);
+header .brand {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
 }
 
-/* ---------- result screen ---------- */
-.result-score{
-  text-align:center; padding:20px 0 10px;
-}
-.result-score .num{
-  font-family:var(--font-display); font-weight:900;
-  font-size:clamp(2.6rem, 12vw, 3.6rem);
-  color:var(--navy);
-  margin:0;
-}
-.result-score .num small{font-size:.4em; font-weight:600; color:var(--ink-soft);}
-.result-score .pct{color:var(--gold-deep); font-weight:700; margin:4px 0 0; font-size:1rem;}
-.result-msg{
-  text-align:center; font-size:.9rem; color:var(--ink-soft);
-  max-width:44ch; margin:10px auto 26px;
-}
-.breakdown{margin:0 0 26px;}
-.bd-row{
-  display:flex; align-items:center; gap:10px; font-size:.82rem;
-  padding:6px 0; border-bottom:1px solid var(--paper-line);
-}
-.bd-row .bd-label{flex:0 0 118px; color:var(--ink-soft);}
-.bd-row .bd-bar{flex:1; height:8px; background:var(--paper-line); border-radius:100px; overflow:hidden;}
-.bd-row .bd-fill{height:100%; background:var(--gold);}
-.bd-row .bd-num{flex:0 0 auto; color:var(--ink-soft); font-variant-numeric:tabular-nums;}
-
-.result-actions{display:flex; flex-direction:column; gap:10px; max-width:340px; margin:0 auto;}
-.btn{
-  border-radius:8px; padding:12px 18px; font-size:.9rem; font-weight:700;
-  cursor:pointer; border:1.5px solid var(--navy); background:var(--navy); color:var(--navy-text);
-  text-align:center;
-}
-.btn.secondary{background:transparent; color:var(--ink); border-color:var(--paper-line);}
-.btn.secondary:hover{border-color:var(--gold);}
-.btn.review{background:var(--red); border-color:var(--red); color:#fff8f2;}
-
-footer.site-foot{
-  text-align:center; font-size:.74rem; color:var(--ink-soft);
-  padding:20px 0 40px;
+header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  line-height: 1.05;
 }
 
-@media (prefers-reduced-motion: reduce){
-  *{transition-duration:.001ms !important; animation-duration:.001ms !important;}
+header .sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 500px;
+}
+
+.home-link {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--text);
+}
+
+/* Navigation & Layout */
+main { padding: 40px 0 80px; }
+.screen { display: none; }
+.screen.active { display: block; }
+
+.intro-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  border-left: 2px solid var(--text);
+  padding-left: 16px;
+}
+
+.stats-line {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 40px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Featured / Quick Start Cards */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+@media (min-width: 600px) {
+  .feature-row { grid-template-columns: 1fr 1fr; }
+}
+
+.feature-card {
+  background: var(--bg);
+  border: 1px solid var(--text);
+  padding: 24px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.feature-card:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.feature-card:hover .desc {
+  color: #333333;
+}
+
+.feature-card .ttl {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.feature-card .desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.feature-card.review {
+  border-style: dashed;
+}
+
+/* Category Grid */
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+@media (min-width: 600px) {
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.cat-card {
+  background: var(--bg);
+  border: none;
+  padding: 20px 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  transition: background-color 0.15s ease;
+}
+
+.cat-card:hover {
+  background: var(--panel);
+}
+
+.cat-card .letter {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  min-width: 2rem;
+}
+
+.cat-card .info { flex: 1; }
+.cat-card .name { font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; }
+.cat-card .meta { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+/* Quiz Interface */
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.cat-chip {
+  border: 1px solid var(--border-strong);
+  padding: 2px 8px;
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 2px;
+  background: var(--border);
+  margin-bottom: 40px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--text);
+  width: 0%;
+  transition: width 0.2s ease;
+}
+
+.q-card {
+  border: 1px solid var(--border);
+  padding: 32px 24px;
+  position: relative;
+  background: var(--panel);
+}
+
+.q-card .qno {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 16px;
+}
+
+.q-card .qtext {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 32px;
+  line-height: 1.4;
+}
+
+.stamp {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: none;
+}
+
+.stamp.show { display: block; }
+.stamp.correct { background: var(--text); color: var(--bg); }
+.stamp.incorrect { border: 1px solid var(--text); color: var(--text); }
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.opt-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.opt-btn:hover:not(:disabled) {
+  border-color: var(--text);
+}
+
+.opt-btn .mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.opt-btn.correct {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--bg);
+}
+.opt-btn.correct .mark { color: var(--bg); }
+
+.opt-btn.incorrect {
+  border-color: var(--text);
+  background: #222222;
+  color: #888888;
+  text-decoration: line-through;
+}
+
+.opt-btn.dim { opacity: 0.3; }
+
+.q-footer {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.next-btn {
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.next-btn.show { opacity: 1; pointer-events: auto; }
+
+.quit-link {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* Result Screen */
+.result-score {
+  text-align: center;
+  padding: 40px 0 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+.result-score .num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 10vw, 5rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.result-score .num small {
+  font-size: 0.4em;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.result-score .pct {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.result-msg {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text);
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+.breakdown {
+  border: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.bd-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+.bd-row:last-child { border-bottom: none; }
+.bd-row .bd-label { flex: 1; font-weight: 500; }
+.bd-row .bd-num { font-family: var(--font-display); font-weight: 700; }
+
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.btn {
+  background: var(--text);
+  color: var(--bg);
+  border: 1px solid var(--text);
+  padding: 14px 20px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn.secondary:hover {
+  border-color: var(--text);
+}
+
+footer.site-foot {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 30px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 </style>
 </head>
@@ -357,36 +465,36 @@ footer.site-foot{
 
 <header class="top">
   <div class="wrap">
-    <p class="kicker">アメリカボウル対策</p>
-    <h1 id="header-title">アメリカボウル 対策ドリル</h1>
-    <p class="sub" id="header-sub">不定期更新中</p>
-    <button class="home-link" id="home-link" style="display:none;" type="button">← 範囲選択に戻る</button>
+    <div class="brand">Japan-America Society Cup</div>
+    <h1 id="header-title">America Bowl Drill</h1>
+    <p class="sub" id="header-sub">Comprehensive practice suite covering all exam categories.</p>
+    <button class="home-link" id="home-link" style="display:none;" type="button">← Back to Categories</button>
   </div>
 </header>
 
 <main class="wrap">
 
-  <!-- ============ HOME SCREEN ============ -->
+  <!-- HOME SCREEN -->
   <section id="screen-home" class="screen active">
-    <p class="intro">基礎知識・大統領と選挙・日常生活の常識・50州・歴史・文化と習慣・文化遺産と自然遺産・有名人・憲法と最高裁判所・分断する問題、そして最新トピックの付録まで、予想問題を4択形式でノールックで確認できます。</p>
+    <p class="intro-text">Master 200+ multiple-choice questions spanning foundational trivia, elections, civil rights, geography, Supreme Court landmark cases, and current issues.</p>
     <p class="stats-line" id="stats-line"></p>
 
     <div class="feature-row">
-      <button class="feature-card mix" id="card-mix" type="button">
-        <p class="ttl">ミックス30問</p>
-        <p class="desc">全範囲からランダムに30問。腕試しに。</p>
+      <button class="feature-card" id="card-mix" type="button">
+        <div class="ttl">Random 30</div>
+        <div class="desc">30 random questions selected across all categories.</div>
       </button>
       <button class="feature-card review" id="card-review" type="button" style="display:none;">
-        <p class="ttl">間違えた問題だけ復習</p>
-        <p class="desc"><span id="review-count">0</span>問を再確認</p>
+        <div class="ttl">Review Missed</div>
+        <div class="desc">Re-examine <span id="review-count">0</span> incorrect answers.</div>
       </button>
     </div>
 
-    <h2 class="section-label">範囲から選ぶ</h2>
+    <h2 class="section-label">Select Category</h2>
     <div class="cat-grid" id="cat-grid"></div>
   </section>
 
-  <!-- ============ QUIZ SCREEN ============ -->
+  <!-- QUIZ SCREEN -->
   <section id="screen-quiz" class="screen">
     <div class="quiz-meta">
       <span class="cat-chip" id="quiz-cat-chip"></span>
@@ -400,32 +508,245 @@ footer.site-foot{
       <p class="qtext" id="qtext"></p>
       <div class="options" id="options"></div>
       <div class="q-footer">
-        <button class="quit-link" id="quit-link" type="button">やめて範囲選択に戻る</button>
-        <button class="next-btn" id="next-btn" type="button">次の問題</button>
+        <button class="quit-link" id="quit-link" type="button">Quit Session</button>
+        <button class="next-btn" id="next-btn" type="button">Next Question →</button>
       </div>
     </div>
   </section>
 
-  <!-- ============ RESULT SCREEN ============ -->
+  <!-- RESULT SCREEN -->
   <section id="screen-result" class="screen">
     <div class="result-score">
-      <p class="num"><span id="result-correct"></span><small> / <span id="result-total"></span> 正解</small></p>
+      <p class="num"><span id="result-correct"></span><small> / <span id="result-total"></span></small></p>
       <p class="pct" id="result-pct"></p>
     </div>
     <p class="result-msg" id="result-msg"></p>
     <div class="breakdown" id="breakdown"></div>
     <div class="result-actions">
-      <button class="btn" id="btn-retry" type="button">同じ範囲をもう一度</button>
-      <button class="btn review" id="btn-review-missed" type="button" style="display:none;">間違えた問題だけ復習する</button>
-      <button class="btn secondary" id="btn-back" type="button">他の範囲を選ぶ</button>
+      <button class="btn" id="btn-retry" type="button">Repeat Category</button>
+      <button class="btn secondary" id="btn-review-missed" type="button" style="display:none;">Review Missed Only</button>
+      <button class="btn secondary" id="btn-back" type="button">All Categories</button>
     </div>
   </section>
 
 </main>
 
-<footer class="site-foot">全211問 ／ 大統領・時事情報は2026年9月時点</footer>
+<footer class="site-foot">Total 211 Questions ／ Data updated as of Sep 2026</footer>
 
-<script type="application/json" id="quiz-data">[{"id":1,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の総面積は約いくつ平方キロメートルですか？","a":"約983万平方キロメートル（世界3位）","options":["約1,710万平方キロメートル（ロシア）","約550万平方キロメートル","約760万平方キロメートル（オーストラリア）","約983万平方キロメートル（世界3位）"]},{"id":2,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の人口はおよそ何人ですか？（2026年時点の推定）","a":"約3億4,900万人","options":["約1億3,000万人","約4億1,000万人","約3億4,900万人","約2億8,000万人"]},{"id":3,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の首都はどこですか？","a":"ワシントンD.C.","options":["ニューヨーク","フィラデルフィア","ロサンゼルス","ワシントンD.C."]},{"id":4,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国は北アメリカ大陸のどの部分に位置していますか？","a":"北部と中央部","options":["南部のみ","大陸の最北端","北部と中央部","大陸の最南端"]},{"id":5,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国は何カ国と国境を接していますか？また，それらの国はどこですか？","a":"2カ国：カナダ，メキシコ","options":["1カ国：カナダのみ","3カ国：カナダ，メキシコ，キューバ","0カ国（周囲を海に囲まれている）","2カ国：カナダ，メキシコ"]},{"id":6,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の最も高い山の名前は？","a":"デナリ山（Denali）","options":["マウント・レーニア山","エルバート山","デナリ山（Denali）","ホイットニー山"]},{"id":7,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の最長の川の名前は？","a":"ミズーリ川（Missouri River）","options":["ミズーリ川（Missouri River）","ミシシッピ川","リオグランデ川","オハイオ川"]},{"id":8,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の国旗には星がいくつありますか？また，これらは何を表していますか？","a":"50個の星，50州を表す","options":["48個の星，本土48州を表す","50個の星，50州を表す","13個の星，独立時の13植民地を表す","51個の星，50州と首都を表す"]},{"id":9,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の国旗の赤と白の縞（しま）はそれぞれ何を表していますか？","a":"13の赤と白の縞は，独立当初の13植民地を表す","options":["赤は勇気，白は平和のみを表す","13の赤と白の縞は，独立当初の13植民地を表す","南北戦争の北軍と南軍を表す","50の縞は50州を表す"]},{"id":10,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の国歌のタイトルは何ですか？","a":"The Star-Spangled Banner（星条旗）","options":["America the Beautiful","My Country, 'Tis of Thee","God Bless America","The Star-Spangled Banner（星条旗）"]},{"id":11,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国には州はいくつありますか？","a":"50州","options":["50州","52州","48州","51州"]},{"id":12,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国が属する北アメリカの3カ国の自由貿易協定を何と呼びますか？","a":"USMCA（米国・メキシコ・カナダ協定，旧NAFTA）","options":["ASEAN（東南アジア諸国連合）","TPP（環太平洋パートナーシップ協定）","EU（欧州連合）","USMCA（米国・メキシコ・カナダ協定，旧NAFTA）"]},{"id":13,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の国境に接している海洋の名称を挙げてください。","a":"太平洋，大西洋，メキシコ湾","options":["太平洋のみ","北極海，大西洋，地中海","インド洋，大西洋，カリブ海","太平洋，大西洋，メキシコ湾"]},{"id":14,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の最も人口の多い州はどこですか？","a":"カリフォルニア州","options":["オレゴン州","カリフォルニア州","テネシー州","メリーランド州"]},{"id":15,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の最も人口の少ない州はどこですか？","a":"ワイオミング州","options":["カリフォルニア州","ワイオミング州","アリゾナ州","バージニア州"]},{"id":16,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国で最も広い州はどこですか？","a":"アラスカ州","options":["アラスカ州","モンタナ州","カンザス州","デラウェア州"]},{"id":17,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の標準時（タイムゾーン）はいくつありますか？","a":"6つ（東部，中央部，山岳部，太平洋，アラスカ，ハワイ・アリューシャン）","options":["6つ（東部，中央部，山岳部，太平洋，アラスカ，ハワイ・アリューシャン）","9つ","3つ","4つ（東部，中央部，山岳部，太平洋のみ）"]},{"id":18,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国のモットー（標語）は何ですか？","a":"“In God We Trust”","options":["“In God We Trust”","“United We Stand”","“Land of the Free”","“E Pluribus Unum”（建国当初からの非公式標語）"]},{"id":19,"cat":"prereq","catLabel":"基礎知識","q":"アメリカ合衆国の建国記念日はいつですか？","a":"7月4日（独立記念日 / Independence Day）","options":["7月14日","11月11日","9月17日（憲法記念日）","7月4日（独立記念日 / Independence Day）"]},{"id":20,"cat":"A","catLabel":"大統領と選挙","q":"現職のアメリカ大統領の名前は？（2026年現在）","a":"ドナルド・トランプ（Donald Trump，第47代）","options":["バラク・オバマ","ジョージ・W・ブッシュ","ドナルド・トランプ（Donald Trump，第47代）","ジョー・バイデン"]},{"id":21,"cat":"A","catLabel":"大統領と選挙","q":"アメリカの副大統領の名前は？（2026年現在）","a":"JDヴァンス（JD Vance）","options":["マイク・ペンス","JDヴァンス（JD Vance）","カマラ・ハリス","ディック・チェイニー"]},{"id":22,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ大統領選挙（presidential election）は何年ごとに行われる？","a":"4年","options":["2年","6年","4年","5年"]},{"id":23,"cat":"A","catLabel":"大統領と選挙","q":"選挙人制度を英語で何と呼ぶ？","a":"Electoral College","options":["Congressional Committee","Primary Caucus","Popular Vote","Electoral College"]},{"id":24,"cat":"A","catLabel":"大統領と選挙","q":"初代アメリカ大統領の名前は？","a":"ジョージ・ワシントン","options":["フランクリン・D・ルーズベルト","ドワイト・D・アイゼンハワー","ジョージ・ワシントン","アンドリュー・ジャクソン"]},{"id":25,"cat":"A","catLabel":"大統領と選挙","q":"過去のアメリカ大統領のうち，暗殺された大統領を一人挙げよ。","a":"エイブラハム・リンカーン（他にJFK，ガーフィールド，マッキンリーも該当）","options":["ジミー・カーター","セオドア・ルーズベルト","エイブラハム・リンカーン（他にJFK，ガーフィールド，マッキンリーも該当）","ジョージ・H・W・ブッシュ"]},{"id":26,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ大統領は1期あたり何年間の任期ですか？","a":"4年間","options":["4年間","2年間","8年間","6年間"]},{"id":27,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ大統領選挙での主要な政党を2つ挙げてください。","a":"民主党（Democratic Party），共和党（Republican Party）","options":["労働党と保守党","民主党（Democratic Party），共和党（Republican Party）","自由党とグリーン党","連邦党と共和党（現存せず）"]},{"id":28,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ大統領は最高で何期務めることができますか？","a":"2期","options":["2期","制限なし","3期","1期のみ"]},{"id":29,"cat":"A","catLabel":"大統領と選挙","q":"アメリカで最も若くして大統領に就任した人物は誰ですか？","a":"セオドア・ルーズベルト（就任時42歳）","options":["アンドリュー・ジャクソン","セオドア・ルーズベルト（就任時42歳）","トーマス・ジェファソン","ジェームズ・マディソン"]},{"id":30,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ合衆国大統領官邸の名前は何ですか？","a":"ホワイトハウス（The White House）","options":["キャピトル・ヒル","ホワイトハウス（The White House）","ペンタゴン","キャンプ・デービッド"]},{"id":31,"cat":"A","catLabel":"大統領と選挙","q":"大統領が辞任した初の事例は誰ですか？","a":"リチャード・ニクソン（Richard Nixon）","options":["ジミー・カーター","リチャード・ニクソン（Richard Nixon）","ジョージ・H・W・ブッシュ","ジョー・バイデン"]},{"id":32,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ初の女性副大統領の名前は？","a":"カマラ・ハリス（Kamala Harris）","options":["アル・ゴア","マイク・ペンス","カマラ・ハリス（Kamala Harris）","ディック・チェイニー"]},{"id":33,"cat":"A","catLabel":"大統領と選挙","q":"大統領選挙では各州に割り当てられる選挙人の数は何に基づいて決まりますか？","a":"人口（連邦議会上下両院の議員数に基づく）","options":["州の面積","各州一律で同じ数","人口（連邦議会上下両院の議員数に基づく）","州の連邦加盟順"]},{"id":34,"cat":"A","catLabel":"大統領と選挙","q":"大統領継承順位の第2位は誰ですか？","a":"下院議長（Speaker of the House）","options":["財務長官","国務長官","上院議長（副大統領が兼任）","下院議長（Speaker of the House）"]},{"id":35,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ合衆国憲法修正第22条は大統領の何を制限していますか？","a":"任期の制限（2期まで）","options":["弾劾の手続き","任期の制限（2期まで）","出馬回数（無制限）","就任年齢の制限"]},{"id":36,"cat":"A","catLabel":"大統領と選挙","q":"アメリカ合衆国初のアフリカ系大統領は誰ですか？","a":"バラク・オバマ（Barack Obama）","options":["ビル・クリントン","バラク・オバマ（Barack Obama）","ウッドロウ・ウィルソン","ドワイト・D・アイゼンハワー"]},{"id":37,"cat":"A","catLabel":"大統領と選挙","q":"「四つの自由」（Four Freedoms）を提唱した大統領は誰ですか？","a":"フランクリン・D・ルーズベルト（Franklin D. Roosevelt）","options":["ジョージ・ワシントン","フランクリン・D・ルーズベルト（Franklin D. Roosevelt）","バラク・オバマ","ジョージ・W・ブッシュ"]},{"id":38,"cat":"A","catLabel":"大統領と選挙","q":"リンカーン大統領が奴隷解放宣言（Emancipation Proclamation）を発布した年は何年ですか？","a":"1863年","options":["1846年","1861年","1863年","1812年"]},{"id":39,"cat":"B","catLabel":"日常生活の常識","q":"6フィートはおおよそ何センチメートルですか？","a":"約183センチメートル","options":["約200センチメートル","約152センチメートル","約165センチメートル","約183センチメートル"]},{"id":40,"cat":"B","catLabel":"日常生活の常識","q":"アメリカで温度を測る際に使われる単位は何ですか？","a":"華氏(Fahrenheit)","options":["摂氏(Celsius)","華氏(Fahrenheit)","ランキン度(Rankine)","ケルビン(Kelvin)"]},{"id":41,"cat":"B","catLabel":"日常生活の常識","q":"1ガロン（gallon）は何リットルですか？","a":"約3.785リットル","options":["約3.785リットル","約4.55リットル（英ガロン）","約5リットル","約2.5リットル"]},{"id":42,"cat":"B","catLabel":"日常生活の常識","q":"アメリカで日付を表記する順番は何ですか？","a":"月/日/年（MM/DD/YYYY）","options":["年/日/月","月/日/年（MM/DD/YYYY）","年/月/日（YYYY/MM/DD）","日/月/年（DD/MM/YYYY）"]},{"id":43,"cat":"B","catLabel":"日常生活の常識","q":"「ASAP」の意味を英語で答えてください。","a":"As Soon As Possible（できるだけ早く）","options":["As Soon As Possible（できるだけ早く）","As Stated And Planned","As Simple As Possible","At Some Appropriate Point"]},{"id":44,"cat":"B","catLabel":"日常生活の常識","q":"アメリカの1ドル紙幣に描かれている人物は誰ですか？","a":"ジョージ・ワシントン（George Washington）","options":["ジョージ・H・W・ブッシュ","ジョージ・W・ブッシュ","ジョー・バイデン","ジョージ・ワシントン（George Washington）"]},{"id":45,"cat":"B","catLabel":"日常生活の常識","q":"アメリカの5セント硬貨は何と呼ばれますか？","a":"ニッケル(Nickel)","options":["クォーター(25¢)","ニッケル(Nickel)","ダイム(10¢)","ペニー(1¢)"]},{"id":46,"cat":"B","catLabel":"日常生活の常識","q":"アメリカの25セント硬貨は何と呼ばれますか？","a":"クォーター(Quarter)","options":["ニッケル(5¢)","ダイム(10¢)","クォーター(Quarter)","ペニー(1¢)"]},{"id":47,"cat":"B","catLabel":"日常生活の常識","q":"アメリカの紙幣のうち，20ドル札に描かれている人物は誰ですか？","a":"アンドリュー・ジャクソン（Andrew Jackson）","options":["アンドリュー・ジャクソン（Andrew Jackson）","ジェームズ・マディソン","ジョージ・W・ブッシュ","リンドン・ジョンソン"]},{"id":48,"cat":"B","catLabel":"日常生活の常識","q":"アメリカの硬貨で最も価値が小さいものは何セント硬貨ですか？","a":"1セント硬貨(Penny)","options":["ダイム(10¢)","ニッケル(5¢)","1セント硬貨(Penny)","ペニー(1¢)"]},{"id":49,"cat":"B","catLabel":"日常生活の常識","q":"アメリカで一般的な郵便配達サービスの略称は何ですか？","a":"USPS（United States Postal Service）","options":["FedEx","UPS（United Parcel Service）","USPS（United States Postal Service）","DHL"]},{"id":50,"cat":"B","catLabel":"日常生活の常識","q":"アメリカのテレビでよく使われる略語「CBS」は何の略ですか？","a":"Columbia Broadcasting System","options":["Continental Broadcasting Studio","Central Broadcasting Service","California Broadcasting System","Columbia Broadcasting System"]},{"id":51,"cat":"B","catLabel":"日常生活の常識","q":"アメリカの時差が最も大きい州を挙げてください。","a":"ハワイ州（Hawaii）","options":["ミシシッピ州","ハワイ州（Hawaii）","ニューハンプシャー州","ネバダ州"]},{"id":52,"cat":"B","catLabel":"日常生活の常識","q":"アメリカでチップを渡す際，通常推奨される割合は何パーセントですか？","a":"15%～20%","options":["25%～30%","5%～10%","チップの習慣はない","15%～20%"]},{"id":53,"cat":"B","catLabel":"日常生活の常識","q":"アメリカで1マイルはおおよそ何キロメートルですか？","a":"約1.609キロメートル","options":["約1.2キロメートル","約0.8キロメートル","約1.609キロメートル","約2キロメートル"]},{"id":54,"cat":"B","catLabel":"日常生活の常識","q":"「RSVP」の意味を答えてください。","a":"Répondez s'il vous plaît（フランス語で「ご返答ください」）","options":["Respond Swiftly Via Post","Reserve Seat Very Promptly","Répondez s'il vous plaît（フランス語で「ご返答ください」）","Read Send Verify Please"]},{"id":55,"cat":"B","catLabel":"日常生活の常識","q":"アメリカの電話番号の標準形式はどのような形ですか？","a":"(XXX) XXX-XXXX","options":["XXX-XXX-XX","(XXX) XXX-XXXX","0XX-XXXX-XXXX","XX-XXXX-XXXX"]},{"id":56,"cat":"B","catLabel":"日常生活の常識","q":"アメリカでは通常，運転は道路のどちら側で行いますか？","a":"右側","options":["中央線がない道が大半","右側","左側","国や州によって異なる"]},{"id":57,"cat":"B","catLabel":"日常生活の常識","q":"1インチはおおよそ何センチメートルですか？","a":"約2.54センチメートル","options":["約3.5センチメートル","約5センチメートル","約1.5センチメートル","約2.54センチメートル"]},{"id":58,"cat":"B","catLabel":"日常生活の常識","q":"アメリカで使われる最も一般的なコンセントの電圧は何ボルトですか？","a":"120ボルト","options":["100ボルト（日本）","240ボルト","220ボルト","120ボルト"]},{"id":59,"cat":"C","catLabel":"50州","q":"アメリカ合衆国の州の数は全部でいくつですか？","a":"50州","options":["48州","52州","51州","50州"]},{"id":60,"cat":"C","catLabel":"50州","q":"アメリカの最も面積が大きい州を挙げてください。","a":"アラスカ州（Alaska）","options":["ノースカロライナ州","アラスカ州（Alaska）","ニューヨーク州","ネバダ州"]},{"id":61,"cat":"C","catLabel":"50州","q":"アメリカで最も人口が多い州を挙げてください。","a":"カリフォルニア州（California）","options":["カリフォルニア州（California）","モンタナ州","アイダホ州","アラバマ州"]},{"id":62,"cat":"C","catLabel":"50州","q":"アメリカで最も人口密度が高い州を挙げてください。","a":"ニュージャージー州（New Jersey）","options":["メイン州","ネバダ州","ニュージャージー州（New Jersey）","バージニア州"]},{"id":63,"cat":"C","catLabel":"50州","q":"48の州がつながっている区域を何と呼びますか？","a":"本土48州（Contiguous United States）","options":["合衆国特別区","北米連邦州","本土48州（Contiguous United States）","大陸横断州群"]},{"id":64,"cat":"C","catLabel":"50州","q":"アメリカの本土48州の中で最も東に位置する州はどこですか？","a":"メイン州（Maine）","options":["オクラホマ州","ロードアイランド州","ウィスコンシン州","メイン州（Maine）"]},{"id":65,"cat":"C","catLabel":"50州","q":"アメリカで最も面積が小さい州はどこですか？","a":"ロードアイランド州（Rhode Island）","options":["ニューメキシコ州","ペンシルベニア州","ロードアイランド州（Rhode Island）","アーカンソー州"]},{"id":66,"cat":"C","catLabel":"50州","q":"アメリカで最も多くの州と国境を接する州はどこですか？","a":"テネシー州とミズーリ州（それぞれ8州と接する）","options":["コロラド州とユタ州","ケンタッキー州のみ","テネシー州とミズーリ州（それぞれ8州と接する）","カリフォルニア州とテキサス州"]},{"id":67,"cat":"C","catLabel":"50州","q":"アメリカ合衆国で最も北に位置する州はどこですか？","a":"アラスカ州（Alaska）","options":["バーモント州","ネブラスカ州","ケンタッキー州","アラスカ州（Alaska）"]},{"id":68,"cat":"C","catLabel":"50州","q":"ハワイ州が所属する海洋の名称を答えてください。","a":"太平洋（Pacific Ocean）","options":["大西洋（Atlantic Ocean）","カリブ海","インド洋","太平洋（Pacific Ocean）"]},{"id":69,"cat":"C","catLabel":"50州","q":"アメリカで最も高い人口成長率（増加率）を持つ州を挙げてください。（2025年国勢調査局推定）","a":"サウスカロライナ州（South Carolina）","options":["ペンシルベニア州","サウスカロライナ州（South Carolina）","ネブラスカ州","ユタ州"]},{"id":70,"cat":"C","catLabel":"50州","q":"アメリカで最も少ない降水量を記録する州はどこですか？","a":"ネバダ州（Nevada）","options":["ネバダ州（Nevada）","ワシントン州","マサチューセッツ州","ユタ州"]},{"id":71,"cat":"C","catLabel":"50州","q":"アメリカで最も多くの観光客を引きつける都市のある州はどこですか？","a":"フロリダ州（Florida）（例：オーランド）","options":["フロリダ州（Florida）（例：オーランド）","テキサス州","ジョージア州","ユタ州"]},{"id":72,"cat":"C","catLabel":"50州","q":"アメリカで最も暑い州はどこですか？","a":"アリゾナ州（Arizona）","options":["ワイオミング州","アリゾナ州（Arizona）","コロラド州","アラバマ州"]},{"id":73,"cat":"C","catLabel":"50州","q":"アメリカの州旗に熊のデザインがある州を挙げてください。","a":"カリフォルニア州（California）","options":["アイオワ州","コロラド州","カリフォルニア州（California）","オクラホマ州"]},{"id":74,"cat":"C","catLabel":"50州","q":"アメリカの州名に「New」がつく州をすべて挙げてください。","a":"ニューヨーク州，ニュージャージー州，ニューメキシコ州，ニューハンプシャー州","options":["ニューイングランドを含む5州","ニューヨーク州とニュージャージー州のみ（2州）","ニューオーリンズを含む5州","ニューヨーク州，ニュージャージー州，ニューメキシコ州，ニューハンプシャー州"]},{"id":75,"cat":"C","catLabel":"50州","q":"アメリカで唯一パンハンドル（州の細長い部分）が2つある州はどこですか？","a":"オクラホマ州（Oklahoma）","options":["メイン州","オクラホマ州（Oklahoma）","ニューハンプシャー州","ハワイ州"]},{"id":76,"cat":"C","catLabel":"50州","q":"アメリカで最も標高の低い地点がある州はどこですか？","a":"カリフォルニア州（California）（デスバレー）","options":["オレゴン州","ユタ州","マサチューセッツ州","カリフォルニア州（California）（デスバレー）"]},{"id":77,"cat":"C","catLabel":"50州","q":"アメリカの本土48州で最も西に位置する州はどこですか？","a":"ワシントン州（Washington）","options":["ワシントン州（Washington）","コネチカット州","ウィスコンシン州","デラウェア州"]},{"id":78,"cat":"C","catLabel":"50州","q":"アメリカで公式の州語が英語以外にも設定されている州を挙げてください。","a":"ハワイ州（Hawaii）（英語とハワイ語）","options":["ワシントン州","サウスカロライナ州","ハワイ州（Hawaii）（英語とハワイ語）","アイオワ州"]},{"id":79,"cat":"D","catLabel":"歴史","q":"アメリカ独立宣言（Declaration of Independence）が署名された年はいつですか？","a":"1776年","options":["1765年","1770年","1733年","1776年"]},{"id":80,"cat":"D","catLabel":"歴史","q":"アメリカ南北戦争（Civil War）が始まった年は何年ですか？","a":"1861年","options":["1890年","1846年","1861年","1803年"]},{"id":81,"cat":"D","catLabel":"歴史","q":"アメリカ憲法（Constitution of the United States）が制定された年はいつですか？","a":"1787年","options":["1664年","1787年","1765年","1770年"]},{"id":82,"cat":"D","catLabel":"歴史","q":"女性参政権が認められた憲法修正条項は第何条ですか？","a":"第19条","options":["第24条","第19条","第3条","第4条"]},{"id":83,"cat":"D","catLabel":"歴史","q":"アメリカの奴隷制度を廃止した憲法修正条項は第何条ですか？","a":"第13条","options":["第20条","第13条","第19条","第12条"]},{"id":84,"cat":"D","catLabel":"歴史","q":"世界恐慌（Great Depression）が始まった年は何年ですか？","a":"1929年","options":["1919年","1920年","1901年","1929年"]},{"id":85,"cat":"D","catLabel":"歴史","q":"アメリカが第二次世界大戦（World War II）に参戦したのは何年ですか？","a":"1941年","options":["1917年","1941年","1908年","1920年"]},{"id":86,"cat":"D","catLabel":"歴史","q":"マーティン・ルーサー・キング・ジュニアが「I Have a Dream」演説を行った年は何年ですか？","a":"1963年","options":["1964年","1957年","1963年","1989年"]},{"id":87,"cat":"D","catLabel":"歴史","q":"南北戦争中，奴隷解放宣言（Emancipation Proclamation）が発布されたのは何年ですか？","a":"1863年","options":["1861年","1863年","1865年","1898年"]},{"id":88,"cat":"D","catLabel":"歴史","q":"アメリカ建国時の初代財務長官は誰ですか？","a":"アレクサンダー・ハミルトン（Alexander Hamilton）","options":["イーロン・マスク","ジェフ・ベゾス","アレクサンダー・ハミルトン（Alexander Hamilton）","トーマス・エジソン"]},{"id":89,"cat":"D","catLabel":"歴史","q":"ルイジアナ買収（Louisiana Purchase）が行われた年は何年ですか？","a":"1803年","options":["1870年","1803年","1846年","1898年"]},{"id":90,"cat":"D","catLabel":"歴史","q":"「ニューディール政策（New Deal）」を提案した大統領は誰ですか？","a":"フランクリン・D・ルーズベルト（Franklin D. Roosevelt）","options":["フランクリン・D・ルーズベルト（Franklin D. Roosevelt）","ジョージ・ワシントン","ハリー・S・トルーマン","ウッドロウ・ウィルソン"]},{"id":91,"cat":"D","catLabel":"歴史","q":"アメリカ合衆国史上最年少で大統領に就任した人物は誰ですか？（就任時42歳）","a":"セオドア・ルーズベルト（Theodore Roosevelt）","options":["セオドア・ルーズベルト（Theodore Roosevelt）","ジェームズ・マディソン","ドワイト・D・アイゼンハワー","リチャード・ニクソン"]},{"id":92,"cat":"D","catLabel":"歴史","q":"アメリカ独立戦争を終結させた条約は何ですか？","a":"パリ条約（Treaty of Paris，1783年）","options":["ヴェルサイユ条約","ゲント条約","ガダルーペ・イダルゴ条約","パリ条約（Treaty of Paris，1783年）"]},{"id":93,"cat":"D","catLabel":"歴史","q":"ジョン・F・ケネディが暗殺された都市はどこですか？","a":"ダラス（Dallas）","options":["ダラス（Dallas）","メンフィス","ヒューストン","ワシントンD.C."]},{"id":94,"cat":"D","catLabel":"歴史","q":"アメリカ初の月面着陸が成功した年は何年ですか？","a":"1969年","options":["1969年","1955年","1954年","1981年"]},{"id":95,"cat":"D","catLabel":"歴史","q":"「冷戦（Cold War）」はおおよそ何年から何年まで続きましたか？","a":"1947年～1991年","options":["1939年～1945年","1947年～1991年","1950年～1953年","1961年～1989年"]},{"id":96,"cat":"D","catLabel":"歴史","q":"19世紀にアメリカ領土を西へ拡大する運動を何と呼びますか？","a":"マニフェスト・デスティニー（Manifest Destiny）","options":["ゴールドラッシュ","マニフェスト・デスティニー（Manifest Destiny）","モンロー主義","ホームステッド運動"]},{"id":97,"cat":"D","catLabel":"歴史","q":"アメリカの南北戦争を終結させた出来事は何ですか？","a":"アポマトックス裁判所での南軍降伏（Surrender at Appomattox Court House）","options":["ワシントン会議","ゲティスバーグの戦い","アポマトックス裁判所での南軍降伏（Surrender at Appomattox Court House）","サムター要塞の戦い"]},{"id":98,"cat":"D","catLabel":"歴史","q":"アメリカが独立する以前，最初に到達したヨーロッパ人探検家は誰ですか？","a":"クリストファー・コロンブス（Christopher Columbus）","options":["レイフ・エリクソン","アメリゴ・ヴェスプッチ","フェルディナンド・マゼラン","クリストファー・コロンブス（Christopher Columbus）"]},{"id":99,"cat":"E","catLabel":"文化と習慣","q":"アメリカで11月第4木曜日に祝われる祝日は何ですか？","a":"感謝祭（Thanksgiving）","options":["感謝祭（Thanksgiving）","バレンタインデー","ハロウィン","コロンバスデー"]},{"id":100,"cat":"E","catLabel":"文化と習慣","q":"アメリカの国民的なスポーツとされるスポーツは何ですか？","a":"野球（Baseball）","options":["アイスホッケー","アメリカンフットボール","バスケットボール","野球（Baseball）"]},{"id":101,"cat":"E","catLabel":"文化と習慣","q":"アメリカで最も人気のあるファストフードチェーンの1つはどこですか？","a":"マクドナルド（McDonald's）","options":["マクドナルド（McDonald's）","ケンタッキーフライドチキン","バーガーキング","サブウェイ"]},{"id":102,"cat":"E","catLabel":"文化と習慣","q":"アメリカで「BBQ」が特に人気のある州の1つを挙げてください。","a":"テキサス州（Texas）","options":["マサチューセッツ州","テキサス州（Texas）","バージニア州","モンタナ州"]},{"id":103,"cat":"E","catLabel":"文化と習慣","q":"アメリカで2月に祝われる「黒人歴史月間」を英語で何と言いますか？","a":"Black History Month","options":["Black History Month","Civil Rights Month","Heritage Awareness Month","African American Day"]},{"id":104,"cat":"E","catLabel":"文化と習慣","q":"アメリカ最大級のパレードが行われる都市はどこですか？","a":"ニューヨーク市（New York City）","options":["ニューヨーク市（New York City）","ボストン","ロサンゼルス","シカゴ"]},{"id":105,"cat":"E","catLabel":"文化と習慣","q":"ハンバーガーが生まれたと言われるアメリカの州はどこですか？（諸説あり）","a":"コネチカット州（Connecticut）","options":["アラバマ州","コネチカット州（Connecticut）","ネブラスカ州","オレゴン州"]},{"id":106,"cat":"E","catLabel":"文化と習慣","q":"アメリカで独立記念日（Independence Day）に伝統的に行われるイベントは何ですか？","a":"花火（Fireworks）","options":["花火（Fireworks）","仮装パレード","エッグハント","雪合戦"]},{"id":107,"cat":"E","catLabel":"文化と習慣","q":"2月に行われるアメリカのフットボール選手権は何ですか？","a":"スーパーボウル（Super Bowl）","options":["スーパーボウル（Super Bowl）","NBAファイナル","ワールドシリーズ","スタンレーカップ"]},{"id":108,"cat":"E","catLabel":"文化と習慣","q":"アメリカで一番来園者数の多い国立公園はどこですか？","a":"グレート・スモーキー・マウンテンズ国立公園（近年の来園者数トップ）","options":["グレート・スモーキー・マウンテンズ国立公園（近年の来園者数トップ）","ヨセミテ国立公園","グランドキャニオン国立公園","イエローストーン国立公園"]},{"id":109,"cat":"E","catLabel":"文化と習慣","q":"アメリカでクリスマス（Christmas）に一般的に食べられるものは何ですか？","a":"ローストターキー（Roast Turkey）","options":["寿司","ローストターキー（Roast Turkey）","タコス","ローストビーフのみ"]},{"id":110,"cat":"E","catLabel":"文化と習慣","q":"サンクスギビングデーの翌日にあるショッピングイベントは何ですか？","a":"ブラックフライデー（Black Friday）","options":["ブラックフライデー（Black Friday）","サイバーマンデー","レッドウェンズデー","スーパーサタデー"]},{"id":111,"cat":"E","catLabel":"文化と習慣","q":"ハロウィーン（Halloween）で子供たちが行う伝統的な活動は何ですか？","a":"トリック・オア・トリート（Trick or Treat）","options":["キャロリング","エッグハント","花火大会","トリック・オア・トリート（Trick or Treat）"]},{"id":112,"cat":"E","catLabel":"文化と習慣","q":"アメリカで5月の第2日曜日に祝われる家族のための祝日は何ですか？","a":"母の日（Mother's Day）","options":["クリスマス","セント・パトリックス・デー","母の日（Mother's Day）","コロンバスデー"]},{"id":113,"cat":"E","catLabel":"文化と習慣","q":"アメリカのスポーツリーグ「NBA」の正式名称は何ですか？","a":"National Basketball Association（全米バスケットボール協会）","options":["National Boxing Association","National Basketball Association（全米バスケットボール協会）","North American Basketball Alliance","National Baseball Association"]},{"id":114,"cat":"E","catLabel":"文化と習慣","q":"アメリカで最も有名なジャズ発祥の地はどこですか？","a":"ニューオーリンズ（New Orleans）","options":["ナッシュビル","ニューオーリンズ（New Orleans）","メンフィス","シカゴ"]},{"id":115,"cat":"E","catLabel":"文化と習慣","q":"アメリカの代表的な音楽ジャンル「カントリー音楽」が盛んな州はどこですか？","a":"テネシー州（Tennessee）","options":["バージニア州","テネシー州（Tennessee）","ワシントン州","ミズーリ州"]},{"id":116,"cat":"E","catLabel":"文化と習慣","q":"アメリカで特に重要な祝日とされる「メモリアルデー」は何を記念していますか？","a":"戦没者を追悼する日（Memorial Day）","options":["建国記念","戦没者を追悼する日（Memorial Day）","奴隷解放の日","独立戦争の勝利"]},{"id":117,"cat":"E","catLabel":"文化と習慣","q":"アメリカで最も消費されている飲み物は何ですか？","a":"コーヒー（Coffee）","options":["炭酸飲料（ソーダ）","オレンジジュース","紅茶","コーヒー（Coffee）"]},{"id":118,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカ合衆国で最も高い山は何ですか？","a":"デナリ山（Denali）","options":["ホイットニー山","エルバート山","デナリ山（Denali）","マウント・レーニア山"]},{"id":119,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカで最も長い川は何ですか？","a":"ミズーリ川（Missouri River）","options":["ミズーリ川（Missouri River）","リオグランデ川","コロラド川","ユーコン川"]},{"id":120,"cat":"F","catLabel":"文化遺産・自然遺産","q":"グランドキャニオン国立公園が位置する州はどこですか？","a":"アリゾナ州（Arizona）","options":["アリゾナ州（Arizona）","ニュージャージー州","オレゴン州","アイダホ州"]},{"id":121,"cat":"F","catLabel":"文化遺産・自然遺産","q":"イエローストーン国立公園が主に位置する州を挙げてください。","a":"ワイオミング州（Wyoming）","options":["ワイオミング州（Wyoming）","ウィスコンシン州","サウスダコタ州","カンザス州"]},{"id":122,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカ国内で面積が最も広い砂漠の名前は何ですか？","a":"グレートベースン砂漠（Great Basin Desert）","options":["グレートベースン砂漠（Great Basin Desert）","ソノラ砂漠","チワワ砂漠","モハーヴェ砂漠"]},{"id":123,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカの五大湖（Great Lakes）の名前をすべて挙げてください。","a":"スペリオル湖，ミシガン湖，ヒューロン湖，エリー湖，オンタリオ湖","options":["グレートソルト湖を含む6つ","タホ湖，ミード湖，パウエル湖など","五大湖は4つしかない","スペリオル湖，ミシガン湖，ヒューロン湖，エリー湖，オンタリオ湖"]},{"id":124,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカで最も寒い州はどこですか？","a":"アラスカ州（Alaska）","options":["ケンタッキー州","アラスカ州（Alaska）","ミネソタ州","メイン州"]},{"id":125,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカで最も雨の多い州はどこですか？","a":"ハワイ州（Hawaii）","options":["フロリダ州","ハワイ州（Hawaii）","ジョージア州","カンザス州"]},{"id":126,"cat":"F","catLabel":"文化遺産・自然遺産","q":"ロッキー山脈（Rocky Mountains）が通過する州の1つを挙げてください。","a":"コロラド州（Colorado）","options":["コロラド州（Colorado）","アイオワ州","ワシントン州","カリフォルニア州"]},{"id":127,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカで最も標高が低い地点はどこですか？","a":"デスバレー（Death Valley，カリフォルニア州）","options":["ソルトン湖","デスバレー（Death Valley，カリフォルニア州）","ニューオーリンズ低地","インペリアル・バレー"]},{"id":128,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカの主要な気候帯を2つ挙げてください。","a":"温帯気候，砂漠（乾燥）気候（他に亜熱帯湿潤・地中海性・ツンドラ気候なども存在）","options":["温帯気候，砂漠（乾燥）気候（他に亜熱帯湿潤・地中海性・ツンドラ気候なども存在）","サバナ気候のみ","全土が温帯気候で統一","熱帯雨林気候と氷雪気候のみ"]},{"id":129,"cat":"F","catLabel":"文化遺産・自然遺産","q":"ヨセミテ国立公園（Yosemite National Park）が位置する州はどこですか？","a":"カリフォルニア州（California）","options":["バージニア州","カリフォルニア州（California）","ロードアイランド州","アラスカ州"]},{"id":130,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカの国立公園の中で最初に指定されたのはどこですか？","a":"イエローストーン国立公園（Yellowstone National Park，1872年）","options":["エバーグレーズ国立公園","イエローストーン国立公園（Yellowstone National Park，1872年）","デナリ国立公園","ヨセミテ国立公園"]},{"id":131,"cat":"F","catLabel":"文化遺産・自然遺産","q":"ミシシッピ川（Mississippi River）が流れ出す州はどこですか？","a":"ミネソタ州（Minnesota）","options":["アイオワ州","ミネソタ州（Minnesota）","ノースカロライナ州","ルイジアナ州"]},{"id":132,"cat":"F","catLabel":"文化遺産・自然遺産","q":"ナイアガラの滝（Niagara Falls）が位置する州を1つ挙げてください。","a":"ニューヨーク州（New York）","options":["ミズーリ州","ニューヨーク州（New York）","ミシガン州","ユタ州"]},{"id":133,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アメリカで最も大きな島はどこですか？","a":"ハワイ島（Hawaii Island）","options":["ロングアイランド","マーサズ・ヴィニヤード島","ハワイ島（Hawaii Island）","マウイ島"]},{"id":134,"cat":"F","catLabel":"文化遺産・自然遺産","q":"エベレスト山はアメリカに存在しますか？","a":"いいえ（No，エベレスト山はネパールと中国の国境）","options":["はい，アラスカ州にある","いいえ（No，エベレスト山はネパールと中国の国境）","はい，ハワイ州にある","はい，ロッキー山脈にある"]},{"id":135,"cat":"F","catLabel":"文化遺産・自然遺産","q":"グレートプレーンズ（Great Plains）が位置するアメリカ中西部の州の1つを挙げてください。","a":"カンザス州（Kansas）","options":["テキサス州","カンザス州（Kansas）","ニューハンプシャー州","コロラド州"]},{"id":136,"cat":"F","catLabel":"文化遺産・自然遺産","q":"アパラチア山脈（Appalachian Mountains）が広がる地域はどの辺りですか？","a":"アメリカ東部（Eastern United States）","options":["中西部","アメリカ南部のみ","アメリカ西部","アメリカ東部（Eastern United States）"]},{"id":137,"cat":"G","catLabel":"有名人","q":"マイケル・ジョーダン（Michael Jordan）が活躍したスポーツは何ですか？","a":"バスケットボール（Basketball）","options":["ゴルフ","アメリカンフットボール","バスケットボール（Basketball）","野球"]},{"id":138,"cat":"G","catLabel":"有名人","q":"アメリカ出身の有名なテニスプレイヤーを1人挙げてください。","a":"セリーナ・ウィリアムズ（Serena Williams）","options":["セリーナ・ウィリアムズ（Serena Williams）","マイケル・フェルプス","タイガー・ウッズ","カール・ルイス"]},{"id":139,"cat":"G","catLabel":"有名人","q":"トム・ハンクス（Tom Hanks）が主演した有名な映画のタイトルを1つ挙げてください。","a":"フォレスト・ガンプ（Forrest Gump）","options":["ショーシャンクの空に","タイタニック","フォレスト・ガンプ（Forrest Gump）","ゴッドファーザー"]},{"id":140,"cat":"G","catLabel":"有名人","q":"アメリカで最も成功したオリンピック陸上選手の1人を挙げてください。","a":"カール・ルイス（Carl Lewis）","options":["モハメド・アリ","カール・ルイス（Carl Lewis）","マイケル・フェルプス","マイケル・ジョーダン"]},{"id":141,"cat":"G","catLabel":"有名人","q":"エルヴィス・プレスリー（Elvis Presley）が活躍した音楽ジャンルは何ですか？","a":"ロックンロール（Rock and Roll）","options":["ジャズ","カントリー音楽のみ","ヒップホップ","ロックンロール（Rock and Roll）"]},{"id":142,"cat":"G","catLabel":"有名人","q":"ビル・ゲイツ（Bill Gates）が設立した企業の名前は何ですか？","a":"マイクロソフト（Microsoft）","options":["グーグル","アマゾン","マイクロソフト（Microsoft）","アップル"]},{"id":143,"cat":"G","catLabel":"有名人","q":"アメリカの俳優で，アカデミー賞を受賞したことがある人物を1人挙げてください。","a":"レオナルド・ディカプリオ（Leonardo DiCaprio）","options":["ビヨンセ","テイラー・スウィフト","エルヴィス・プレスリー","レオナルド・ディカプリオ（Leonardo DiCaprio）"]},{"id":144,"cat":"G","catLabel":"有名人","q":"タイガー・ウッズ（Tiger Woods）が活躍するスポーツは何ですか？","a":"ゴルフ（Golf）","options":["ゴルフ（Golf）","テニス","野球","ボウリング"]},{"id":145,"cat":"G","catLabel":"有名人","q":"アメリカでグラミー賞を最多受賞したアーティストを1人挙げてください。","a":"ビヨンセ（Beyoncé）","options":["レオナルド・ディカプリオ","J.K.ローリング","マーク・トウェイン","ビヨンセ（Beyoncé）"]},{"id":146,"cat":"G","catLabel":"有名人","q":"アメリカで最も有名な作家の1人で，『ハックルベリー・フィンの冒険』の著者は誰ですか？","a":"マーク・トウェイン（Mark Twain）","options":["マーク・トウェイン（Mark Twain）","レオナルド・ディカプリオ","トム・ハンクス","ビヨンセ"]},{"id":147,"cat":"G","catLabel":"有名人","q":"アメリカ出身の宇宙飛行士で，月面に最初に降り立った人物は誰ですか？","a":"ニール・アームストロング（Neil Armstrong）","options":["ジョン・ナッシュ","スティーブ・ジョブズ","イーロン・マスク","ニール・アームストロング（Neil Armstrong）"]},{"id":148,"cat":"G","catLabel":"有名人","q":"スティーブ・ジョブズ（Steve Jobs）が共同設立した企業の名前は何ですか？","a":"アップル（Apple）","options":["アマゾン","マイクロソフト","テスラ","アップル（Apple）"]},{"id":149,"cat":"G","catLabel":"有名人","q":"アメリカでノーベル平和賞を受賞した有名人を1人挙げてください。","a":"バラク・オバマ（Barack Obama）","options":["バラク・オバマ（Barack Obama）","ジョー・バイデン","トーマス・ジェファソン","アンドリュー・ジャクソン"]},{"id":150,"cat":"G","catLabel":"有名人","q":"トーマス・エジソン（Thomas Edison）が発明した代表的なものは何ですか？","a":"電球（Light Bulb）","options":["ラジオ","電話","電球（Light Bulb）","蓄音機のみ"]},{"id":151,"cat":"G","catLabel":"有名人","q":"アメリカの有名な女性ポップスターで，『Like a Virgin』の歌手は誰ですか？","a":"マドンナ（Madonna）","options":["スティーブン・スピルバーグ","トム・ハンクス","マドンナ（Madonna）","ビヨンセ"]},{"id":152,"cat":"G","catLabel":"有名人","q":"アメリカ出身の著名な数学者で，ノーベル経済学賞を受賞した人物を1人挙げてください。","a":"ジョン・ナッシュ（John Nash）","options":["イーロン・マスク","ジョン・ナッシュ（John Nash）","ニール・アームストロング","ビル・ゲイツ"]},{"id":153,"cat":"G","catLabel":"有名人","q":"アメリカのプロ野球リーグ（MLB）で最多優勝を誇るチームはどこですか？","a":"ニューヨーク・ヤンキース（New York Yankees）","options":["ニューヨーク・ヤンキース（New York Yankees）","ロサンゼルス・ドジャース","サンフランシスコ・ジャイアンツ","ボストン・レッドソックス"]},{"id":154,"cat":"G","catLabel":"有名人","q":"有名な発明家であり，アメリカ初の電力会社を設立したのは誰ですか？","a":"トーマス・エジソン（Thomas Edison）","options":["アレクサンダー・ハミルトン","トーマス・エジソン（Thomas Edison）","ニール・アームストロング","ジェフ・ベゾス"]},{"id":155,"cat":"G","catLabel":"有名人","q":"『ハリー・ポッター』シリーズを執筆したイギリス出身の作家は誰ですか？","a":"J.K.ローリング（J.K. Rowling）","options":["J.K.ローリング（J.K. Rowling）","エルヴィス・プレスリー","マドンナ","レオナルド・ディカプリオ"]},{"id":156,"cat":"G","catLabel":"有名人","q":"アメリカの映画業界で最も有名な賞の名前は何ですか？","a":"アカデミー賞（Academy Awards）","options":["トニー賞","ゴールデングローブ賞","アカデミー賞（Academy Awards）","エミー賞"]},{"id":157,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ合衆国憲法（Constitution of the United States）が採択されたのは何年ですか？","a":"1787年","options":["1787年","1664年","1765年","1754年"]},{"id":158,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ憲法修正第1条は何を保護していますか？","a":"言論の自由，宗教の自由，報道の自由","options":["言論の自由，宗教の自由，報道の自由","陪審裁判を受ける権利","武器を保持する権利","不合理な捜索からの保護"]},{"id":159,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ憲法修正第2条は何に関する権利を保証していますか？","a":"武器を保持・携帯する権利（Right to Bear Arms）","options":["言論の自由","私有財産権","選挙権","武器を保持・携帯する権利（Right to Bear Arms）"]},{"id":160,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ憲法修正第13条が廃止したものは何ですか？","a":"奴隷制度（Slavery）","options":["児童労働","人種隔離","徴兵制","奴隷制度（Slavery）"]},{"id":161,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ最高裁判所（Supreme Court）が違憲審査権を確立した判例は何ですか？","a":"マーベリー対マディソン事件（1803年）","options":["マーベリー対マディソン事件（1803年）","オバーゲフェル対ホッジス事件","シチズンズ・ユナイテッド対連邦選挙委員会事件","ブラウン対教育委員会事件"]},{"id":162,"cat":"H","catLabel":"憲法と最高裁判所","q":"公立学校での人種隔離を違憲とした最高裁判決の名前は何ですか？","a":"ブラウン対教育委員会事件（1954年）","options":["マカロック対メリーランド事件","オバーゲフェル対ホッジス事件","ブラウン対教育委員会事件（1954年）","マーベリー対マディソン事件"]},{"id":163,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ最高裁判所の判例で，女性の妊娠中絶の権利を認めたものは何ですか？","a":"ロー対ウェイド事件（1973年，2022年に判例変更）","options":["ロー対ウェイド事件（1973年，2022年に判例変更）","プレッシー対ファーガソン事件","ブラウン対教育委員会事件","シェンク対アメリカ合衆国事件"]},{"id":164,"cat":"H","catLabel":"憲法と最高裁判所","q":"合衆国憲法修正第19条が保証している権利は何ですか？","a":"女性の参政権（Women's Suffrage）","options":["女性の参政権（Women's Suffrage）","黒人男性の参政権","18歳選挙権","上院議員の直接選挙"]},{"id":165,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ憲法修正第14条が規定する主要な内容は何ですか？","a":"法の下の平等（Equal Protection under the Law）","options":["法の下の平等（Equal Protection under the Law）","武器保有の権利","陪審裁判の権利","二重処罰の禁止"]},{"id":166,"cat":"H","catLabel":"憲法と最高裁判所","q":"合衆国最高裁判所がLGBTQ+の結婚の平等を認めた判例は何ですか？","a":"オバーゲフェル対ホッジス事件（2015年）","options":["ミランダ対アリゾナ事件","ドブス対ジャクソン女性健康組織事件","オバーゲフェル対ホッジス事件（2015年）","ブラウン対教育委員会事件"]},{"id":167,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカの大統領弾劾において，下院が持つ役割は何ですか？","a":"弾劾の訴追（Impeachment，可否の裁判は上院が行う）","options":["最終的な罷免の決定","裁判官の任命","弾劾の訴追（Impeachment，可否の裁判は上院が行う）","法案への拒否権"]},{"id":168,"cat":"H","catLabel":"憲法と最高裁判所","q":"修正第22条により制限されるアメリカ大統領の任期は何期までですか？","a":"2期まで","options":["3期まで","制限なし","2期まで","1期まで"]},{"id":169,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ最高裁判所の裁判官は何名で構成されていますか？","a":"9名","options":["9名","7名","13名","11名"]},{"id":170,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ憲法修正第15条で保証されている権利は何ですか？","a":"人種や肌の色に基づく選挙権の否定禁止","options":["納税額による選挙権制限の禁止","女性の選挙権","年齢による選挙権制限の禁止","人種や肌の色に基づく選挙権の否定禁止"]},{"id":171,"cat":"H","catLabel":"憲法と最高裁判所","q":"「ミランダ権」を確立した判例は何ですか？","a":"ミランダ対アリゾナ事件（1966年）","options":["プレッシー対ファーガソン事件","ドレッド・スコット対サンドフォード事件","ミランダ対アリゾナ事件（1966年）","シェンク対アメリカ合衆国事件"]},{"id":172,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカで州法が連邦法に反するとき，どちらが優先されますか？","a":"連邦法（Federal Law）","options":["州法","どちらも無効になる","連邦法（Federal Law）","住民投票の結果"]},{"id":173,"cat":"H","catLabel":"憲法と最高裁判所","q":"修正第4条は何を保護していますか？","a":"不合理な捜索と押収の禁止","options":["言論の自由","不合理な捜索と押収の禁止","過度な保釈金の禁止","武器保有の権利"]},{"id":174,"cat":"H","catLabel":"憲法と最高裁判所","q":"修正第6条が保証する権利を挙げてください。","a":"迅速で公開された裁判を受ける権利","options":["武器を保持する権利","残虐な刑罰を受けない権利","迅速で公開された裁判を受ける権利","不合理な捜索からの保護"]},{"id":175,"cat":"H","catLabel":"憲法と最高裁判所","q":"修正第8条が禁止するものは何ですか？","a":"残虐で異常な刑罰（Cruel and Unusual Punishments）","options":["残虐で異常な刑罰（Cruel and Unusual Punishments）","二重処罰","奴隷制度","過度な軍拡"]},{"id":176,"cat":"H","catLabel":"憲法と最高裁判所","q":"アメリカ合衆国憲法の最初の10の修正条項を何と呼びますか？","a":"権利章典（Bill of Rights）","options":["独立宣言","権利章典（Bill of Rights）","連邦規約","大憲章（マグナ・カルタ）"]},{"id":177,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで過去数十年にわたり大きな論争となっている医療保険制度改革を何と呼びますか？","a":"オバマケア（正式名称：患者保護および医療費負担適正化法）","options":["グリーンニューディール","メディケイド（低所得者向け公的医療保険）","メディケア（高齢者向け公的医療保険）","オバマケア（正式名称：患者保護および医療費負担適正化法）"]},{"id":178,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカの歴史において，奴隷制をめぐる対立が原因となった戦争は何ですか？","a":"南北戦争（Civil War）","options":["米英戦争","独立戦争","米墨戦争","南北戦争（Civil War）"]},{"id":179,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカの銃規制をめぐる主要な論争の1つは何ですか？","a":"銃の所有権（Gun Rights）と規制（Gun Control）のバランス","options":["狩猟免許制度の是非のみ","銃の輸出規制のみ","銃の所有権（Gun Rights）と規制（Gun Control）のバランス","警察の武装解除"]},{"id":180,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで議論が絶えない移民政策において，主に問題となるのはどの国境ですか？","a":"アメリカとメキシコの国境（U.S.-Mexico Border）","options":["太平洋沿岸の海上境界","アラスカとロシアの海峡","アメリカとメキシコの国境（U.S.-Mexico Border）","アメリカとカナダの国境"]},{"id":181,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで人種的不平等を訴える運動の1つは何ですか？","a":"ブラック・ライヴズ・マター（Black Lives Matter）","options":["ミートゥー運動","オキュパイ運動","ティーパーティー運動","ブラック・ライヴズ・マター（Black Lives Matter）"]},{"id":182,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカの政治的分断を示す2つの主要政党は何ですか？","a":"民主党（Democratic Party）と共和党（Republican Party）","options":["自由党とグリーン党","民主党（Democratic Party）と共和党（Republican Party）","労働党と保守党","連邦党と反連邦党（歴史上の政党）"]},{"id":183,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで現在も大きな議論を呼んでいる中絶の権利について，主な対立する2つの立場は何ですか？","a":"プロライフ（Pro-Life）とプロチョイス（Pro-Choice）","options":["プロライフ（Pro-Life）とプロチョイス（Pro-Choice）","連邦派と州権派","リベラルと保守のみ","改革派と伝統派"]},{"id":184,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで環境問題に取り組む運動の1つは何ですか？","a":"グリーンニューディール（Green New Deal）","options":["グリーンニューディール（Green New Deal）","フィット・フォー・55","クリーンパワープラン","京都議定書"]},{"id":185,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカの刑事司法制度において，批判されることが多い慣行は何ですか？","a":"マスインカレーション（大量収監，Mass Incarceration）","options":["陪審制度の廃止","マスインカレーション（大量収監，Mass Incarceration）","少年法の厳罰化のみ","仮釈放制度の乱用のみ"]},{"id":186,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで最低賃金引き上げを求める運動の名前は何ですか？","a":"15ドル運動（Fight for $15）","options":["リビングウェイジ法","ユニオン化運動のみ","ベーシックインカム運動","15ドル運動（Fight for $15）"]},{"id":187,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで大きな社会的論争となった同性婚の合法化を認めた年は何年ですか？","a":"2015年","options":["2003年","2024年","2015年","2010年"]},{"id":188,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで近年，大きな政治問題となった温室効果ガス削減の国際合意は何ですか？","a":"パリ協定（Paris Agreement）","options":["京都議定書","モントリオール議定書","バーゼル条約","パリ協定（Paris Agreement）"]},{"id":189,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで投票権を巡る争点の1つは何ですか？","a":"有権者ID法（Voter ID Laws）","options":["有権者ID法（Voter ID Laws）","選挙人制度の廃止のみ","電子投票の禁止","郵便投票の全面禁止"]},{"id":190,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで警察暴力に抗議する運動の1つは何ですか？","a":"デフンド・ザ・ポリス（Defund the Police）","options":["ゼロトレランス政策","スリーストライク法","デフンド・ザ・ポリス（Defund the Police）","ブロークンウィンドウ理論"]},{"id":191,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカの教育格差問題で指摘される主な原因の1つは何ですか？","a":"資金配分の不平等（Unequal Funding）","options":["資金配分の不平等（Unequal Funding）","教員不足のみ","全国共通試験の廃止","私立学校の禁止"]},{"id":192,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで医療費負担の高さをめぐる論争の1つは何ですか？","a":"医療保険の未加入者問題（Uninsured Population）","options":["医師不足のみ","薬価の完全自由化の禁止","医療保険の未加入者問題（Uninsured Population）","病院の国有化"]},{"id":193,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで宗教の自由に関連して問題となることが多い論争は何ですか？","a":"公共の場での宗教的シンボルの使用","options":["国教の制定の是非","公共の場での宗教的シンボルの使用","礼拝の完全禁止","宗教税の導入"]},{"id":194,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカでLGBTQ+の権利を巡る主要な論争の1つは何ですか？","a":"トランスジェンダーの権利（Transgender Rights）","options":["同性愛の非犯罪化のみ","civil unionの是非のみ","トランスジェンダーの権利（Transgender Rights）","異性婚のみの容認"]},{"id":195,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカのインフラ問題で特に懸念されることは何ですか？","a":"老朽化した橋や道路（Aging Infrastructure）","options":["電力網の民営化のみ","老朽化した橋や道路（Aging Infrastructure）","5G通信網の遅れのみ","高速鉄道網の欠如のみ"]},{"id":196,"cat":"I","catLabel":"アメリカを分断する問題","q":"アメリカで学生ローン問題の解決を求める運動の名前は何ですか？","a":"学生債務帳消し運動（Student Debt Cancellation Movement）","options":["フリーカレッジ運動のみ","ペルグラント廃止運動","職業訓練義務化運動","学生債務帳消し運動（Student Debt Cancellation Movement）"]},{"id":197,"cat":"appendix","catLabel":"付録・最新トピック","q":"忠誠の誓い（Pledge of Allegiance）を作成したのは誰ですか？","a":"フランシス・ベラミー（Francis Bellamy）","options":["フランシス・ベラミー（Francis Bellamy）","トーマス・ジェファソン","ベンジャミン・フランクリン","フランシス・スコット・キー"]},{"id":198,"cat":"appendix","catLabel":"付録・最新トピック","q":"忠誠の誓いは，コロンブスの新大陸到達から何周年を記念して作成されましたか？","a":"400周年","options":["300周年","200周年","400周年","500周年"]},{"id":199,"cat":"appendix","catLabel":"付録・最新トピック","q":"セント・パトリックス・デーはいつですか？","a":"3月17日","options":["3月17日","3月1日","2月14日","4月1日"]},{"id":200,"cat":"appendix","catLabel":"付録・最新トピック","q":"シンコ・デ・マヨ（Cinco de Mayo）は何を記念する日ですか？","a":"1862年のプエブラの戦いでメキシコがフランス軍に勝利したこと","options":["1862年のプエブラの戦いでメキシコがフランス軍に勝利したこと","メキシコの独立記念日","米墨戦争の終結","メキシコ革命の開始"]},{"id":201,"cat":"appendix","catLabel":"付録・最新トピック","q":"ジューンティーンス（Juneteenth）は何月何日ですか？","a":"6月19日","options":["7月4日","5月19日","6月19日","8月1日"]},{"id":202,"cat":"appendix","catLabel":"付録・最新トピック","q":"ジューンティーンスが連邦祝日として制定されたのは何年ですか？","a":"2021年","options":["2016年","2022年","2021年","2015年"]},{"id":203,"cat":"appendix","catLabel":"付録・最新トピック","q":"プライド月間の由来となった1969年の出来事は何ですか？","a":"ストーンウォールの反乱（Stonewall Uprising）","options":["ウッドストック・フェスティバル","ストーンウォールの反乱（Stonewall Uprising）","キング牧師暗殺事件","モンゴメリー・バス・ボイコット"]},{"id":204,"cat":"appendix","catLabel":"付録・最新トピック","q":"サンダンス映画祭を設立したのは誰ですか？","a":"ロバート・レッドフォード（Robert Redford）","options":["ロバート・レッドフォード（Robert Redford）","トム・ハンクス","J.K.ローリング","ビヨンセ"]},{"id":205,"cat":"appendix","catLabel":"付録・最新トピック","q":"ニューイヤーズ・イブにニューヨークのタイムズスクエアで行われる伝統行事は何ですか？","a":"ボールドロップ（Ball Drop）","options":["カウントダウンコンサートのみ","花火大会のみ","ボールドロップ（Ball Drop）","パレード"]},{"id":206,"cat":"appendix","catLabel":"付録・最新トピック","q":"第98回アカデミー賞（2026年3月開催）で作品賞を受賞した作品は何ですか？","a":"『ワン・バトル・アフター・アナザー』（One Battle After Another）","options":["『ハムネット』（Hamnet）","『罪人たち』（Sinners）","『ワン・バトル・アフター・アナザー』（One Battle After Another）","『F1/エフワン』"]},{"id":207,"cat":"appendix","catLabel":"付録・最新トピック","q":"第98回アカデミー賞で監督賞を受賞したのは誰ですか？","a":"ポール・トーマス・アンダーソン（Paul Thomas Anderson）","options":["ポール・トーマス・アンダーソン（Paul Thomas Anderson）","ヨアキム・トリアー","ライアン・クーグラー","クロエ・ジャオ"]},{"id":208,"cat":"appendix","catLabel":"付録・最新トピック","q":"第98回アカデミー賞で主演男優賞を受賞したのは誰ですか？","a":"マイケル・B・ジョーダン（『罪人たち』）","options":["ティモシー・シャラメ","マイケル・B・ジョーダン（『罪人たち』）","イーサン・ホーク","レオナルド・ディカプリオ"]},{"id":209,"cat":"appendix","catLabel":"付録・最新トピック","q":"第98回アカデミー賞で主演女優賞を受賞したのは誰ですか？","a":"ジェシー・バックリー（『ハムネット』）","options":["ジェシー・バックリー（『ハムネット』）","ローズ・バーン","ケイト・ハドソン","エマ・ストーン"]},{"id":210,"cat":"appendix","catLabel":"付録・最新トピック","q":"2026年版フォーブス世界長者番付で世界一の富豪は誰ですか？","a":"イーロン・マスク（Elon Musk，資産約8,390億ドル）","options":["イーロン・マスク（Elon Musk，資産約8,390億ドル）","マーク・ザッカーバーグ","ジェフ・ベゾス","ラリー・ペイジ"]},{"id":211,"cat":"appendix","catLabel":"付録・最新トピック","q":"プレジデンツ・デーは，もともとどの2人の大統領の誕生日を記念する祝日でしたか？","a":"ジョージ・ワシントンとエイブラハム・リンカーン","options":["フランクリン・ルーズベルトとハリー・トルーマン","ジョン・F・ケネディとリンドン・ジョンソン","トーマス・ジェファソンとジョン・アダムズ","ジョージ・ワシントンとエイブラハム・リンカーン"]}]</script>
+<script type="application/json" id="quiz-data">[
+  {"id":1,"cat":"prereq","catLabel":"Prerequisites","q":"What is the approximate total area of the United States?","a":"Approx. 9.83 million km² (3rd in the world)","options":["Approx. 17.10 million km²","Approx. 5.50 million km²","Approx. 7.60 million km²","Approx. 9.83 million km² (3rd in the world)"]},
+  {"id":2,"cat":"prereq","catLabel":"Prerequisites","q":"What is the estimated population of the United States as of 2026?","a":"Approx. 349 million","options":["Approx. 130 million","Approx. 410 million","Approx. 349 million","Approx. 280 million"]},
+  {"id":3,"cat":"prereq","catLabel":"Prerequisites","q":"What is the capital city of the United States?","a":"Washington, D.C.","options":["New York City","Philadelphia","Los Angeles","Washington, D.C."]},
+  {"id":4,"cat":"prereq","catLabel":"Prerequisites","q":"Where is the United States located on the North American continent?","a":"Northern and central region","options":["Southern region only","Far northern tip","Northern and central region","Far southern tip"]},
+  {"id":5,"cat":"prereq","catLabel":"Prerequisites","q":"How many countries border the United States, and which ones are they?","a":"2 countries: Canada and Mexico","options":["1 country: Canada only","3 countries: Canada, Mexico, Cuba","0 countries","2 countries: Canada and Mexico"]},
+  {"id":6,"cat":"prereq","catLabel":"Prerequisites","q":"What is the highest mountain peak in the United States?","a":"Denali","options":["Mount Rainier","Mount Elbert","Denali","Mount Whitney"]},
+  {"id":7,"cat":"prereq","catLabel":"Prerequisites","q":"What is the longest river in the United States?","a":"Missouri River","options":["Missouri River","Mississippi River","Rio Grande","Ohio River"]},
+  {"id":8,"cat":"prereq","catLabel":"Prerequisites","q":"How many stars are on the US flag, and what do they represent?","a":"50 stars, representing the 50 states","options":["48 stars, representing mainland states","50 stars, representing the 50 states","13 stars, representing original colonies","51 stars, including D.C."]},
+  {"id":9,"cat":"prereq","catLabel":"Prerequisites","q":"What do the 13 stripes on the US flag represent?","a":"The 13 original colonies","options":["Red for valor, white for peace","The 13 original colonies","Union and Confederate forces","The 50 states"]},
+  {"id":10,"cat":"prereq","catLabel":"Prerequisites","q":"What is the title of the national anthem of the United States?","a":"The Star-Spangled Banner","options":["America the Beautiful","My Country, 'Tis of Thee","God Bless America","The Star-Spangled Banner"]},
+  {"id":11,"cat":"prereq","catLabel":"Prerequisites","q":"How many states make up the United States?","a":"50 states","options":["50 states","52 states","48 states","51 states"]},
+  {"id":12,"cat":"prereq","catLabel":"Prerequisites","q":"What is the free trade agreement between the US, Canada, and Mexico called?","a":"USMCA","options":["ASEAN","TPP","EU","USMCA"]},
+  {"id":13,"cat":"prereq","catLabel":"Prerequisites","q":"Which major bodies of water border the United States?","a":"Pacific Ocean, Atlantic Ocean, and Gulf of Mexico","options":["Pacific Ocean only","Arctic Ocean, Atlantic, Mediterranean","Indian Ocean, Atlantic, Caribbean","Pacific Ocean, Atlantic Ocean, and Gulf of Mexico"]},
+  {"id":14,"cat":"prereq","catLabel":"Prerequisites","q":"Which US state has the largest population?","a":"California","options":["Oregon","California","Tennessee","Maryland"]},
+  {"id":15,"cat":"prereq","catLabel":"Prerequisites","q":"Which US state has the smallest population?","a":"Wyoming","options":["California","Wyoming","Arizona","Virginia"]},
+  {"id":16,"cat":"prereq","catLabel":"Prerequisites","q":"Which is the largest US state by land area?","a":"Alaska","options":["Alaska","Montana","Kansas","Delaware"]},
+  {"id":17,"cat":"prereq","catLabel":"Prerequisites","q":"How many standard time zones are there in the United States?","a":"6 standard time zones","options":["6 standard time zones","9 time zones","3 time zones","4 time zones"]},
+  {"id":18,"cat":"prereq","catLabel":"Prerequisites","q":"What is the official national motto of the United States?","a":"“In God We Trust”","options":["“In God We Trust”","“United We Stand”","“Land of the Free”","“E Pluribus Unum”"]},
+  {"id":19,"cat":"prereq","catLabel":"Prerequisites","q":"On which date is Independence Day celebrated in the United States?","a":"July 4","options":["July 14","November 11","September 17","July 4"]},
+  {"id":20,"cat":"A","catLabel":"Presidents & Elections","q":"Who is the President of the United States in 2026?","a":"Donald Trump (47th)","options":["Barack Obama","George W. Bush","Donald Trump (47th)","Joe Biden"]},
+  {"id":21,"cat":"A","catLabel":"Presidents & Elections","q":"Who is the Vice President of the United States in 2026?","a":"JD Vance","options":["Mike Pence","JD Vance","Kamala Harris","Dick Cheney"]},
+  {"id":22,"cat":"A","catLabel":"Presidents & Elections","q":"How often are US presidential elections held?","a":"Every 4 years","options":["Every 2 years","Every 6 years","Every 4 years","Every 5 years"]},
+  {"id":23,"cat":"A","catLabel":"Presidents & Elections","q":"What is the system used to officially elect the US President called?","a":"Electoral College","options":["Congressional Committee","Primary Caucus","Popular Vote","Electoral College"]},
+  {"id":24,"cat":"A","catLabel":"Presidents & Elections","q":"Who was the first President of the United States?","a":"George Washington","options":["Franklin D. Roosevelt","Dwight D. Eisenhower","George Washington","Andrew Jackson"]},
+  {"id":25,"cat":"A","catLabel":"Presidents & Elections","q":"Name one US President who was assassinated while in office.","a":"Abraham Lincoln","options":["Jimmy Carter","Theodore Roosevelt","Abraham Lincoln","George H.W. Bush"]},
+  {"id":26,"cat":"A","catLabel":"Presidents & Elections","q":"How long is one term for a US President?","a":"4 years","options":["4 years","2 years","8 years","6 years"]},
+  {"id":27,"cat":"A","catLabel":"Presidents & Elections","q":"What are the two major political parties in the United States?","a":"Democratic Party & Republican Party","options":["Labour & Conservative","Democratic Party & Republican Party","Liberal & Green","Federalist & Republican"]},
+  {"id":28,"cat":"A","catLabel":"Presidents & Elections","q":"What is the maximum number of terms a US President can serve?","a":"2 terms","options":["2 terms","No limit","3 terms","1 term"]},
+  {"id":29,"cat":"A","catLabel":"Presidents & Elections","q":"Who was the youngest person to assume the US presidency?","a":"Theodore Roosevelt (age 42)","options":["Andrew Jackson","Theodore Roosevelt (age 42)","Thomas Jefferson","James Madison"]},
+  {"id":30,"cat":"A","catLabel":"Presidents & Elections","q":"What is the official residence and workplace of the US President?","a":"The White House","options":["Capitol Hill","The White House","The Pentagon","Camp David"]},
+  {"id":31,"cat":"A","catLabel":"Presidents & Elections","q":"Who is the only US President to have resigned from office?","a":"Richard Nixon","options":["Jimmy Carter","Richard Nixon","George H.W. Bush","Joe Biden"]},
+  {"id":32,"cat":"A","catLabel":"Presidents & Elections","q":"Who was the first female Vice President of the United States?","a":"Kamala Harris","options":["Al Gore","Mike Pence","Kamala Harris","Dick Cheney"]},
+  {"id":33,"cat":"A","catLabel":"Presidents & Elections","q":"How is the number of electors per state determined in the Electoral College?","a":"Based on population and Congressional representation","options":["State land area","Equal number for each state","Based on population and Congressional representation","Order of statehood"]},
+  {"id":34,"cat":"A","catLabel":"Presidents & Elections","q":"Who is second in the presidential line of succession after the Vice President?","a":"Speaker of the House","options":["Secretary of the Treasury","Secretary of State","President pro tempore of the Senate","Speaker of the House"]},
+  {"id":35,"cat":"A","catLabel":"Presidents & Elections","q":"What restriction does the 22nd Amendment place on the presidency?","a":"Limits presidency to 2 terms","options":["Impeachment rules","Limits presidency to 2 terms","Unlimited terms","Minimum age requirement"]},
+  {"id":36,"cat":"A","catLabel":"Presidents & Elections","q":"Who was the first African American President of the United States?","a":"Barack Obama","options":["Bill Clinton","Barack Obama","Woodrow Wilson","Dwight D. Eisenhower"]},
+  {"id":37,"cat":"A","catLabel":"Presidents & Elections","q":"Which President delivered the famous “Four Freedoms” speech?","a":"Franklin D. Roosevelt","options":["George Washington","Franklin D. Roosevelt","Barack Obama","George W. Bush"]},
+  {"id":38,"cat":"A","catLabel":"Presidents & Elections","q":"In what year did Abraham Lincoln issue the Emancipation Proclamation?","a":"1863","options":["1846","1861","1863","1812"]},
+  {"id":39,"cat":"B","catLabel":"Everyday Life & Trivia","q":"Approximately how many centimeters is 6 feet?","a":"Approx. 183 cm","options":["Approx. 200 cm","Approx. 152 cm","Approx. 165 cm","Approx. 183 cm"]},
+  {"id":40,"cat":"B","catLabel":"Everyday Life & Trivia","q":"Which temperature scale is most commonly used in the United States?","a":"Fahrenheit","options":["Celsius","Fahrenheit","Rankine","Kelvin"]},
+  {"id":41,"cat":"B","catLabel":"Everyday Life & Trivia","q":"How many liters are in one US liquid gallon?","a":"Approx. 3.785 liters","options":["Approx. 3.785 liters","Approx. 4.55 liters","Approx. 5 liters","Approx. 2.5 liters"]},
+  {"id":42,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the standard date format in the United States?","a":"MM/DD/YYYY","options":["YYYY/DD/MM","MM/DD/YYYY","YYYY/MM/DD","DD/MM/YYYY"]},
+  {"id":43,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What does the acronym “ASAP” stand for?","a":"As Soon As Possible","options":["As Soon As Possible","As Stated And Planned","As Simple As Possible","At Some Appropriate Point"]},
+  {"id":44,"cat":"B","catLabel":"Everyday Life & Trivia","q":"Which historic figure is depicted on the US $1 bill?","a":"George Washington","options":["George H.W. Bush","George W. Bush","Joe Biden","George Washington"]},
+  {"id":45,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the common name for the US 5-cent coin?","a":"Nickel","options":["Quarter","Nickel","Dime","Penny"]},
+  {"id":46,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the common name for the US 25-cent coin?","a":"Quarter","options":["Nickel","Dime","Quarter","Penny"]},
+  {"id":47,"cat":"B","catLabel":"Everyday Life & Trivia","q":"Which President is featured on the US $20 bill?","a":"Andrew Jackson","options":["Andrew Jackson","James Madison","George W. Bush","Lyndon B. Johnson"]},
+  {"id":48,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the smallest denomination coin in US currency?","a":"1 cent (Penny)","options":["Dime","Nickel","1 cent (Penny)","Quarter"]},
+  {"id":49,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the official abbreviation for the national mail delivery agency in the US?","a":"USPS","options":["FedEx","UPS","USPS","DHL"]},
+  {"id":50,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What does the television network abbreviation “CBS” stand for?","a":"Columbia Broadcasting System","options":["Continental Broadcasting Studio","Central Broadcasting Service","California Broadcasting System","Columbia Broadcasting System"]},
+  {"id":51,"cat":"B","catLabel":"Everyday Life & Trivia","q":"Which US state has the greatest time difference from UTC (furthest west)?","a":"Hawaii","options":["Mississippi","Hawaii","New Hampshire","Nevada"]},
+  {"id":52,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the standard tipping percentage expected at dining restaurants in the US?","a":"15% to 20%","options":["25% to 30%","5% to 10%","No tipping custom","15% to 20%"]},
+  {"id":53,"cat":"B","catLabel":"Everyday Life & Trivia","q":"How many kilometers are in 1 mile?","a":"Approx. 1.609 km","options":["Approx. 1.2 km","Approx. 0.8 km","Approx. 1.609 km","Approx. 2 km"]},
+  {"id":54,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What does the abbreviation “RSVP” mean?","a":"Répondez s'il vous plaît (Please reply)","options":["Respond Swiftly Via Post","Reserve Seat Very Promptly","Répondez s'il vous plaît (Please reply)","Read Send Verify Please"]},
+  {"id":55,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the standard format for a 10-digit US telephone number?","a":"(XXX) XXX-XXXX","options":["XXX-XXX-XX","(XXX) XXX-XXXX","0XX-XXXX-XXXX","XX-XXXX-XXXX"]},
+  {"id":56,"cat":"B","catLabel":"Everyday Life & Trivia","q":"On which side of the road do vehicles drive in the United States?","a":"Right side","options":["No standard side","Right side","Left side","Varies by state"]},
+  {"id":57,"cat":"B","catLabel":"Everyday Life & Trivia","q":"How many centimeters is 1 inch?","a":"Approx. 2.54 cm","options":["Approx. 3.5 cm","Approx. 5 cm","Approx. 1.5 cm","Approx. 2.54 cm"]},
+  {"id":58,"cat":"B","catLabel":"Everyday Life & Trivia","q":"What is the standard household voltage in the United States?","a":"120 volts","options":["100 volts","240 volts","220 volts","120 volts"]},
+  {"id":59,"cat":"C","catLabel":"The 50 States","q":"How many total states comprise the United States of America?","a":"50 states","options":["48 states","52 states","51 states","50 states"]},
+  {"id":60,"cat":"C","catLabel":"The 50 States","q":"Which US state covers the largest geographical area?","a":"Alaska","options":["North Carolina","Alaska","New York","Nevada"]},
+  {"id":61,"cat":"C","catLabel":"The 50 States","q":"Which US state has the largest total population?","a":"California","options":["California","Montana","Idaho","Alabama"]},
+  {"id":62,"cat":"C","catLabel":"The 50 States","q":"Which US state has the highest population density?","a":"New Jersey","options":["Maine","Nevada","New Jersey","Virginia"]},
+  {"id":63,"cat":"C","catLabel":"The 50 States","q":"What term refers to the 48 adjoining US states located on the continent?","a":"Contiguous United States","options":["Federal District","Union States","Contiguous United States","Transcontinental States"]},
+  {"id":64,"cat":"C","catLabel":"The 50 States","q":"Which state is located furthest east among the 48 contiguous states?","a":"Maine","options":["Oklahoma","Rhode Island","Wisconsin","Maine"]},
+  {"id":65,"cat":"C","catLabel":"The 50 States","q":"Which state is the smallest in land area in the US?","a":"Rhode Island","options":["New Mexico","Pennsylvania","Rhode Island","Arkansas"]},
+  {"id":66,"cat":"C","catLabel":"The 50 States","q":"Which US states border the highest number of other states (8 each)?","a":"Tennessee and Missouri","options":["Colorado and Utah","Kentucky only","Tennessee and Missouri","California and Texas"]},
+  {"id":67,"cat":"C","catLabel":"The 50 States","q":"Which is the northernmost state in the United States?","a":"Alaska","options":["Vermont","Nebraska","Kentucky","Alaska"]},
+  {"id":68,"cat":"C","catLabel":"The 50 States","q":"In which ocean is the state of Hawaii located?","a":"Pacific Ocean","options":["Atlantic Ocean","Caribbean Sea","Indian Ocean","Pacific Ocean"]},
+  {"id":69,"cat":"C","catLabel":"The 50 States","q":"Which state recorded the highest population growth rate according to recent Census estimates?","a":"South Carolina","options":["Pennsylvania","South Carolina","Nebraska","Utah"]},
+  {"id":70,"cat":"C","catLabel":"The 50 States","q":"Which is the driest state in the US by average annual precipitation?","a":"Nevada","options":["Nevada","Washington","Massachusetts","Utah"]},
+  {"id":71,"cat":"C","catLabel":"The 50 States","q":"Which state is home to major tourism hubs like Orlando?","a":"Florida","options":["Florida","Texas","Georgia","Utah"]},
+  {"id":72,"cat":"C","catLabel":"The 50 States","q":"Which state records the highest average daily summer temperatures?","a":"Arizona","options":["Wyoming","Arizona","Colorado","Alabama"]},
+  {"id":73,"cat":"C","catLabel":"The 50 States","q":"Which state features a grizzly bear on its official state flag?","a":"California","options":["Iowa","Colorado","California","Oklahoma"]},
+  {"id":74,"cat":"C","catLabel":"The 50 States","q":"Which four US states begin with the word “New”?","a":"New York, New Jersey, New Mexico, New Hampshire","options":["Five New England states","New York and New Jersey only","New Orleans, New York, New Jersey","New York, New Jersey, New Mexico, New Hampshire"]},
+  {"id":75,"cat":"C","catLabel":"The 50 States","q":"Which state has two distinct panhandles?","a":"Oklahoma","options":["Maine","Oklahoma","New Hampshire","Hawaii"]},
+  {"id":76,"cat":"C","catLabel":"The 50 States","q":"Which state contains the lowest geographic point in North America (Death Valley)?","a":"California","options":["Oregon","Utah","Massachusetts","California"]},
+  {"id":77,"cat":"C","catLabel":"The 50 States","q":"Which state is the furthest west in the contiguous United States?","a":"Washington","options":["Washington","Connecticut","Wisconsin","Delaware"]},
+  {"id":78,"cat":"C","catLabel":"The 50 States","q":"Which state has an official language other than English (Hawaiian)?","a":"Hawaii","options":["Washington","South Carolina","Hawaii","Iowa"]},
+  {"id":79,"cat":"D","catLabel":"American History","q":"In what year was the US Declaration of Independence signed?","a":"1776","options":["1765","1770","1733","1776"]},
+  {"id":80,"cat":"D","catLabel":"American History","q":"In what year did the American Civil War begin?","a":"1861","options":["1890","1846","1861","1803"]},
+  {"id":81,"cat":"D","catLabel":"American History","q":"In what year was the United States Constitution framed?","a":"1787","options":["1664","1787","1765","1770"]},
+  {"id":82,"cat":"D","catLabel":"American History","q":"Which Constitutional Amendment granted women the right to vote?","a":"19th Amendment","options":["24th Amendment","19th Amendment","3rd Amendment","4th Amendment"]},
+  {"id":83,"cat":"D","catLabel":"American History","q":"Which Amendment abolished slavery throughout the United States?","a":"13th Amendment","options":["20th Amendment","13th Amendment","19th Amendment","12th Amendment"]},
+  {"id":84,"cat":"D","catLabel":"American History","q":"In what year did the Wall Street Crash kick off the Great Depression?","a":"1929","options":["1919","1920","1901","1929"]},
+  {"id":85,"cat":"D","catLabel":"American History","q":"In what year did the United States formally enter World War II?","a":"1941","options":["1917","1941","1908","1920"]},
+  {"id":86,"cat":"D","catLabel":"American History","q":"In what year did Martin Luther King Jr. deliver his iconic “I Have a Dream” speech?","a":"1963","options":["1964","1957","1963","1989"]},
+  {"id":87,"cat":"D","catLabel":"American History","q":"In what year did the Emancipation Proclamation go into effect?","a":"1863","options":["1861","1863","1865","1898"]},
+  {"id":88,"cat":"D","catLabel":"American History","q":"Who was the first Secretary of the Treasury under George Washington?","a":"Alexander Hamilton","options":["Elon Musk","Jeff Bezos","Alexander Hamilton","Thomas Edison"]},
+  {"id":89,"cat":"D","catLabel":"American History","q":"In what year was the Louisiana Purchase treaty finalized with France?","a":"1803","options":["1870","1803","1846","1898"]},
+  {"id":90,"cat":"D","catLabel":"American History","q":"Which US President instituted the “New Deal” domestic programs in response to the Great Depression?","a":"Franklin D. Roosevelt","options":["Franklin D. Roosevelt","George Washington","Harry S. Truman","Woodrow Wilson"]},
+  {"id":91,"cat":"D","catLabel":"American History","q":"Who became the youngest person to serve as US President (at age 42)?","a":"Theodore Roosevelt","options":["Theodore Roosevelt","James Madison","Dwight D. Eisenhower","Richard Nixon"]},
+  {"id":92,"cat":"D","catLabel":"American History","q":"Which treaty formally ended the American Revolutionary War in 1783?","a":"Treaty of Paris","options":["Treaty of Versailles","Treaty of Ghent","Treaty of Guadalupe Hidalgo","Treaty of Paris"]},
+  {"id":93,"cat":"D","catLabel":"American History","q":"In which city was President John F. Kennedy assassinated in 1963?","a":"Dallas","options":["Dallas","Memphis","Houston","Washington, D.C."]},
+  {"id":94,"cat":"D","catLabel":"American History","q":"In what year did the Apollo 11 mission successfully land astronauts on the Moon?","a":"1969","options":["1969","1955","1954","1981"]},
+  {"id":95,"cat":"D","catLabel":"American History","q":"What was the general time span of the geopolitical strategy known as the Cold War?","a":"1947–1991","options":["1939–1945","1947–1991","1950–1953","1961–1989"]},
+  {"id":96,"cat":"D","catLabel":"American History","q":"What 19th-century doctrine expressed the belief that the US was divinely ordained to expand across North America?","a":"Manifest Destiny","options":["Gold Rush","Manifest Destiny","Monroe Doctrine","Homestead Act"]},
+  {"id":97,"cat":"D","catLabel":"American History","q":"Which event marked the practical end of the American Civil War in April 1865?","a":"Surrender at Appomattox Court House","options":["Washington Conference","Battle of Gettysburg","Surrender at Appomattox Court House","Battle of Fort Sumter"]},
+  {"id":98,"cat":"D","catLabel":"American History","q":"Which European explorer's 1492 voyage initiated sustained transatlantic contact with the Americas?","a":"Christopher Columbus","options":["Leif Erikson","Amerigo Vespucci","Ferdinand Magellan","Christopher Columbus"]},
+  {"id":99,"cat":"E","catLabel":"Culture & Traditions","q":"Which holiday is celebrated on the fourth Thursday of November in the United States?","a":"Thanksgiving","options":["Thanksgiving","Valentine's Day","Halloween","Columbus Day"]},
+  {"id":100,"cat":"E","catLabel":"Culture & Traditions","q":"What sport is traditionally referred to as “America’s Pastime”?","a":"Baseball","options":["Ice Hockey","American Football","Basketball","Baseball"]},
+  {"id":101,"cat":"E","catLabel":"Culture & Traditions","q":"Which global fast-food brand originated in San Bernardino, California?","a":"McDonald's","options":["McDonald's","KFC","Burger King","Subway"]},
+  {"id":102,"cat":"E","catLabel":"Culture & Traditions","q":"Which southern US state is world-famous for its distinct brisket BBQ tradition?","a":"Texas","options":["Massachusetts","Texas","Virginia","Montana"]},
+  {"id":103,"cat":"E","catLabel":"Culture & Traditions","q":"What is the official designation for the February observance honoring Black history in the US?","a":"Black History Month","options":["Black History Month","Civil Rights Month","Heritage Awareness Month","African American Day"]},
+  {"id":104,"cat":"E","catLabel":"Culture & Traditions","q":"In which city takes place the massive Thanksgiving Day Parade hosted by Macy's?","a":"New York City","options":["New York City","Boston","Los Angeles","Chicago"]},
+  {"id":105,"cat":"E","catLabel":"Culture & Traditions","q":"Which state claims Louis' Lunch as the birthplace of the hamburger?","a":"Connecticut","options":["Alabama","Connecticut","Nebraska","Oregon"]},
+  {"id":106,"cat":"E","catLabel":"Culture & Traditions","q":"What is the traditional culmination event across cities on the 4th of July?","a":"Fireworks Displays","options":["Fireworks Displays","Costume Parades","Egg Hunts","Snowball Fights"]},
+  {"id":107,"cat":"E","catLabel":"Culture & Traditions","q":"What is the championship game of the National Football League held every February?","a":"Super Bowl","options":["Super Bowl","NBA Finals","World Series","Stanley Cup"]},
+  {"id":108,"cat":"E","catLabel":"Culture & Traditions","q":"Which US National Park consistently receives the highest annual visitor counts?","a":"Great Smoky Mountains National Park","options":["Great Smoky Mountains National Park","Yosemite National Park","Grand Canyon National Park","Yellowstone National Park"]},
+  {"id":109,"cat":"E","catLabel":"Culture & Traditions","q":"What centerpiece dish is traditionally served during Christmas and Thanksgiving dinners?","a":"Roast Turkey","options":["Sushi","Roast Turkey","Tacos","Roast Beef"]},
+  {"id":110,"cat":"E","catLabel":"Culture & Traditions","q":"What major commercial shopping day occurs immediately after Thanksgiving Thursday?","a":"Black Friday","options":["Black Friday","Cyber Monday","Red Wednesday","Super Saturday"]},
+  {"id":111,"cat":"E","catLabel":"Culture & Traditions","q":"What custom involves children dressing in costumes and asking for candy on October 31?","a":"Trick-or-Treating","options":["Caroling","Egg Hunting","Fireworks","Trick-or-Treating"]},
+  {"id":112,"cat":"E","catLabel":"Culture & Traditions","q":"When is Mother's Day celebrated annually in the United States?","a":"Second Sunday in May","options":["Christmas Day","St. Patrick's Day","Second Sunday in May","Columbus Day"]},
+  {"id":113,"cat":"E","catLabel":"Culture & Traditions","q":"What does the acronym NBA stand for in professional sports?","a":"National Basketball Association","options":["National Boxing Association","National Basketball Association","North American Basketball Alliance","National Baseball Association"]},
+  {"id":114,"cat":"E","catLabel":"Culture & Traditions","q":"Which city is historically recognized as the birthplace of Jazz music?","a":"New Orleans","options":["Nashville","New Orleans","Memphis","Chicago"]},
+  {"id":115,"cat":"E","catLabel":"Culture & Traditions","q":"Which state, home to Nashville, is known as the center of Country Music?","a":"Tennessee","options":["Virginia","Tennessee","Washington","Missouri"]},
+  {"id":116,"cat":"E","catLabel":"Culture & Traditions","q":"What is the purpose of the federal holiday Memorial Day in late May?","a":"To honor military personnel who died in service","options":["To celebrate founding","To honor military personnel who died in service","To celebrate emancipation","To honor independence"]},
+  {"id":117,"cat":"E","catLabel":"Culture & Traditions","q":"What is the most widely consumed hot beverage in daily American adult culture?","a":"Coffee","options":["Soda","Orange Juice","Tea","Coffee"]},
+  {"id":118,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"What is the tallest mountain peak in North America?","a":"Denali","options":["Mount Whitney","Mount Elbert","Denali","Mount Rainier"]},
+  {"id":119,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which river is the longest single river in the US?","a":"Missouri River","options":["Missouri River","Rio Grande","Colorado River","Yukon River"]},
+  {"id":120,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"In which US state is Grand Canyon National Park situated?","a":"Arizona","options":["Arizona","New Jersey","Oregon","Idaho"]},
+  {"id":121,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Yellowstone, the world's first national park, lies primarily within which state?","a":"Wyoming","options":["Wyoming","Wisconsin","South Dakota","Kansas"]},
+  {"id":122,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"What is the largest desert region by land area located inside the US?","a":"Great Basin Desert","options":["Great Basin Desert","Sonoran Desert","Chihuahuan Desert","Mojave Desert"]},
+  {"id":123,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which group comprises the five North American Great Lakes?","a":"Superior, Michigan, Huron, Erie, Ontario","options":["6 lakes including Great Salt Lake","Tahoe, Mead, Powell, etc.","Only 4 Great Lakes exist","Superior, Michigan, Huron, Erie, Ontario"]},
+  {"id":124,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which US state experiences the lowest recorded extreme temperatures annually?","a":"Alaska","options":["Kentucky","Alaska","Minnesota","Maine"]},
+  {"id":125,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which island state receives the highest average annual rainfall in specific mountain zones?","a":"Hawaii","options":["Florida","Hawaii","Georgia","Kansas"]},
+  {"id":126,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which mountain state features prominent peaks of the Rocky Mountains?","a":"Colorado","options":["Colorado","Iowa","Washington","California"]},
+  {"id":127,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Where is Death Valley, the point of lowest elevation in North America, located?","a":"California","options":["Salton Sea","California","New Orleans Basin","Imperial Valley"]},
+  {"id":128,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which climate classifications cover large areas of the US mainland?","a":"Temperate and Arid/Semi-Arid","options":["Temperate and Arid/Semi-Arid","Savanna climate only","Entire country is purely temperate","Tropical rainforest and ice cap only"]},
+  {"id":129,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"In which state is Yosemite National Park located?","a":"California","options":["Virginia","California","Rhode Island","Alaska"]},
+  {"id":130,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which was the world's first established National Park (1872)?","a":"Yellowstone National Park","options":["Everglades National Park","Yellowstone National Park","Denali National Park","Yosemite National Park"]},
+  {"id":131,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"In which state does the Mississippi River originate at Lake Itasca?","a":"Minnesota","options":["Iowa","Minnesota","North Carolina","Louisiana"]},
+  {"id":132,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Niagara Falls borders Ontario, Canada, and which US state?","a":"New York","options":["Missouri","New York","Michigan","Utah"]},
+  {"id":133,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which is the largest island in the United States by land area?","a":"Island of Hawaiʻi (Big Island)","options":["Long Island","Martha's Vineyard","Island of Hawaiʻi (Big Island)","Maui"]},
+  {"id":134,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Is Mount Everest located in the United States?","a":"No (Nepal / China border)","options":["Yes, in Alaska","No (Nepal / China border)","Yes, in Hawaii","Yes, in Rocky Mountains"]},
+  {"id":135,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"Which Midwestern state forms a main agricultural portion of the Great Plains?","a":"Kansas","options":["Texas","Kansas","New Hampshire","Colorado"]},
+  {"id":136,"cat":"F","catLabel":"Natural & Cultural Heritage","q":"In which general region of the US are the Appalachian Mountains located?","a":"Eastern United States","options":["Midwest","Southern border only","Western United States","Eastern United States"]},
+  {"id":137,"cat":"G","catLabel":"Famous Figures","q":"In which professional sport did Michael Jordan achieve global fame?","a":"Basketball","options":["Golf","American Football","Basketball","Baseball"]},
+  {"id":138,"cat":"G","catLabel":"Famous Figures","q":"Who is the iconic American tennis champion with 23 Grand Slam singles titles?","a":"Serena Williams","options":["Serena Williams","Michael Phelps","Tiger Woods","Carl Lewis"]},
+  {"id":139,"cat":"G","catLabel":"Famous Figures","q":"Which Oscar-winning film starred Tom Hanks as a Alabama man witnessing key 20th-century history?","a":"Forrest Gump","options":["The Shawshank Redemption","Titanic","Forrest Gump","The Godfather"]},
+  {"id":140,"cat":"G","catLabel":"Famous Figures","q":"Which US track and field athlete won 9 Olympic gold medals across four Games?","a":"Carl Lewis","options":["Muhammad Ali","Carl Lewis","Michael Phelps","Michael Jordan"]},
+  {"id":141,"cat":"G","catLabel":"Famous Figures","q":"What musical genre earned Elvis Presley the moniker “King of ...”?","a":"Rock and Roll","options":["Jazz","Country music only","Hip-hop","Rock and Roll"]},
+  {"id":142,"cat":"G","catLabel":"Famous Figures","q":"Which multinational technology company was co-founded by Bill Gates in 1975?","a":"Microsoft","options":["Google","Amazon","Microsoft","Apple"]},
+  {"id":143,"cat":"G","catLabel":"Famous Figures","q":"Which actor won an Academy Award for his role in The Revenant (2015)?","a":"Leonardo DiCaprio","options":["Beyoncé","Taylor Swift","Elvis Presley","Leonardo DiCaprio"]},
+  {"id":144,"cat":"G","catLabel":"Famous Figures","q":"In which sport has Tiger Woods won 15 major championships?","a":"Golf","options":["Golf","Tennis","Baseball","Bowling"]},
+  {"id":145,"cat":"G","catLabel":"Famous Figures","q":"Which female artist holds the record for the most Grammy Awards won in history?","a":"Beyoncé","options":["Leonardo DiCaprio","J.K. Rowling","Mark Twain","Beyoncé"]},
+  {"id":146,"cat":"G","catLabel":"Famous Figures","q":"Who wrote the classic 19th-century American novels 'Tom Sawyer' and 'Huckleberry Finn'?","a":"Mark Twain","options":["Mark Twain","Leonardo DiCaprio","Tom Hanks","Beyoncé"]},
+  {"id":147,"cat":"G","catLabel":"Famous Figures","q":"Who was the astronaut that became the first human to step on the Moon in 1969?","a":"Neil Armstrong","options":["John Nash","Steve Jobs","Elon Musk","Neil Armstrong"]},
+  {"id":148,"cat":"G","catLabel":"Famous Figures","q":"Which technology icon co-founded Apple Inc. alongside Steve Wozniak?","a":"Steve Jobs","options":["Amazon","Microsoft","Tesla","Steve Jobs"]},
+  {"id":149,"cat":"G","catLabel":"Famous Figures","q":"Which US President was awarded the Nobel Peace Prize in 2009?","a":"Barack Obama","options":["Barack Obama","Joe Biden","Thomas Jefferson","Andrew Jackson"]},
+  {"id":150,"cat":"G","catLabel":"Famous Figures","q":"Which major invention was commercially perfected by Thomas Edison’s laboratory?","a":"Incandescent Light Bulb","options":["Radio","Telephone","Incandescent Light Bulb","Phonograph only"]},
+  {"id":151,"cat":"G","catLabel":"Famous Figures","q":"Which pop star gained global fame with the 1984 hit album 'Like a Virgin'?","a":"Madonna","options":["Steven Spielberg","Tom Hanks","Madonna","Beyoncé"]},
+  {"id":152,"cat":"G","catLabel":"Famous Figures","q":"Which mathematician and Nobel laureate was portrayed in the film 'A Beautiful Mind'?","a":"John Nash","options":["Elon Musk","John Nash","Neil Armstrong","Bill Gates"]},
+  {"id":153,"cat":"G","catLabel":"Famous Figures","q":"Which Major League Baseball franchise has won the most World Series titles?","a":"New York Yankees","options":["New York Yankees","Los Angeles Dodgers","San Francisco Giants","Boston Red Sox"]},
+  {"id":154,"cat":"G","catLabel":"Famous Figures","q":"Which legendary American inventor developed systemized electric power distribution?","a":"Thomas Edison","options":["Alexander Hamilton","Thomas Edison","Neil Armstrong","Jeff Bezos"]},
+  {"id":155,"cat":"G","catLabel":"Famous Figures","q":"Who is the British author behind the globally renowned 'Harry Potter' franchise?","a":"J.K. Rowling","options":["J.K. Rowling","Elvis Presley","Madonna","Leonardo DiCaprio"]},
+  {"id":156,"cat":"G","catLabel":"Famous Figures","q":"What is the prestigious annual film award ceremony presented by the Academy (AMPAS)?","a":"Academy Awards (Oscars)","options":["Tony Awards","Golden Globes","Academy Awards (Oscars)","Emmy Awards"]},
+  {"id":157,"cat":"H","catLabel":"Constitution & Supreme Court","q":"In what year was the United States Constitution officially signed in Philadelphia?","a":"1787","options":["1787","1664","1765","1754"]},
+  {"id":158,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which freedoms are guaranteed under the First Amendment of the US Constitution?","a":"Speech, Religion, Press, Assembly, and Petition","options":["Speech, Religion, Press, Assembly, and Petition","Right to Trial by Jury","Right to Bear Arms","Protection against Unreasonable Search"]},
+  {"id":159,"cat":"H","catLabel":"Constitution & Supreme Court","q":"What right is protected by the Second Amendment of the US Constitution?","a":"Right to Keep and Bear Arms","options":["Freedom of Speech","Private Property Rights","Right to Vote","Right to Keep and Bear Arms"]},
+  {"id":160,"cat":"H","catLabel":"Constitution & Supreme Court","q":"What practice did the 13th Amendment officially abolish in 1865?","a":"Slavery","options":["Child Labor","Segregation","Conscription","Slavery"]},
+  {"id":161,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which 1803 Supreme Court case established the principle of judicial review?","a":"Marbury v. Madison","options":["Marbury v. Madison","Obergefell v. Hodges","Citizens United v. FEC","Brown v. Board of Education"]},
+  {"id":162,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which landmark 1954 ruling struck down public school racial segregation?","a":"Brown v. Board of Education","options":["McCulloch v. Maryland","Obergefell v. Hodges","Brown v. Board of Education","Marbury v. Madison"]},
+  {"id":163,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which 1973 case legalized abortion nationwide before being overturned in 2022?","a":"Roe v. Wade","options":["Roe v. Wade","Plessy v. Ferguson","Brown v. Board of Education","Schenck v. United States"]},
+  {"id":164,"cat":"H","catLabel":"Constitution & Supreme Court","q":"What primary right was granted nationwide under the 19th Amendment in 1920?","a":"Women's Suffrage","options":["Women's Suffrage","Black Male Voting Rights","18-Year-Old Voting Age","Direct Election of Senators"]},
+  {"id":165,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which clause of the 14th Amendment guarantees equal legal protection to all citizens?","a":"Equal Protection Clause","options":["Equal Protection Clause","Right to Bear Arms","Trial by Jury","Double Jeopardy"]},
+  {"id":166,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which 2015 Supreme Court ruling legalized same-sex marriage nationwide?","a":"Obergefell v. Hodges","options":["Miranda v. Arizona","Dobbs v. Jackson","Obergefell v. Hodges","Brown v. Board of Education"]},
+  {"id":167,"cat":"H","catLabel":"Constitution & Supreme Court","q":"In federal impeachment proceedings, what power is held exclusively by the House?","a":"Impeachment (bringing charges)","options":["Final Removal Judgment","Appointing Judges","Impeachment (bringing charges)","Vetoing Legislation"]},
+  {"id":168,"cat":"H","catLabel":"Constitution & Supreme Court","q":"How many terms can a US President serve according to the 22nd Amendment?","a":"Up to 2 terms","options":["Up to 3 terms","Unlimited","Up to 2 terms","1 term only"]},
+  {"id":169,"cat":"H","catLabel":"Constitution & Supreme Court","q":"How many Justices sit on the Supreme Court of the United States?","a":"9 Justices","options":["9 Justices","7 Justices","13 Justices","11 Justices"]},
+  {"id":170,"cat":"H","catLabel":"Constitution & Supreme Court","q":"What protection is granted under the 15th Amendment?","a":"Prohibits denying voting rights based on race","options":["Prohibits poll taxes","Women's voting rights","Protects youth voting age","Prohibits denying voting rights based on race"]},
+  {"id":171,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which Supreme Court case mandated police to inform suspects of legal rights upon arrest?","a":"Miranda v. Arizona (1966)","options":["Plessy v. Ferguson","Dred Scott v. Sandford","Miranda v. Arizona (1966)","Schenck v. United States"]},
+  {"id":172,"cat":"H","catLabel":"Constitution & Supreme Court","q":"When a state law directly conflicts with federal legislation, which takes precedence?","a":"Federal Law","options":["State Law","Both become invalid","Federal Law","State Ballot Decision"]},
+  {"id":173,"cat":"H","catLabel":"Constitution & Supreme Court","q":"What protection is specified under the Fourth Amendment?","a":"Protection against unreasonable searches and seizures","options":["Freedom of Speech","Protection against unreasonable searches and seizures","Prohibition of excessive bail","Right to Bear Arms"]},
+  {"id":174,"cat":"H","catLabel":"Constitution & Supreme Court","q":"Which constitutional guarantee is provided by the Sixth Amendment?","a":"Right to a speedy and public trial","options":["Right to bear arms","Protection from cruel punishment","Right to a speedy and public trial","Search warrant protections"]},
+  {"id":175,"cat":"H","catLabel":"Constitution & Supreme Court","q":"What does the Eighth Amendment explicitly prohibit?","a":"Cruel and unusual punishments","options":["Cruel and unusual punishments","Double jeopardy","Slavery","Excessive military draft"]},
+  {"id":176,"cat":"H","catLabel":"Constitution & Supreme Court","q":"What are the first ten amendments to the United States Constitution collectively called?","a":"The Bill of Rights","options":["Declaration of Independence","The Bill of Rights","Articles of Confederation","Magna Carta"]},
+  {"id":177,"cat":"I","catLabel":"Social & Political Issues","q":"What is the common name for the 2010 healthcare legislation known formally as ACA?","a":"Obamacare","options":["Green New Deal","Medicaid","Medicare","Obamacare"]},
+  {"id":178,"cat":"I","catLabel":"Social & Political Issues","q":"Which 19th-century military conflict resulted directly from sectional disputes over slavery?","a":"American Civil War","options":["War of 1812","Revolutionary War","Mexican-American War","American Civil War"]},
+  {"id":179,"cat":"I","catLabel":"Social & Political Issues","q":"What represents the primary constitutional debate surrounding the Second Amendment?","a":"Gun Ownership Rights vs. Gun Control Regulation","options":["Hunting licensing limits","Firearms export policy","Gun Ownership Rights vs. Gun Control Regulation","Disarming law enforcement"]},
+  {"id":180,"cat":"I","catLabel":"Social & Political Issues","q":"Which border is the focal point of US political debates concerning immigration policy?","a":"U.S.–Mexico Border","options":["Pacific maritime border","Alaska maritime border","U.S.–Mexico Border","U.S.–Canada Border"]},
+  {"id":181,"cat":"I","catLabel":"Social & Political Issues","q":"Which social movement formed to protest racial inequality and police brutality?","a":"Black Lives Matter","options":["#MeToo Movement","Occupy Wall Street","Tea Party Movement","Black Lives Matter"]},
+  {"id":182,"cat":"I","catLabel":"Social & Political Issues","q":"What two political parties illustrate the modern two-party system in American politics?","a":"Democratic & Republican Parties","options":["Liberal & Green Parties","Democratic & Republican Parties","Labour & Conservative Parties","Federalist & Anti-Federalist"]},
+  {"id":183,"cat":"I","catLabel":"Social & Political Issues","q":"What are the primary opposing designations used in US abortion debate politics?","a":"Pro-Life and Pro-Choice","options":["Pro-Life and Pro-Choice","Federalist and Anti-Federalist","Liberal and Conservative only","Reform and Traditional"]},
+  {"id":184,"cat":"I","catLabel":"Social & Political Issues","q":"What Congressional resolution package aims to address climate change and economic inequality?","a":"Green New Deal","options":["Green New Deal","Fit for 55","Clean Power Plan","Kyoto Protocol"]},
+  {"id":185,"cat":"I","catLabel":"Social & Political Issues","q":"Which systemic issue refers to the uniquely high incarceration rate in the US?","a":"Mass Incarceration","options":["Abolition of jury trials","Mass Incarceration","Strict juvenile sentencing","Parole system abuse"]},
+  {"id":186,"cat":"I","catLabel":"Social & Political Issues","q":"What political campaign advocates for raising the federal minimum wage floor?","a":"Fight for $15","options":["Living Wage Act","Unionization Drive","Universal Basic Income","Fight for $15"]},
+  {"id":187,"cat":"I","catLabel":"Social & Political Issues","q":"In what year did the Supreme Court recognize same-sex marriage nationwide?","a":"2015","options":["2003","2024","2015","2010"]},
+  {"id":188,"cat":"I","catLabel":"Social & Political Issues","q":"Which international climate treaty was a major topic of US presidential policy shifts?","a":"Paris Agreement","options":["Kyoto Protocol","Montreal Protocol","Basel Convention","Paris Agreement"]},
+  {"id":189,"cat":"I","catLabel":"Social & Political Issues","q":"What state legislative requirement is at the center of voting access debates?","a":"Voter ID Laws","options":["Voter ID Laws","Electoral College abolition","Ban on electronic voting","Ban on mail-in ballots"]},
+  {"id":190,"cat":"I","catLabel":"Social & Political Issues","q":"Which controversial slogan emerged during 2020 protests regarding police budgets?","a":"Defund the Police","options":["Zero Tolerance","Three Strikes","Defund the Police","Broken Windows"]},
+  {"id":191,"cat":"I","catLabel":"Social & Political Issues","q":"What structural factor contributes significantly to public education disparity across US school districts?","a":"Unequal Funding tied to local property taxes","options":["Unequal Funding tied to local property taxes","Teacher shortage only","Abolition of standardized testing","Ban on private schools"]},
+  {"id":192,"cat":"I","catLabel":"Social & Political Issues","q":"What primary social challenge stems from high private healthcare expenses in the US?","a":"Uninsured & Underinsured Population","options":["Doctor shortages only","Banning drug price deregulation","Uninsured & Underinsured Population","Nationalization of hospitals"]},
+  {"id":193,"cat":"I","catLabel":"Social & Political Issues","q":"Which issue frequently arises concerning First Amendment religious freedom in public spaces?","a":"Display of religious symbols on government property","options":["Establishing a state religion","Display of religious symbols on government property","Total ban on worship","Religion tax introduction"]},
+  {"id":194,"cat":"I","catLabel":"Social & Political Issues","q":"Which current civil rights discussion centers on sports, healthcare access, and legal recognition?","a":"Transgender Rights","options":["Decriminalization of homosexuality","Civil unions debate","Transgender Rights","Heterosexual marriage only"]},
+  {"id":195,"cat":"I","catLabel":"Social & Political Issues","q":"What major economic priority involves updating US transportation and utility networks?","a":"Aging Infrastructure (bridges, roads, water)","options":["Power grid privatization","Aging Infrastructure (bridges, roads, water)","5G network delays","Lack of high-speed rail only"]},
+  {"id":196,"cat":"I","catLabel":"Social & Political Issues","q":"What movement advocates for federal relief regarding higher education borrowing?","a":"Student Debt Cancellation Movement","options":["Free College Movement","Pell Grant abolition","Vocational training requirement","Student Debt Cancellation Movement"]},
+  {"id":197,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Who authored the original text of the US Pledge of Allegiance in 1892?","a":"Francis Bellamy","options":["Francis Bellamy","Thomas Jefferson","Benjamin Franklin","Francis Scott Key"]},
+  {"id":198,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"The Pledge of Allegiance was created to celebrate which anniversary of Columbus's voyage?","a":"400th Anniversary","options":["300th Anniversary","200th Anniversary","400th Anniversary","500th Anniversary"]},
+  {"id":199,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"On which annual date is St. Patrick's Day observed?","a":"March 17","options":["March 17","March 1","February 14","April 1"]},
+  {"id":200,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"What historical event does Cinco de Mayo commemorate?","a":"Mexican victory over French forces at the Battle of Puebla (1862)","options":["Mexican victory over French forces at the Battle of Puebla (1862)","Mexican Independence Day","End of Mexican-American War","Start of Mexican Revolution"]},
+  {"id":201,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"On which date is the federal holiday Juneteenth celebrated?","a":"June 19","options":["July 4","May 19","June 19","August 1"]},
+  {"id":202,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"In what year was Juneteenth officially signed into law as a US federal holiday?","a":"2021","options":["2016","2022","2021","2015"]},
+  {"id":203,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Which 1969 event in New York City served as the catalyst for modern LGBTQ+ Pride Month?","a":"Stonewall Uprising","options":["Woodstock Festival","Stonewall Uprising","MLK Assassination","Montgomery Bus Boycott"]},
+  {"id":204,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Which legendary actor founded the Sundance Film Festival?","a":"Robert Redford","options":["Robert Redford","Tom Hanks","J.K. Rowling","Beyoncé"]},
+  {"id":205,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"What annual tradition occurs at midnight on New Year's Eve in Times Square, NYC?","a":"Ball Drop","options":["Countdown concert only","Fireworks only","Ball Drop","Parade"]},
+  {"id":206,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Which film won Best Picture at the 98th Academy Awards (held March 2026)?","a":"'One Battle After Another'","options":["'Hamnet'","'Sinners'","'One Battle After Another'","'F1'"]},
+  {"id":207,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Who won Best Director at the 98th Academy Awards in 2026?","a":"Paul Thomas Anderson","options":["Paul Thomas Anderson","Joachim Trier","Ryan Coogler","Chloé Zhao"]},
+  {"id":208,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Who won Best Actor at the 98th Academy Awards for his performance in 'Sinners'?","a":"Michael B. Jordan","options":["Timothée Chalamet","Michael B. Jordan","Ethan Hawke","Leonardo DiCaprio"]},
+  {"id":209,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Who won Best Actress at the 98th Academy Awards for her role in 'Hamnet'?","a":"Jessie Buckley","options":["Jessie Buckley","Rose Byrne","Kate Hudson","Emma Stone"]},
+  {"id":210,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Who was named the world's richest person on Forbes 2026 Billionaires List?","a":"Elon Musk (Approx. $839 Billion)","options":["Elon Musk (Approx. $839 Billion)","Mark Zuckerberg","Jeff Bezos","Larry Page"]},
+  {"id":211,"cat":"appendix","catLabel":"Appendix & Current Topics","q":"Presidents' Day originally honored the birthdays of which two historical US Presidents?","a":"George Washington and Abraham Lincoln","options":["Franklin Roosevelt and Harry Truman","John F. Kennedy and Lyndon Johnson","Thomas Jefferson and John Adams","George Washington and Abraham Lincoln"]}
+]</script>
+
 <script>
 (function(){
   "use strict";
@@ -440,11 +761,10 @@ footer.site-foot{
   });
 
   function catLetter(cat){
-    var map = {prereq:"前提", A:"A", B:"B", C:"C", D:"D", E:"E", F:"F", G:"G", H:"H", I:"I", appendix:"付録"};
-    return map[cat] || "?";
+    var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", H:"08", I:"09", appendix:"10"};
+    return map[cat] || "--";
   }
 
-  // ---------- storage helpers ----------
   function loadJSON(key, fallback){
     try{
       var v = localStorage.getItem(key);
@@ -455,11 +775,10 @@ footer.site-foot{
     try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){}
   }
 
-  var missed = loadJSON('ab_missed_v1', []); // array of question ids
-  var bestScores = loadJSON('ab_best_v1', {}); // {catKey: {correct,total}}
-  var totals = loadJSON('ab_totals_v1', {answered:0, correct:0});
+  var missed = loadJSON('ab_missed_v2', []);
+  var bestScores = loadJSON('ab_best_v2', {});
+  var totals = loadJSON('ab_totals_v2', {answered:0, correct:0});
 
-  // ---------- DOM refs ----------
   var screens = {
     home: document.getElementById('screen-home'),
     quiz: document.getElementById('screen-quiz'),
@@ -477,14 +796,13 @@ footer.site-foot{
     window.scrollTo({top:0, behavior:'auto'});
   }
 
-  // ---------- home screen render ----------
   function renderHome(){
-    headerTitle.textContent = "アメリカボウル 対策ドリル";
-    headerSub.textContent = "前提知識から分断問題まで、出題範囲を全問カバー。";
+    headerTitle.textContent = "America Bowl Drill";
+    headerSub.textContent = "Comprehensive practice suite covering all exam categories.";
 
     var statsLine = document.getElementById('stats-line');
     if(totals.answered > 0){
-      statsLine.textContent = 'これまでの累計成績：' + totals.answered + '問中 ' + totals.correct + '問正解（正答率' + Math.round(totals.correct/totals.answered*100) + '%）';
+      statsLine.textContent = 'Cumulative Stats: ' + totals.correct + ' / ' + totals.answered + ' Correct (' + Math.round(totals.correct/totals.answered*100) + '% Rate)';
     } else {
       statsLine.textContent = '';
     }
@@ -507,7 +825,7 @@ footer.site-foot{
       var card = document.createElement('button');
       card.type = 'button';
       card.className = 'cat-card';
-      var bestText = best ? ('前回 ' + best.correct + '/' + best.total) : (meta.count + '問');
+      var bestText = best ? ('Best: ' + best.correct + ' / ' + best.total) : (meta.count + ' Questions');
       card.innerHTML =
         '<span class="letter">' + meta.letter + '</span>' +
         '<span class="info"><p class="name">' + escapeHTML(meta.label) + '</p>' +
@@ -517,24 +835,11 @@ footer.site-foot{
     });
   }
 
-  document.getElementById('card-mix').addEventListener('click', function(){
-    startQuiz('__mix__');
-  });
-  document.getElementById('card-review').addEventListener('click', function(){
-    startQuiz('__review__');
-  });
-  document.getElementById('home-link').addEventListener('click', function(){
-    renderHome();
-    showScreen('home');
-  });
-  document.getElementById('quit-link').addEventListener('click', function(){
-    renderHome();
-    showScreen('home');
-  });
-  document.getElementById('btn-back').addEventListener('click', function(){
-    renderHome();
-    showScreen('home');
-  });
+  document.getElementById('card-mix').addEventListener('click', function(){ startQuiz('__mix__'); });
+  document.getElementById('card-review').addEventListener('click', function(){ startQuiz('__review__'); });
+  document.getElementById('home-link').addEventListener('click', function(){ renderHome(); showScreen('home'); });
+  document.getElementById('quit-link').addEventListener('click', function(){ renderHome(); showScreen('home'); });
+  document.getElementById('btn-back').addEventListener('click', function(){ renderHome(); showScreen('home'); });
 
   function escapeHTML(s){
     return String(s).replace(/[&<>"']/g, function(c){
@@ -551,18 +856,17 @@ footer.site-foot{
     return a;
   }
 
-  // ---------- quiz session state ----------
   var session = null;
 
   function startQuiz(catKey){
     var pool, label;
     if(catKey === '__mix__'){
       pool = shuffle(ALL_Q).slice(0, 30);
-      label = 'ミックス30問';
+      label = 'Random 30 Questions';
     } else if(catKey === '__review__'){
       pool = ALL_Q.filter(function(q){ return missed.indexOf(q.id) !== -1; });
       pool = shuffle(pool);
-      label = '復習（前回間違えた問題）';
+      label = 'Review Missed';
     } else {
       pool = shuffle(ALL_Q.filter(function(q){ return q.cat === catKey; }));
       label = CAT_META[catKey].label;
@@ -576,10 +880,10 @@ footer.site-foot{
       score: 0,
       answered: false,
       wrongIds: [],
-      perCatStats: {} // for mix mode breakdown
+      perCatStats: {}
     };
     headerTitle.textContent = label;
-    headerSub.textContent = pool.length + '問';
+    headerSub.textContent = pool.length + ' Questions Total';
     showScreen('quiz');
     renderQuestion();
   }
@@ -589,8 +893,8 @@ footer.site-foot{
     session.answered = false;
 
     document.getElementById('quiz-cat-chip').textContent = q.catLabel;
-    document.getElementById('quiz-score-label').textContent = '正解 ' + session.score;
-    document.getElementById('qno').textContent = '問 ' + (session.index + 1) + ' / ' + session.questions.length;
+    document.getElementById('quiz-score-label').textContent = 'Score: ' + session.score;
+    document.getElementById('qno').textContent = 'Question ' + (session.index + 1) + ' / ' + session.questions.length;
     document.getElementById('qtext').textContent = q.q;
 
     var pct = Math.round((session.index) / session.questions.length * 100);
@@ -607,7 +911,7 @@ footer.site-foot{
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'opt-btn';
-      btn.innerHTML = '<span class="mark">' + letters[i] + '</span>' + escapeHTML(opt);
+      btn.innerHTML = '<span class="mark">' + letters[i] + '</span> <span>' + escapeHTML(opt) + '</span>';
       btn.addEventListener('click', function(){ selectAnswer(btn, opt, q); });
       optsWrap.appendChild(btn);
     });
@@ -626,21 +930,19 @@ footer.site-foot{
     if(correct){
       totals.correct++;
       session.score++;
-      stamp.textContent = '正解';
+      stamp.textContent = 'CORRECT';
       stamp.className = 'stamp correct show';
-      // remove from missed list if present
       var mi = missed.indexOf(q.id);
       if(mi !== -1){ missed.splice(mi, 1); }
     } else {
-      stamp.textContent = '不正解';
+      stamp.textContent = 'INCORRECT';
       stamp.className = 'stamp incorrect show';
       session.wrongIds.push(q.id);
       if(missed.indexOf(q.id) === -1){ missed.push(q.id); }
     }
-    saveJSON('ab_missed_v1', missed);
-    saveJSON('ab_totals_v1', totals);
+    saveJSON('ab_missed_v2', missed);
+    saveJSON('ab_totals_v2', totals);
 
-    // per-category tally (for mix-mode breakdown)
     var cs = session.perCatStats[q.cat] || (session.perCatStats[q.cat] = {label:q.catLabel, correct:0, total:0});
     cs.total++;
     if(correct) cs.correct++;
@@ -648,14 +950,14 @@ footer.site-foot{
     var allBtns = document.querySelectorAll('#options .opt-btn');
     allBtns.forEach(function(b){
       b.disabled = true;
-      var isThisCorrectText = (b.textContent.replace(/^[A-D]/, '') === q.a);
+      var text = b.querySelector('span:last-child').textContent;
       if(b === btn && correct){ b.classList.add('correct'); }
       else if(b === btn && !correct){ b.classList.add('incorrect'); }
-      else if(isThisCorrectText){ b.classList.add('correct'); }
+      else if(text === q.a){ b.classList.add('correct'); }
       else { b.classList.add('dim'); }
     });
 
-    document.getElementById('quiz-score-label').textContent = '正解 ' + session.score;
+    document.getElementById('quiz-score-label').textContent = 'Score: ' + session.score;
     document.getElementById('next-btn').classList.add('show');
   }
 
@@ -671,10 +973,9 @@ footer.site-foot{
   function finishQuiz(){
     document.getElementById('progress-fill').style.width = '100%';
 
-    // save best score per single category (not for mix/review sessions)
     if(session.catKey !== '__mix__' && session.catKey !== '__review__'){
       bestScores[session.catKey] = {correct: session.score, total: session.questions.length};
-      saveJSON('ab_best_v1', bestScores);
+      saveJSON('ab_best_v2', bestScores);
     }
 
     var total = session.questions.length;
@@ -683,13 +984,13 @@ footer.site-foot{
 
     document.getElementById('result-correct').textContent = correct;
     document.getElementById('result-total').textContent = total;
-    document.getElementById('result-pct').textContent = '正答率 ' + pct + '%';
+    document.getElementById('result-pct').textContent = 'Accuracy: ' + pct + '%';
 
     var msg;
-    if(pct >= 90) msg = '安定して正解できています。この調子で本番の早押しにも備えましょう。';
-    else if(pct >= 70) msg = 'かなり定着してきています。間違えた問題を中心に復習すると効果的です。';
-    else if(pct >= 40) msg = '土台はできています。苦手な範囲を選んで繰り返し確認しましょう。';
-    else msg = 'まずは範囲ごとに繰り返し解いて、用語に慣れていきましょう。';
+    if(pct >= 90) msg = 'Outstanding performance. You have demonstrated commanding knowledge of the material.';
+    else if(pct >= 70) msg = 'Strong result. Reviewing incorrect answers will solidify your expertise.';
+    else if(pct >= 40) msg = 'Good baseline. Concentrate on specific weaker categories to improve.';
+    else msg = 'Keep practicing individual categories to build familiarity with key concepts.';
     document.getElementById('result-msg').textContent = msg;
 
     var bd = document.getElementById('breakdown');
@@ -700,11 +1001,9 @@ footer.site-foot{
         var s = session.perCatStats[ck];
         var row = document.createElement('div');
         row.className = 'bd-row';
-        var p = Math.round(s.correct / s.total * 100);
         row.innerHTML =
           '<span class="bd-label">' + escapeHTML(s.label) + '</span>' +
-          '<span class="bd-bar"><span class="bd-fill" style="width:' + p + '%"></span></span>' +
-          '<span class="bd-num">' + s.correct + '/' + s.total + '</span>';
+          '<span class="bd-num">' + s.correct + ' / ' + s.total + '</span>';
         bd.appendChild(row);
       });
     }
@@ -715,11 +1014,11 @@ footer.site-foot{
       reviewBtn.onclick = function(){
         var pool = shuffle(ALL_Q.filter(function(q){ return session.wrongIds.indexOf(q.id) !== -1; }));
         session = {
-          catKey: '__review__', label: 'この回で間違えた問題', questions: pool,
+          catKey: '__review__', label: 'Review Session Missed', questions: pool,
           index: 0, score: 0, answered:false, wrongIds: [], perCatStats: {}
         };
         headerTitle.textContent = session.label;
-        headerSub.textContent = pool.length + '問';
+        headerSub.textContent = pool.length + ' Questions';
         showScreen('quiz');
         renderQuestion();
       };
@@ -734,7 +1033,6 @@ footer.site-foot{
     showScreen('result');
   }
 
-  // ---------- init ----------
   renderHome();
 })();
 </script>
