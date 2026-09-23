@@ -155,12 +155,11 @@ main { padding: 40px 0 80px; }
 }
 
 /* Category Grid */
-.cat-grid {
+#cat-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
 }
 
 @media (min-width: 600px) {
@@ -228,12 +227,21 @@ main { padding: 40px 0 80px; }
   background: var(--border);
   margin-bottom: 40px;
 }
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
 
-.progress-fill {
+#progress-fill {
   height: 100%;
-  background: var(--text);
   width: 0%;
-  transition: width 0.2s ease;
+  background: linear-gradient(90deg, #d97706, #f59e0b); /* お好みのグラデーション色 */
+  border-radius: 999px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .q-card {
@@ -297,39 +305,58 @@ main { padding: 40px 0 80px; }
   gap: 12px;
 }
 
+/* 選択肢ボタンの基本構造 */
+.opt-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border, #2e374a);
+  background: var(--card-bg, #1c2230);
+  color: var(--text, #f5f2eb);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* ホバー時：右に少し動く */
 .opt-btn:hover:not(:disabled) {
-  border-color: var(--text);
+  border-color: var(--accent, #d97706);
+  background: rgba(217, 119, 6, 0.1);
+  transform: translateX(6px);
 }
 
+/* 記号部分（A, B, C, D）の装飾 */
 .opt-btn .mark {
-  font-family: var(--font-display);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
   font-weight: 700;
-  color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
+/* 正解・不正解の判定アニメーション用カラー */
 .opt-btn.correct {
-  border-color: var(--text);
-  background: var(--text);
-  color: var(--bg);
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: #10b981 !important;
+  color: #10b981 !important;
 }
-.opt-btn.correct .mark { color: var(--bg); }
 
 .opt-btn.incorrect {
-  border-color: var(--text);
-  background: #222222;
-  color: #888888;
-  text-decoration: line-through;
+  background: rgba(239, 68, 68, 0.15) !important;
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
 }
 
-.opt-btn.dim { opacity: 0.3; }
-
-.q-footer {
-  margin-top: 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.opt-btn.dim {
+  opacity: 0.35;
 }
-
 .next-btn {
   background: var(--text);
   color: var(--bg);
