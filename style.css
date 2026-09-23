@@ -20,7 +20,6 @@
 body {
   margin: 0;
   background-color: var(--bg);
-  /* ドットマトリクス背景（画面全体に固定） */
   background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
   background-attachment: fixed;
@@ -34,7 +33,6 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 24px;
-  /* 縦伸ばし（min-height, flex）を解除してコンテンツに応じた自然な高さにする */
 }
 
 /* Header */
@@ -85,7 +83,7 @@ header .sub {
 
 /* Navigation & Layout */
 main {
-  padding: 28px 0 60px; /* flex: 1 を削除し、ヘッダー直下に自然に配置 */
+  padding: 28px 0 60px;
 }
 
 .screen {
@@ -176,7 +174,7 @@ main {
 }
 
 /* Category Grid */
-#cat-grid {
+#cat-grid, .cat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
@@ -249,7 +247,7 @@ main {
   margin-bottom: 24px;
 }
 
-#progress-fill {
+#progress-fill, .progress-fill {
   height: 100%;
   width: 0%;
   background: linear-gradient(90deg, var(--accent), #f59e0b);
@@ -382,6 +380,13 @@ main {
   opacity: 0.35;
 }
 
+.q-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
 .next-btn {
   background: var(--text);
   color: var(--bg);
@@ -395,7 +400,6 @@ main {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
-  margin-top: 20px;
   border-radius: 6px;
 }
 
