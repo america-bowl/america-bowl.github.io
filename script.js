@@ -3,7 +3,7 @@
 
   var ALL_Q = window.ALL_Q || [];
 
-  var CAT_ORDER = ["prereq","A","B","C","D","E","F","G","H","I","appendix","US_Trivia"];
+  var CAT_ORDER = ["prereq","A","B","C","D","E","F","G","H","I","appendix","US_Currency","US_Units","US_Geography","US_Nicknames","US_Civics","US_History_Culture"];
   var CAT_META = {};
   
   ALL_Q.forEach(function(q){
@@ -12,7 +12,7 @@
   });
 
   function catLetter(cat){
-    var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", H:"08", I:"09", appendix:"10", US_Trivia:"11"};
+var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", H:"08", I:"09", appendix:"10", US_Currency:"11", US_Units:"12", US_Geography:"13", US_Nicknames:"14", US_Civics:"15", US_History_Culture:"16"};
     return map[cat] || "--";
   }
 
