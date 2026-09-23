@@ -48,7 +48,7 @@
   }
 
   function renderHome(){
-    if(headerTitle) headerTitle.textContent = "America Bowl workbook";
+    if(headerTitle) headerTitle.textContent = "America Bowl";
     if(headerSub) headerSub.textContent = "Comprehensive practice that covers vast categories.";
 
     var statsLine = document.getElementById('stats-line');
@@ -299,7 +299,9 @@
     };
 
     showScreen('result');
-  }var themeToggleBtn = document.getElementById('theme-toggle');
+  }
+
+  var themeToggleBtn = document.getElementById('theme-toggle');
   var themeIcon = document.getElementById('theme-icon');
   var themeText = document.getElementById('theme-text');
 
