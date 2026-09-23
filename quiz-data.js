@@ -2132,1394 +2132,884 @@ window.ALL_Q = [
     ]
   },
   {
+  [
+  // ==========================================
+  // 1. US_Currency (15問)
+  // ==========================================
+  {
     "id": 165,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "How many cents is a US 'penny' worth?",
     "a": "1 cent",
-    "options": [
-      "1 cent",
-      "New Orleans",
-      "Tennessee",
-      "New York Yankees"
-    ]
+    "options": ["1 cent", "New Orleans", "Tennessee", "New York Yankees"]
   },
   {
     "id": 166,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Which US coin is worth 5 cents?",
     "a": "Nickel",
-    "options": [
-      "Nickel",
-      "The Super Bowl",
-      "F. Scott Fitzgerald",
-      "Los Angeles"
-    ]
+    "options": ["Nickel", "The Super Bowl", "F. Scott Fitzgerald", "Los Angeles"]
   },
   {
     "id": 167,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Which US coin is worth 10 cents?",
     "a": "Dime",
-    "options": [
-      "Dime",
-      "Yellowstone National Park",
-      "Approx. 9.83 million km² (3rd in the world)",
-      "Approx. 349 million"
-    ]
+    "options": ["Dime", "Yellowstone National Park", "Approx. 9.83 million km² (3rd in the world)", "Approx. 349 million"]
   },
   {
     "id": 168,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Which US coin is worth 25 cents?",
     "a": "Quarter",
-    "options": [
-      "Quarter",
-      "Northern and central region",
-      "2 countries: Canada and Mexico",
-      "50 stars, representing the 50 states"
-    ]
+    "options": ["Quarter", "Northern and central region", "2 countries: Canada and Mexico", "50 stars, representing the 50 states"]
   },
   {
     "id": 169,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose face is featured on the US 1-cent coin (penny)?",
     "a": "Abraham Lincoln",
-    "options": [
-      "Abraham Lincoln",
-      "The 13 original colonies",
-      "The Star-Spangled Banner",
-      "50 states"
-    ]
+    "options": ["Abraham Lincoln", "The 13 original colonies", "The Star-Spangled Banner", "50 states"]
   },
   {
     "id": 170,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose face is featured on the US 10-cent coin (dime)?",
     "a": "Franklin D. Roosevelt",
-    "options": [
-      "Franklin D. Roosevelt",
-      "USMCA",
-      "Pacific Ocean, Atlantic Ocean, and Gulf of Mexico",
-      "California"
-    ]
+    "options": ["Franklin D. Roosevelt", "USMCA", "Pacific Ocean, Atlantic Ocean, and Gulf of Mexico", "California"]
   },
   {
     "id": 171,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose face is featured on the US 1-dollar bill?",
     "a": "George Washington",
-    "options": [
-      "George Washington",
-      "Alaska",
-      "6 standard time zones",
-      "“In God We Trust”"
-    ]
+    "options": ["George Washington", "Alaska", "6 standard time zones", "“In God We Trust”"]
   },
   {
     "id": 172,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose face is featured on the US 5-dollar bill?",
     "a": "Abraham Lincoln",
-    "options": [
-      "Abraham Lincoln",
-      "July 4",
-      "Donald Trump (47th)",
-      "JD Vance"
-    ]
+    "options": ["Abraham Lincoln", "July 4", "Donald Trump (47th)", "JD Vance"]
   },
   {
     "id": 173,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose face is featured on the US 100-dollar bill?",
     "a": "Benjamin Franklin",
-    "options": [
-      "Benjamin Franklin",
-      "Every 4 years",
-      "Electoral College",
-      "George Washington"
-    ]
+    "options": ["Benjamin Franklin", "Every 4 years", "Electoral College", "George Washington"]
   },
   {
     "id": 174,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Where are official US coins minted? (Name one major US Mint location)",
     "a": "Philadelphia (or Denver)",
-    "options": [
-      "Philadelphia (or Denver)",
-      "Abraham Lincoln",
-      "4 years",
-      "Democratic Party & Republican Party"
-    ]
-  },
-  {
-    "id": 175,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many inches are in one foot?",
-    "a": "12 inches",
-    "options": [
-      "12 inches",
-      "2 terms",
-      "Theodore Roosevelt (age 42)",
-      "The White House"
-    ]
-  },
-  {
-    "id": 176,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many feet are in one yard?",
-    "a": "3 feet",
-    "options": [
-      "3 feet",
-      "Richard Nixon",
-      "Kamala Harris",
-      "Based on population and Congressional representation"
-    ]
-  },
-  {
-    "id": 177,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many feet are equal to one statute mile?",
-    "a": "5,280 feet",
-    "options": [
-      "5,280 feet",
-      "Speaker of the House",
-      "Limits presidency to 2 terms",
-      "Barack Obama"
-    ]
-  },
-  {
-    "id": 178,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many ounces are in one standard US pound (lb)?",
-    "a": "16 ounces",
-    "options": [
-      "16 ounces",
-      "Franklin D. Roosevelt",
-      "1863",
-      "Approx. 183 cm"
-    ]
-  },
-  {
-    "id": 179,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many fluid ounces are in one US customary cup?",
-    "a": "8 fluid ounces",
-    "options": [
-      "8 fluid ounces",
-      "Fahrenheit",
-      "Approx. 3.785 liters",
-      "MM/DD/YYYY"
-    ]
-  },
-  {
-    "id": 180,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many fluid ounces make up one US liquid gallon?",
-    "a": "128 fluid ounces",
-    "options": [
-      "128 fluid ounces",
-      "As Soon As Possible",
-      "Nickel",
-      "Quarter"
-    ]
-  },
-  {
-    "id": 181,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "At what temperature in Fahrenheit does water freeze at sea level?",
-    "a": "32°F",
-    "options": [
-      "32°F",
-      "Andrew Jackson",
-      "1 cent (Penny)",
-      "USPS"
-    ]
-  },
-  {
-    "id": 182,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "At what temperature in Fahrenheit does water boil at sea level?",
-    "a": "212°F",
-    "options": [
-      "212°F",
-      "Columbia Broadcasting System",
-      "15% to 20%",
-      "Approx. 1.609 km"
-    ]
-  },
-  {
-    "id": 183,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What standard unit is commonly used in the US to measure road vehicle speed?",
-    "a": "Miles per hour (mph)",
-    "options": [
-      "Miles per hour (mph)",
-      "Répondez s'il vous plaît (Please reply)",
-      "(XXX) XXX-XXXX",
-      "Right side"
-    ]
-  },
-  {
-    "id": 184,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which US Commodore arrived in Edo Bay in 1853 with four 'Black Ships'?",
-    "a": "Commodore Matthew Perry",
-    "options": [
-      "Commodore Matthew Perry",
-      "Approx. 2.54 cm",
-      "120 volts",
-      "New Jersey"
-    ]
-  },
-  {
-    "id": 185,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which 1854 treaty formally opened Japanese ports to American trade?",
-    "a": "Treaty of Kanagawa",
-    "options": [
-      "Treaty of Kanagawa",
-      "Contiguous United States",
-      "Rhode Island",
-      "Tennessee and Missouri"
-    ]
-  },
-  {
-    "id": 186,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Who was appointed as the first United States Consul General to Japan in 1856?",
-    "a": "Townsend Harris",
-    "options": [
-      "Townsend Harris",
-      "South Carolina",
-      "Nevada",
-      "Florida"
-    ]
-  },
-  {
-    "id": 187,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which Japanese city gifted thousands of cherry blossom trees to Washington, D.C. in 1912?",
-    "a": "Tokyo",
-    "options": [
-      "Tokyo",
-      "Arizona",
-      "New York, New Jersey, New Mexico, New Hampshire",
-      "Oklahoma"
-    ]
-  },
-  {
-    "id": 188,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "In which city was the 1951 Peace Treaty signed that formally ended World War II between Japan and the Allied powers?",
-    "a": "San Francisco",
-    "options": [
-      "San Francisco",
-      "Washington",
-      "1776",
-      "1787"
-    ]
-  },
-  {
-    "id": 189,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which island was returned to Japanese sovereignty by the United States in 1972?",
-    "a": "Okinawa",
-    "options": [
-      "Okinawa",
-      "1829",
-      "1919",
-      "Alexander Hamilton"
-    ]
-  },
-  {
-    "id": 190,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state is known as the 'Sunshine State'?",
-    "a": "Florida",
-    "options": [
-      "Florida",
-      "Treaty of Paris",
-      "Dallas",
-      "1969"
-    ]
-  },
-  {
-    "id": 191,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state is the 'Aloha State' and was the 50th state to join the Union?",
-    "a": "Hawaii",
-    "options": [
-      "Hawaii",
-      "1947–1991",
-      "Manifest Destiny",
-      "Surrender at Appomattox Court House"
-    ]
-  },
-  {
-    "id": 192,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state has two distinct panhandles?",
-    "a": "West Virginia",
-    "options": [
-      "West Virginia",
-      "Christopher Columbus",
-      "Thanksgiving",
-      "Baseball"
-    ]
-  },
-  {
-    "id": 193,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which US capital city is the highest in elevation?",
-    "a": "Santa Fe, New Mexico",
-    "options": [
-      "Santa Fe, New Mexico",
-      "McDonald's",
-      "Texas",
-      "Black History Month"
-    ]
-  },
-  {
-    "id": 194,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state shares a border with only one other US state?",
-    "a": "Maine",
-    "options": [
-      "Maine",
-      "New York City",
-      "Connecticut",
-      "Fireworks Displays"
-    ]
-  },
-  {
-    "id": 195,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state is the 'Grand Canyon State'?",
-    "a": "Arizona",
-    "options": [
-      "Arizona",
-      "Super Bowl",
-      "Great Smoky Mountains National Park",
-      "Roast Turkey"
-    ]
-  },
-  {
-    "id": 196,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which Great Lake is located entirely within the borders of the United States?",
-    "a": "Lake Michigan",
-    "options": [
-      "Lake Michigan",
-      "Black Friday",
-      "Trick-or-Treating",
-      "Second Sunday in May"
-    ]
-  },
-  {
-    "id": 197,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which island territory in the Caribbean belongs to the United States?",
-    "a": "Puerto Rico",
-    "options": [
-      "Puerto Rico",
-      "National Basketball Association",
-      "New Orleans",
-      "Tennessee"
-    ]
-  },
-  {
-    "id": 198,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which war was fought between the Northern and Southern states from 1861 to 1865?",
-    "a": "The American Civil War",
-    "options": [
-      "The American Civil War",
-      "To honor military personnel who died in service",
-      "Coffee",
-      "Denali"
-    ]
-  },
-  {
-    "id": 199,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Who was president during World War I?",
-    "a": "Woodrow Wilson",
-    "options": [
-      "Woodrow Wilson",
-      "Great Basin Desert",
-      "Superior, Michigan, Huron, Erie, Ontario",
-      "Colorado"
-    ]
-  },
-  {
-    "id": 200,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Who was the only US President to serve more than two terms?",
-    "a": "Franklin D. Roosevelt",
-    "options": [
-      "Franklin D. Roosevelt",
-      "Temperate and Arid/Semi-Arid",
-      "Minnesota",
-      "New York"
-    ]
-  },
-  {
-    "id": 201,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the national bird and emblem of the United States?",
-    "a": "Bald Eagle",
-    "options": [
-      "Bald Eagle",
-      "Island of Hawaiʻi (Big Island)",
-      "No (Nepal / China border)",
-      "Kansas"
-    ]
-  },
-  {
-    "id": 202,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Who wrote the poem that became the lyrics to the US national anthem, 'The Star-Spangled Banner'?",
-    "a": "Francis Scott Key",
-    "options": [
-      "Francis Scott Key",
-      "Eastern United States",
-      "Basketball",
-      "Serena Williams"
-    ]
-  },
-  {
-    "id": 203,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the official motto of the United States, adopted in 1956?",
-    "a": "In God We Trust",
-    "options": [
-      "In God We Trust",
-      "Carl Lewis",
-      "Microsoft",
-      "Leonardo DiCaprio"
-    ]
-  },
-  {
-    "id": 204,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which famous statue in New York Harbor was gifted to the United States by France in 1886?",
-    "a": "Statue of Liberty",
-    "options": [
-      "Statue of Liberty",
-      "Golf",
-      "Mark Twain",
-      "Neil Armstrong"
-    ]
-  },
-  {
-    "id": 205,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many justices serve on the United States Supreme Court?",
-    "a": "9",
-    "options": [
-      "9",
-      "Steve Jobs",
-      "Incandescent Light Bulb",
-      "John Nash"
-    ]
-  },
-  {
-    "id": 206,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the official residence and primary workplace of the President of the United States?",
-    "a": "The White House",
-    "options": [
-      "The White House",
-      "J.K. Rowling",
-      "Academy Awards (Oscars)",
-      "Right to Keep and Bear Arms"
-    ]
-  },
-  {
-    "id": 167,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many voting members are in the US House of Representatives?",
-    "a": "435",
-    "options": [
-      "435",
-      "Slavery",
-      "Marbury v. Madison",
-      "Brown v. Board of Education"
-    ]
-  },
-  {
-    "id": 208,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many members serve in the US Senate?",
-    "a": "100",
-    "options": [
-      "100",
-      "Roe v. Wade",
-      "Women's Suffrage",
-      "Equal Protection Clause"
-    ]
-  },
-  {
-    "id": 209,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many stripes are on the official American flag?",
-    "a": "13",
-    "options": [
-      "13",
-      "Obergefell v. Hodges",
-      "Impeachment (bringing charges)",
-      "Up to 2 terms"
-    ]
-  },
-  {
-    "id": 210,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What do the 50 stars on the American flag represent?",
-    "a": "The 50 states",
-    "options": [
-      "The 50 states",
-      "9 Justices",
-      "Prohibits denying voting rights based on race",
-      "Miranda v. Arizona (1966)"
-    ]
-  },
-  {
-    "id": 211,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which female artist holds the record for the most Grammy Awards won in history?",
-    "a": "Beyoncé",
-    "options": [
-      "Beyoncé",
-      "Federal Law",
-      "Cruel and unusual punishments",
-      "The Bill of Rights"
-    ]
-  },
-  {
-    "id": 212,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which pop star gained global fame with the 1984 hit album 'Like a Virgin'?",
-    "a": "Madonna",
-    "options": [
-      "Madonna",
-      "Obamacare",
-      "American Civil War",
-      "Gun Ownership Rights vs. Gun Control Regulation"
-    ]
-  },
-  {
-    "id": 213,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What musical genre earned Elvis Presley the moniker 'King of ...'?",
-    "a": "Rock and Roll",
-    "options": [
-      "Rock and Roll",
-      "U.S.–Mexico Border",
-      "Black Lives Matter",
-      "Democratic & Republican Parties"
-    ]
-  },
-  {
-    "id": 214,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which MLB team has won the most World Series championships in history?",
-    "a": "New York Yankees",
-    "options": [
-      "New York Yankees",
-      "Pro-Life and Pro-Choice",
-      "Green New Deal",
-      "Mass Incarceration"
-    ]
-  },
-  {
-    "id": 215,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What annual championship game decides the winner of the NFL season?",
-    "a": "The Super Bowl",
-    "options": [
-      "The Super Bowl",
-      "Fight for $15",
-      "2015",
-      "Paris Agreement"
-    ]
-  },
-  {
-    "id": 216,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which American author wrote 'The Great Gatsby'?",
-    "a": "F. Scott Fitzgerald",
-    "options": [
-      "F. Scott Fitzgerald",
-      "Voter ID Laws",
-      "Defund the Police",
-      "Unequal Funding tied to local property taxes"
-    ]
-  },
-  {
-    "id": 217,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "In which city is Hollywood, the center of the US film industry, located?",
-    "a": "Los Angeles",
-    "options": [
-      "Los Angeles",
-      "Uninsured & Underinsured Population",
-      "Display of religious symbols on government property",
-      "Transgender Rights"
-    ]
-  },
-  {
-    "id": 218,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which famous national park, located mostly in Wyoming, was the world's first national park?",
-    "a": "Yellowstone National Park",
-    "options": [
-      "Yellowstone National Park",
-      "Aging Infrastructure (bridges, roads, water)",
-      "Student Debt Cancellation Movement",
-      "Francis Bellamy"
-    ]
-  },  
-  {
-    "id": 219,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the highest mountain peak in North America, located in Alaska?",
-    "a": "Denali",
-    "options": [
-      "Denali",
-      "Mount Whitney",
-      "Mount Rainier",
-      "Rocky Mountains"
-    ]
-  },
-  {
-    "id": 220,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the longest river in the United States?",
-    "a": "Missouri River",
-    "options": [
-      "Missouri River",
-      "Mississippi River",
-      "Colorado River",
-      "Rio Grande"
-    ]
-  },
-  {
-    "id": 221,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which is the smallest US state by land area?",
-    "a": "Rhode Island",
-    "options": [
-      "Rhode Island",
-      "Delaware",
-      "Connecticut",
-      "Hawaii"
-    ]
-  },
-  {
-    "id": 222,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which is the largest US state by land area?",
-    "a": "Alaska",
-    "options": [
-      "Alaska",
-      "Texas",
-      "California",
-      "Montana"
-    ]
-  },
-  {
-    "id": 223,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the capital city of the United States?",
-    "a": "Washington, D.C.",
-    "options": [
-      "Washington, D.C.",
-      "New York City",
-      "Philadelphia",
-      "Los Angeles"
-    ]
-  },
-  {
-    "id": 224,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "In what year was the United States Declaration of Independence signed?",
-    "a": "1776",
-    "options": [
-      "1776",
-      "1787",
-      "1812",
-      "1620"
-    ]
-  },
-  {
-    "id": 225,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Who was the first President of the United States?",
-    "a": "George Washington",
-    "options": [
-      "George Washington",
-      "Thomas Jefferson",
-      "John Adams",
-      "Benjamin Franklin"
-    ]
-  },
-  {
-    "id": 226,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which constitutional amendment officially abolished slavery in the United States?",
-    "a": "13th Amendment",
-    "options": [
-      "13th Amendment",
-      "14th Amendment",
-      "15th Amendment",
-      "19th Amendment"
-    ]
-  },
-  {
-    "id": 227,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many fluid ounces are in 1 US customary pint?",
-    "a": "16 fluid ounces",
-    "options": [
-      "16 fluid ounces",
-      "8 fluid ounces",
-      "32 fluid ounces",
-      "64 fluid ounces"
-    ]
-  },
-  {
-    "id": 228,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many liquid quarts are equal to 1 US liquid gallon?",
-    "a": "4 quarts",
-    "options": [
-      "4 quarts",
-      "2 quarts",
-      "8 quarts",
-      "16 quarts"
-    ]
-  },
-  {
-    "id": 229,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many pints are in 1 US customary quart?",
-    "a": "2 pints",
-    "options": [
-      "2 pints",
-      "4 pints",
-      "8 pints",
-      "1 pint"
-    ]
-  },
-  {
-    "id": 230,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many US tablespoons equal 1 fluid ounce?",
-    "a": "2 tablespoons",
-    "options": [
-      "2 tablespoons",
-      "3 tablespoons",
-      "4 tablespoons",
-      "6 tablespoons"
-    ]
-  },
-  {
-    "id": 231,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many US teaspoons are in 1 tablespoon?",
-    "a": "3 teaspoons",
-    "options": [
-      "3 teaspoons",
-      "2 teaspoons",
-      "4 teaspoons",
-      "5 teaspoons"
-    ]
-  },
-  {
-    "id": 232,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state is known by the nickname 'The Golden State'?",
-    "a": "California",
-    "options": [
-      "California",
-      "Nevada",
-      "Arizona",
-      "Florida"
-    ]
-  },
-  {
-    "id": 233,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state is known by the nickname 'The Lone Star State'?",
-    "a": "Texas",
-    "options": [
-      "Texas",
-      "Oklahoma",
-      "New Mexico",
-      "Montana"
-    ]
-  },
-  {
-    "id": 234,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state is known by the nickname 'The Empire State'?",
-    "a": "New York",
-    "options": [
-      "New York",
-      "Pennsylvania",
-      "Illinois",
-      "Ohio"
-    ]
-  },
-  {
-    "id": 235,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which US state is nicknamed 'The Peach State'?",
-    "a": "Georgia",
-    "options": [
-      "Georgia",
-      "South Carolina",
-      "Alabama",
-      "North Carolina"
-    ]
-  },
-  {
-    "id": 236,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which Pacific Northwest state is nicknamed 'The Evergreen State'?",
-    "a": "Washington",
-    "options": [
-      "Washington",
-      "Oregon",
-      "Idaho",
-      "Vermont"
-    ]
-  },
-  {
-    "id": 237,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which major US city is famous for the nickname 'The Windy City'?",
-    "a": "Chicago",
-    "options": [
-      "Chicago",
-      "Boston",
-      "Seattle",
-      "Detroit"
-    ]
-  },
-  {
-    "id": 238,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which famous city is referred to as 'The Big Apple'?",
-    "a": "New York City",
-    "options": [
-      "New York City",
-      "Los Angeles",
-      "Miami",
-      "Atlanta"
-    ]
-  },
-  {
-    "id": 239,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which US city is widely known as 'Sin City'?",
-    "a": "Las Vegas",
-    "options": [
-      "Las Vegas",
-      "Reno",
-      "Atlantic City",
-      "New Orleans"
-    ]
-  },
-  {
-    "id": 240,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which Michigan city is the historical center of American automotive manufacturing ('Motor City')?",
-    "a": "Detroit",
-    "options": [
-      "Detroit",
-      "Cleveland",
-      "Flint",
-      "Indianapolis"
-    ]
-  },
-  {
-    "id": 241,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which Colorado city is nicknamed 'The Mile High City'?",
-    "a": "Denver",
-    "options": [
-      "Denver",
-      "Salt Lake City",
-      "Phoenix",
-      "Colorado Springs"
-    ]
-  },
-  {
-    "id": 242,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which historic Massachusetts city is affectionately known as 'Beantown'?",
-    "a": "Boston",
-    "options": [
-      "Boston",
-      "Providence",
-      "Portland",
-      "Philadelphia"
-    ]
-  },
-  {
-    "id": 243,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "How many total amendments have been added to the US Constitution?",
-    "a": "27 Amendments",
-    "options": [
-      "27 Amendments",
-      "10 Amendments",
-      "21 Amendments",
-      "33 Amendments"
-    ]
-  },
-  {
-    "id": 244,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the collective name for the first ten amendments to the US Constitution?",
-    "a": "The Bill of Rights",
-    "options": [
-      "The Bill of Rights",
-      "The Federalist Papers",
-      "The Articles of Confederation",
-      "The Emancipation Proclamation"
-    ]
-  },
-  {
-    "id": 245,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "In which state is the Mount Rushmore National Memorial located?",
-    "a": "South Dakota",
-    "options": [
-      "South Dakota",
-      "North Dakota",
-      "Wyoming",
-      "Montana"
-    ]
-  },
-  {
-    "id": 246,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state features the Everglades National Park ecosystem?",
-    "a": "Florida",
-    "options": [
-      "Florida",
-      "Louisiana",
-      "Georgia",
-      "Mississippi"
-    ]
-  },
-  {
-    "id": 247,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which major mountain range extends along the eastern region of the United States?",
-    "a": "Appalachian Mountains",
-    "options": [
-      "Appalachian Mountains",
-      "Rocky Mountains",
-      "Sierra Nevada",
-      "Cascade Range"
-    ]
-  },
-  {
-    "id": 248,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which major mountain range stretches across the western region of the United States?",
-    "a": "Rocky Mountains",
-    "options": [
-      "Rocky Mountains",
-      "Appalachian Mountains",
-      "Ozark Mountains",
-      "Adirondack Mountains"
-    ]
-  },
-  {
-    "id": 249,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What is the highest mountain peak in the 48 contiguous United States?",
-    "a": "Mount Whitney",
-    "options": [
-      "Mount Whitney",
-      "Mount Elbert",
-      "Mount Rainier",
-      "Pikes Peak"
-    ]
-  },
-  {
-    "id": 250,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which is the largest of the Great Lakes by surface area?",
-    "a": "Lake Superior",
-    "options": [
-      "Lake Superior",
-      "Lake Michigan",
-      "Lake Huron",
-      "Lake Erie"
-    ]
-  },
-  {
-    "id": 251,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "What major body of water lies directly south of the contiguous United States?",
-    "a": "Gulf of Mexico",
-    "options": [
-      "Gulf of Mexico",
-      "Caribbean Sea",
-      "Chesapeake Bay",
-      "Hudson Bay"
-    ]
-  },
-  {
-    "id": 252,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which ocean borders the west coast of the United States mainland?",
-    "a": "Pacific Ocean",
-    "options": [
-      "Pacific Ocean",
-      "Atlantic Ocean",
-      "Indian Ocean",
-      "Arctic Ocean"
-    ]
-  },
-  {
-    "id": 253,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which ocean borders the east coast of the United States mainland?",
-    "a": "Atlantic Ocean",
-    "options": [
-      "Atlantic Ocean",
-      "Pacific Ocean",
-      "Indian Ocean",
-      "Arctic Ocean"
-    ]
-  },
-  {
-    "id": 254,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "In what year was the United States Constitution written in Philadelphia?",
-    "a": "1787",
-    "options": [
-      "1787",
-      "1776",
-      "1791",
-      "1803"
-    ]
-  },
-  {
-    "id": 255,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Who served as US President during the American Civil War?",
-    "a": "Abraham Lincoln",
-    "options": [
-      "Abraham Lincoln",
-      "Ulysses S. Grant",
-      "Andrew Johnson",
-      "James Buchanan"
-    ]
-  },
-  {
-    "id": 256,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Who was President during both the Great Depression and most of World War II?",
-    "a": "Franklin D. Roosevelt",
-    "options": [
-      "Franklin D. Roosevelt",
-      "Herbert Hoover",
-      "Harry S. Truman",
-      "Dwight D. Eisenhower"
-    ]
-  },
-  {
-    "id": 257,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which US President delivered the famous 'Gettysburg Address' in 1863?",
-    "a": "Abraham Lincoln",
-    "options": [
-      "Abraham Lincoln",
-      "George Washington",
-      "Thomas Jefferson",
-      "Theodore Roosevelt"
-    ]
-  },
-  {
-    "id": 258,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which New England state is nicknamed 'The Granite State'?",
-    "a": "New Hampshire",
-    "options": [
-      "New Hampshire",
-      "Vermont",
-      "Maine",
-      "Massachusetts"
-    ]
-  },
-  {
-    "id": 259,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which state is known as 'The Volunteer State'?",
-    "a": "Tennessee",
-    "options": [
-      "Tennessee",
-      "Kentucky",
-      "Virginia",
-      "North Carolina"
-    ]
-  },
-  {
-    "id": 260,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which southeastern state is nicknamed 'The Tar Heel State'?",
-    "a": "North Carolina",
-    "options": [
-      "North Carolina",
-      "South Carolina",
-      "Georgia",
-      "Virginia"
-    ]
-  },
-  {
-    "id": 261,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
-    "q": "Which US state is known as 'The Keystone State'?",
-    "a": "Pennsylvania",
-    "options": [
-      "Pennsylvania",
-      "Ohio",
-      "Maryland",
-      "Virginia"
-    ]
+    "options": ["Philadelphia (or Denver)", "Abraham Lincoln", "4 years", "Democratic Party & Republican Party"]
   },
   {
     "id": 262,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Which US coin denomination is worth 50 cents?",
     "a": "Half dollar",
-    "options": [
-      "Half dollar",
-      "Quarter",
-      "Dime",
-      "Dollar coin"
-    ]
+    "options": ["Half dollar", "Quarter", "Dime", "Dollar coin"]
   },
   {
     "id": 263,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose portrait is depicted on the US $50 bill?",
     "a": "Ulysses S. Grant",
-    "options": [
-      "Ulysses S. Grant",
-      "Alexander Hamilton",
-      "Benjamin Franklin",
-      "Andrew Jackson"
-    ]
+    "options": ["Ulysses S. Grant", "Alexander Hamilton", "Benjamin Franklin", "Andrew Jackson"]
   },
   {
     "id": 264,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose portrait is depicted on the US $10 bill?",
     "a": "Alexander Hamilton",
-    "options": [
-      "Alexander Hamilton",
-      "Thomas Jefferson",
-      "Andrew Jackson",
-      "Ulysses S. Grant"
-    ]
+    "options": ["Alexander Hamilton", "Thomas Jefferson", "Andrew Jackson", "Ulysses S. Grant"]
   },
   {
     "id": 265,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose portrait is depicted on the US $5 bill?",
     "a": "Abraham Lincoln",
-    "options": [
-      "Abraham Lincoln",
-      "George Washington",
-      "Thomas Jefferson",
-      "Alexander Hamilton"
-    ]
+    "options": ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "Alexander Hamilton"]
   },
   {
     "id": 266,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Currency",
+    "catLabel": "US Trivia: Currency & Money",
     "q": "Whose portrait is depicted on the rare US $2 bill?",
     "a": "Thomas Jefferson",
-    "options": [
-      "Thomas Jefferson",
-      "John Adams",
-      "James Madison",
-      "Alexander Hamilton"
-    ]
+    "options": ["Thomas Jefferson", "John Adams", "James Madison", "Alexander Hamilton"]
+  },
+
+  // ==========================================
+  // 2. US_Units (19問)
+  // ==========================================
+  {
+    "id": 175,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many inches are in one foot?",
+    "a": "12 inches",
+    "options": ["12 inches", "2 terms", "Theodore Roosevelt (age 42)", "The White House"]
+  },
+  {
+    "id": 176,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many feet are in one yard?",
+    "a": "3 feet",
+    "options": ["3 feet", "Richard Nixon", "Kamala Harris", "Based on population and Congressional representation"]
+  },
+  {
+    "id": 177,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many feet are equal to one statute mile?",
+    "a": "5,280 feet",
+    "options": ["5,280 feet", "Speaker of the House", "Limits presidency to 2 terms", "Barack Obama"]
+  },
+  {
+    "id": 178,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many ounces are in one standard US pound (lb)?",
+    "a": "16 ounces",
+    "options": ["16 ounces", "Franklin D. Roosevelt", "1863", "Approx. 183 cm"]
+  },
+  {
+    "id": 179,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many fluid ounces are in one US customary cup?",
+    "a": "8 fluid ounces",
+    "options": ["8 fluid ounces", "Fahrenheit", "Approx. 3.785 liters", "MM/DD/YYYY"]
+  },
+  {
+    "id": 180,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many fluid ounces make up one US liquid gallon?",
+    "a": "128 fluid ounces",
+    "options": ["128 fluid ounces", "As Soon As Possible", "Nickel", "Quarter"]
+  },
+  {
+    "id": 181,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "At what temperature in Fahrenheit does water freeze at sea level?",
+    "a": "32°F",
+    "options": ["32°F", "Andrew Jackson", "1 cent (Penny)", "USPS"]
+  },
+  {
+    "id": 182,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "At what temperature in Fahrenheit does water boil at sea level?",
+    "a": "212°F",
+    "options": ["212°F", "Columbia Broadcasting System", "15% to 20%", "Approx. 1.609 km"]
+  },
+  {
+    "id": 183,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "What standard unit is commonly used in the US to measure road vehicle speed?",
+    "a": "Miles per hour (mph)",
+    "options": ["Miles per hour (mph)", "Répondez s'il vous plaît (Please reply)", "(XXX) XXX-XXXX", "Right side"]
+  },
+  {
+    "id": 227,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many fluid ounces are in 1 US customary pint?",
+    "a": "16 fluid ounces",
+    "options": ["16 fluid ounces", "8 fluid ounces", "32 fluid ounces", "64 fluid ounces"]
+  },
+  {
+    "id": 228,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many liquid quarts are equal to 1 US liquid gallon?",
+    "a": "4 quarts",
+    "options": ["4 quarts", "2 quarts", "8 quarts", "16 quarts"]
+  },
+  {
+    "id": 229,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many pints are in 1 US customary quart?",
+    "a": "2 pints",
+    "options": ["2 pints", "4 pints", "8 pints", "1 pint"]
+  },
+  {
+    "id": 230,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many US tablespoons equal 1 fluid ounce?",
+    "a": "2 tablespoons",
+    "options": ["2 tablespoons", "3 tablespoons", "4 tablespoons", "6 tablespoons"]
+  },
+  {
+    "id": 231,
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
+    "q": "How many US teaspoons are in 1 tablespoon?",
+    "a": "3 teaspoons",
+    "options": ["3 teaspoons", "2 teaspoons", "4 teaspoons", "5 teaspoons"]
   },
   {
     "id": 267,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
     "q": "What standard unit is used for long distances on US highway speed limit and distance signs?",
     "a": "Miles",
-    "options": [
-      "Miles",
-      "Kilometers",
-      "Yards",
-      "Nautical miles"
-    ]
+    "options": ["Miles", "Kilometers", "Yards", "Nautical miles"]
   },
   {
     "id": 268,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
     "q": "What standard customary unit is commonly used for measuring adult body weight in the US?",
     "a": "Pounds (lbs)",
-    "options": [
-      "Pounds (lbs)",
-      "Kilograms (kg)",
-      "Stones",
-      "Ounces (oz)"
-    ]
+    "options": ["Pounds (lbs)", "Kilograms (kg)", "Stones", "Ounces (oz)"]
   },
   {
     "id": 269,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
     "q": "How many feet are in 1 yard?",
     "a": "3 feet",
-    "options": [
-      "3 feet",
-      "6 feet",
-      "12 feet",
-      "2 feet"
-    ]
+    "options": ["3 feet", "6 feet", "12 feet", "2 feet"]
   },
   {
     "id": 270,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
     "q": "What is the freezing point of water on the Celsius temperature scale?",
     "a": "0°C",
-    "options": [
-      "0°C",
-      "32°C",
-      "100°C",
-      "-10°C"
-    ]
+    "options": ["0°C", "32°C", "100°C", "-10°C"]
   },
   {
     "id": 271,
-    "cat": "US_Trivia",
-    "catLabel": "US Trivia & Customary Units",
+    "cat": "US_Units",
+    "catLabel": "US Trivia: Customary Units",
     "q": "What is considered average human body temperature in Fahrenheit?",
     "a": "Approx. 98.6°F",
-    "options": [
-      "Approx. 98.6°F",
-      "Approx. 37.0°F",
-      "Approx. 100.4°F",
-      "Approx. 95.0°F"
-    ]
+    "options": ["Approx. 98.6°F", "Approx. 37.0°F", "Approx. 100.4°F", "Approx. 95.0°F"]
+  },
+
+  // ==========================================
+  // 3. US_Geography (22問)
+  // ==========================================
+  {
+    "id": 190,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which state is known as the 'Sunshine State'?",
+    "a": "Florida",
+    "options": ["Florida", "Treaty of Paris", "Dallas", "1969"]
+  },
+  {
+    "id": 191,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which state is the 'Aloha State' and was the 50th state to join the Union?",
+    "a": "Hawaii",
+    "options": ["Hawaii", "1947–1991", "Manifest Destiny", "Surrender at Appomattox Court House"]
+  },
+  {
+    "id": 192,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which state has two distinct panhandles?",
+    "a": "West Virginia",
+    "options": ["West Virginia", "Christopher Columbus", "Thanksgiving", "Baseball"]
+  },
+  {
+    "id": 193,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which US capital city is the highest in elevation?",
+    "a": "Santa Fe, New Mexico",
+    "options": ["Santa Fe, New Mexico", "McDonald's", "Texas", "Black History Month"]
+  },
+  {
+    "id": 194,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which state shares a border with only one other US state?",
+    "a": "Maine",
+    "options": ["Maine", "New York City", "Connecticut", "Fireworks Displays"]
+  },
+  {
+    "id": 195,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which state is the 'Grand Canyon State'?",
+    "a": "Arizona",
+    "options": ["Arizona", "Super Bowl", "Great Smoky Mountains National Park", "Roast Turkey"]
+  },
+  {
+    "id": 196,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which Great Lake is located entirely within the borders of the United States?",
+    "a": "Lake Michigan",
+    "options": ["Lake Michigan", "Black Friday", "Trick-or-Treating", "Second Sunday in May"]
+  },
+  {
+    "id": 197,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which island territory in the Caribbean belongs to the United States?",
+    "a": "Puerto Rico",
+    "options": ["Puerto Rico", "National Basketball Association", "New Orleans", "Tennessee"]
+  },
+  {
+    "id": 218,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which famous national park, located mostly in Wyoming, was the world's first national park?",
+    "a": "Yellowstone National Park",
+    "options": ["Yellowstone National Park", "Aging Infrastructure (bridges, roads, water)", "Student Debt Cancellation Movement", "Francis Bellamy"]
+  },
+  {
+    "id": 219,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "What is the highest mountain peak in North America, located in Alaska?",
+    "a": "Denali",
+    "options": ["Denali", "Mount Whitney", "Mount Rainier", "Rocky Mountains"]
+  },
+  {
+    "id": 220,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "What is the longest river in the United States?",
+    "a": "Missouri River",
+    "options": ["Missouri River", "Mississippi River", "Colorado River", "Rio Grande"]
+  },
+  {
+    "id": 221,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which is the smallest US state by land area?",
+    "a": "Rhode Island",
+    "options": ["Rhode Island", "Delaware", "Connecticut", "Hawaii"]
+  },
+  {
+    "id": 222,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which is the largest US state by land area?",
+    "a": "Alaska",
+    "options": ["Alaska", "Texas", "California", "Montana"]
+  },
+  {
+    "id": 245,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "In which state is the Mount Rushmore National Memorial located?",
+    "a": "South Dakota",
+    "options": ["South Dakota", "North Dakota", "Wyoming", "Montana"]
+  },
+  {
+    "id": 246,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which state features the Everglades National Park ecosystem?",
+    "a": "Florida",
+    "options": ["Florida", "Louisiana", "Georgia", "Mississippi"]
+  },
+  {
+    "id": 247,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which major mountain range extends along the eastern region of the United States?",
+    "a": "Appalachian Mountains",
+    "options": ["Appalachian Mountains", "Rocky Mountains", "Sierra Nevada", "Cascade Range"]
+  },
+  {
+    "id": 248,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which major mountain range stretches across the western region of the United States?",
+    "a": "Rocky Mountains",
+    "options": ["Rocky Mountains", "Appalachian Mountains", "Ozark Mountains", "Adirondack Mountains"]
+  },
+  {
+    "id": 249,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "What is the highest mountain peak in the 48 contiguous United States?",
+    "a": "Mount Whitney",
+    "options": ["Mount Whitney", "Mount Elbert", "Mount Rainier", "Pikes Peak"]
+  },
+  {
+    "id": 250,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which is the largest of the Great Lakes by surface area?",
+    "a": "Lake Superior",
+    "options": ["Lake Superior", "Lake Michigan", "Lake Huron", "Lake Erie"]
+  },
+  {
+    "id": 251,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "What major body of water lies directly south of the contiguous United States?",
+    "a": "Gulf of Mexico",
+    "options": ["Gulf of Mexico", "Caribbean Sea", "Chesapeake Bay", "Hudson Bay"]
+  },
+  {
+    "id": 252,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which ocean borders the west coast of the United States mainland?",
+    "a": "Pacific Ocean",
+    "options": ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"]
+  },
+  {
+    "id": 253,
+    "cat": "US_Geography",
+    "catLabel": "US Trivia: Geography & Nature",
+    "q": "Which ocean borders the east coast of the United States mainland?",
+    "a": "Atlantic Ocean",
+    "options": ["Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Arctic Ocean"]
+  },
+
+  // ==========================================
+  // 4. US_Nicknames (15問)
+  // ==========================================
+  {
+    "id": 232,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which state is known by the nickname 'The Golden State'?",
+    "a": "California",
+    "options": ["California", "Nevada", "Arizona", "Florida"]
+  },
+  {
+    "id": 233,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which state is known by the nickname 'The Lone Star State'?",
+    "a": "Texas",
+    "options": ["Texas", "Oklahoma", "New Mexico", "Montana"]
+  },
+  {
+    "id": 234,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which state is known by the nickname 'The Empire State'?",
+    "a": "New York",
+    "options": ["New York", "Pennsylvania", "Illinois", "Ohio"]
+  },
+  {
+    "id": 235,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which US state is nicknamed 'The Peach State'?",
+    "a": "Georgia",
+    "options": ["Georgia", "South Carolina", "Alabama", "North Carolina"]
+  },
+  {
+    "id": 236,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which Pacific Northwest state is nicknamed 'The Evergreen State'?",
+    "a": "Washington",
+    "options": ["Washington", "Oregon", "Idaho", "Vermont"]
+  },
+  {
+    "id": 237,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which major US city is famous for the nickname 'The Windy City'?",
+    "a": "Chicago",
+    "options": ["Chicago", "Boston", "Seattle", "Detroit"]
+  },
+  {
+    "id": 238,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which famous city is referred to as 'The Big Apple'?",
+    "a": "New York City",
+    "options": ["New York City", "Los Angeles", "Miami", "Atlanta"]
+  },
+  {
+    "id": 239,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which US city is widely known as 'Sin City'?",
+    "a": "Las Vegas",
+    "options": ["Las Vegas", "Reno", "Atlantic City", "New Orleans"]
+  },
+  {
+    "id": 240,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which Michigan city is the historical center of American automotive manufacturing ('Motor City')?",
+    "a": "Detroit",
+    "options": ["Detroit", "Cleveland", "Flint", "Indianapolis"]
+  },
+  {
+    "id": 241,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which Colorado city is nicknamed 'The Mile High City'?",
+    "a": "Denver",
+    "options": ["Denver", "Salt Lake City", "Phoenix", "Colorado Springs"]
+  },
+  {
+    "id": 242,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which historic Massachusetts city is affectionately known as 'Beantown'?",
+    "a": "Boston",
+    "options": ["Boston", "Providence", "Portland", "Philadelphia"]
+  },
+  {
+    "id": 258,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which New England state is nicknamed 'The Granite State'?",
+    "a": "New Hampshire",
+    "options": ["New Hampshire", "Vermont", "Maine", "Massachusetts"]
+  },
+  {
+    "id": 259,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which state is known as 'The Volunteer State'?",
+    "a": "Tennessee",
+    "options": ["Tennessee", "Kentucky", "Virginia", "North Carolina"]
+  },
+  {
+    "id": 260,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which southeastern state is nicknamed 'The Tar Heel State'?",
+    "a": "North Carolina",
+    "options": ["North Carolina", "South Carolina", "Georgia", "Virginia"]
+  },
+  {
+    "id": 261,
+    "cat": "US_Nicknames",
+    "catLabel": "US Trivia: Nicknames",
+    "q": "Which US state is known as 'The Keystone State'?",
+    "a": "Pennsylvania",
+    "options": ["Pennsylvania", "Ohio", "Maryland", "Virginia"]
+  },
+
+  // ==========================================
+  // 5. US_Civics (18問)
+  // ==========================================
+  {
+    "id": 201,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "What is the national bird and emblem of the United States?",
+    "a": "Bald Eagle",
+    "options": ["Bald Eagle", "Island of Hawaiʻi (Big Island)", "No (Nepal / China border)", "Kansas"]
+  },
+  {
+    "id": 202,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "Who wrote the poem that became the lyrics to the US national anthem, 'The Star-Spangled Banner'?",
+    "a": "Francis Scott Key",
+    "options": ["Francis Scott Key", "Eastern United States", "Basketball", "Serena Williams"]
+  },
+  {
+    "id": 203,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "What is the official motto of the United States, adopted in 1956?",
+    "a": "In God We Trust",
+    "options": ["In God We Trust", "Carl Lewis", "Microsoft", "Leonardo DiCaprio"]
+  },
+  {
+    "id": 204,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "Which famous statue in New York Harbor was gifted to the United States by France in 1886?",
+    "a": "Statue of Liberty",
+    "options": ["Statue of Liberty", "Golf", "Mark Twain", "Neil Armstrong"]
+  },
+  {
+    "id": 205,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "How many justices serve on the United States Supreme Court?",
+    "a": "9",
+    "options": ["9", "Steve Jobs", "Incandescent Light Bulb", "John Nash"]
+  },
+  {
+    "id": 206,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "What is the official residence and primary workplace of the President of the United States?",
+    "a": "The White House",
+    "options": ["The White House", "J.K. Rowling", "Academy Awards (Oscars)", "Right to Keep and Bear Arms"]
+  },
+  {
+    "id": 207,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "How many voting members are in the US House of Representatives?",
+    "a": "435",
+    "options": ["435", "Slavery", "Marbury v. Madison", "Brown v. Board of Education"]
+  },
+  {
+    "id": 208,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "How many members serve in the US Senate?",
+    "a": "100",
+    "options": ["100", "Roe v. Wade", "Women's Suffrage", "Equal Protection Clause"]
+  },
+  {
+    "id": 209,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "How many stripes are on the official American flag?",
+    "a": "13",
+    "options": ["13", "Obergefell v. Hodges", "Impeachment (bringing charges)", "Up to 2 terms"]
+  },
+  {
+    "id": 210,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "What do the 50 stars on the American flag represent?",
+    "a": "The 50 states",
+    "options": ["The 50 states", "9 Justices", "Prohibits denying voting rights based on race", "Miranda v. Arizona (1966)"]
+  },
+  {
+    "id": 223,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "What is the capital city of the United States?",
+    "a": "Washington, D.C.",
+    "options": ["Washington, D.C.", "New York City", "Philadelphia", "Los Angeles"]
+  },
+  {
+    "id": 226,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "Which constitutional amendment officially abolished slavery in the United States?",
+    "a": "13th Amendment",
+    "options": ["13th Amendment", "14th Amendment", "15th Amendment", "19th Amendment"]
+  },
+  {
+    "id": 243,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "How many total amendments have been added to the US Constitution?",
+    "a": "27 Amendments",
+    "options": ["27 Amendments", "10 Amendments", "21 Amendments", "33 Amendments"]
+  },
+  {
+    "id": 244,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "What is the collective name for the first ten amendments to the US Constitution?",
+    "a": "The Bill of Rights",
+    "options": ["The Bill of Rights", "The Federalist Papers", "The Articles of Confederation", "The Emancipation Proclamation"]
+  },
+  {
+    "id": 254,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "In what year was the United States Constitution written in Philadelphia?",
+    "a": "1787",
+    "options": ["1787", "1776", "1791", "1803"]
+  },
+  {
+    "id": 255,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "Who served as US President during the American Civil War?",
+    "a": "Abraham Lincoln",
+    "options": ["Abraham Lincoln", "Ulysses S. Grant", "Andrew Johnson", "James Buchanan"]
+  },
+  {
+    "id": 256,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "Who was President during both the Great Depression and most of World War II?",
+    "a": "Franklin D. Roosevelt",
+    "options": ["Franklin D. Roosevelt", "Herbert Hoover", "Harry S. Truman", "Dwight D. Eisenhower"]
+  },
+  {
+    "id": 257,
+    "cat": "US_Civics",
+    "catLabel": "US Trivia: Civics & Government",
+    "q": "Which US President delivered the famous 'Gettysburg Address' in 1863?",
+    "a": "Abraham Lincoln",
+    "options": ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "Theodore Roosevelt"]
+  },
+
+  // ==========================================
+  // 6. US_History_Culture (18問)
+  // ==========================================
+  {
+    "id": 184,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which US Commodore arrived in Edo Bay in 1853 with four 'Black Ships'?",
+    "a": "Commodore Matthew Perry",
+    "options": ["Commodore Matthew Perry", "Approx. 2.54 cm", "120 volts", "New Jersey"]
+  },
+  {
+    "id": 185,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which 1854 treaty formally opened Japanese ports to American trade?",
+    "a": "Treaty of Kanagawa",
+    "options": ["Treaty of Kanagawa", "Contiguous United States", "Rhode Island", "Tennessee and Missouri"]
+  },
+  {
+    "id": 186,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Who was appointed as the first United States Consul General to Japan in 1856?",
+    "a": "Townsend Harris",
+    "options": ["Townsend Harris", "South Carolina", "Nevada", "Florida"]
+  },
+  {
+    "id": 187,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which Japanese city gifted thousands of cherry blossom trees to Washington, D.C. in 1912?",
+    "a": "Tokyo",
+    "options": ["Tokyo", "Arizona", "New York, New Jersey, New Mexico, New Hampshire", "Oklahoma"]
+  },
+  {
+    "id": 188,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "In which city was the 1951 Peace Treaty signed that formally ended World War II between Japan and the Allied powers?",
+    "a": "San Francisco",
+    "options": ["San Francisco", "Washington", "1776", "1787"]
+  },
+  {
+    "id": 189,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which island was returned to Japanese sovereignty by the United States in 1972?",
+    "a": "Okinawa",
+    "options": ["Okinawa", "1829", "1919", "Alexander Hamilton"]
+  },
+  {
+    "id": 198,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which war was fought between the Northern and Southern states from 1861 to 1865?",
+    "a": "The American Civil War",
+    "options": ["The American Civil War", "To honor military personnel who died in service", "Coffee", "Denali"]
+  },
+  {
+    "id": 199,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Who was president during World War I?",
+    "a": "Woodrow Wilson",
+    "options": ["Woodrow Wilson", "Great Basin Desert", "Superior, Michigan, Huron, Erie, Ontario", "Colorado"]
+  },
+  {
+    "id": 200,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Who was the only US President to serve more than two terms?",
+    "a": "Franklin D. Roosevelt",
+    "options": ["Franklin D. Roosevelt", "Temperate and Arid/Semi-Arid", "Minnesota", "New York"]
+  },
+  {
+    "id": 211,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which female artist holds the record for the most Grammy Awards won in history?",
+    "a": "Beyoncé",
+    "options": ["Beyoncé", "Federal Law", "Cruel and unusual punishments", "The Bill of Rights"]
+  },
+  {
+    "id": 212,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which pop star gained global fame with the 1984 hit album 'Like a Virgin'?",
+    "a": "Madonna",
+    "options": ["Madonna", "Obamacare", "American Civil War", "Gun Ownership Rights vs. Gun Control Regulation"]
+  },
+  {
+    "id": 213,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "What musical genre earned Elvis Presley the moniker 'King of ...'?",
+    "a": "Rock and Roll",
+    "options": ["Rock and Roll", "U.S.–Mexico Border", "Black Lives Matter", "Democratic & Republican Parties"]
+  },
+  {
+    "id": 214,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which MLB team has won the most World Series championships in history?",
+    "a": "New York Yankees",
+    "options": ["New York Yankees", "Pro-Life and Pro-Choice", "Green New Deal", "Mass Incarceration"]
+  },
+  {
+    "id": 215,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "What annual championship game decides the winner of the NFL season?",
+    "a": "The Super Bowl",
+    "options": ["The Super Bowl", "Fight for $15", "2015", "Paris Agreement"]
+  },
+  {
+    "id": 216,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Which American author wrote 'The Great Gatsby'?",
+    "a": "F. Scott Fitzgerald",
+    "options": ["F. Scott Fitzgerald", "Voter ID Laws", "Defund the Police", "Unequal Funding tied to local property taxes"]
+  },
+  {
+    "id": 217,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "In which city is Hollywood, the center of the US film industry, located?",
+    "a": "Los Angeles",
+    "options": ["Los Angeles", "Uninsured & Underinsured Population", "Display of religious symbols on government property", "Transgender Rights"]
+  },
+  {
+    "id": 224,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "In what year was the United States Declaration of Independence signed?",
+    "a": "1776",
+    "options": ["1776", "1787", "1812", "1620"]
+  },
+  {
+    "id": 225,
+    "cat": "US_History_Culture",
+    "catLabel": "US Trivia: History & Culture",
+    "q": "Who was the first President of the United States?",
+    "a": "George Washington",
+    "options": ["George Washington", "Thomas Jefferson", "John Adams", "Benjamin Franklin"]
   }
-];
+]
