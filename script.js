@@ -48,7 +48,7 @@
   }
 
   function renderHome(){
-    if(headerTitle) headerTitle.textContent = "America Bowl";
+    if(headerTitle) headerTitle.textContent = "AMERICA BOWL";
     if(headerSub) headerSub.textContent = "Comprehensive practice that covers vast categories.";
 
     var statsLine = document.getElementById('stats-line');
@@ -172,7 +172,11 @@
     var optsWrap = document.getElementById('options');
     optsWrap.innerHTML = '';
     var letters = ['A','B','C','D'];
-    q.options.forEach(function(opt, i){
+    
+    // 選択肢をランダムにシャッフル
+    var shuffledOptions = shuffle(q.options);
+    
+    shuffledOptions.forEach(function(opt, i){
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'opt-btn';
