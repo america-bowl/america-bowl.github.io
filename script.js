@@ -1,7 +1,6 @@
 (function(){
   "use strict";
 
-  // window.ALL_Q からデータを受け取る（存在しない場合は空配列）
   var ALL_Q = window.ALL_Q || [];
 
   var CAT_ORDER = ["prereq","A","B","C","D","E","F","G","H","I","appendix"];
