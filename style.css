@@ -168,10 +168,9 @@ main { padding: 40px 0 80px; }
 }
 
 .cat-card {
-  position: relative; /* 左端ラインの基準点 */
-  overflow: hidden;
   background: var(--bg);
-  border: none;
+  border: 1px solid transparent; /* 枠線変化の準備 */
+  border-radius: 8px; /* 浮いたときに綺麗に見えるよう少し角を丸める */
   padding: 20px 24px;
   display: flex;
   align-items: baseline;
@@ -179,30 +178,20 @@ main { padding: 40px 0 80px; }
   cursor: pointer;
   text-align: left;
   color: var(--text);
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* 左端のバー（初期状態は透明） */
-.cat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px; /* バーの太さ */
-  height: 100%;
-  background: transparent;
-  transition: background-color 0.2s ease;
+  /* 浮き上がり(transform)と影(box-shadow)も滑らかに変化させる */
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .cat-card:hover {
   background: var(--panel);
-  transform: translateY(-3px); /* 3px浮き上がる */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px); /* 上に4px浮き上がる */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* 浮いた感が出る影 */
+  border-color: rgba(255, 255, 255, 0.1); /* うっすら枠線（お好みで調整） */
 }
 
-/* ホバー時に左端のバーを発光させる */
-.cat-card:hover::before {
-  background: #00f2fe; /* ★ここにお好みのアクセントカラーを指定 */
+/* ホバーしたときに「01, 02...」の数字の色も明るくする */
+.cat-card:hover .letter {
+  color: var(--text);
 }
 
 .cat-card .letter {
@@ -211,12 +200,12 @@ main { padding: 40px 0 80px; }
   font-weight: 800;
   color: var(--text-muted);
   min-width: 2rem;
+  transition: color 0.2s ease;
 }
 
 .cat-card .info { flex: 1; }
 .cat-card .name { font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; }
 .cat-card .meta { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
-
 /* Quiz Interface */
 .quiz-meta {
   display: flex;
