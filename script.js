@@ -1,13 +1,12 @@
 (function(){
   "use strict";
 
-  if (typeof ALL_Q === "undefined") {
-    console.error("quiz-data.js が読み込まれていません。");
-    return;
-  }
+  // window.ALL_Q からデータを受け取る（存在しない場合は空配列）
+  var ALL_Q = window.ALL_Q || [];
 
   var CAT_ORDER = ["prereq","A","B","C","D","E","F","G","H","I","appendix"];
   var CAT_META = {};
+  
   ALL_Q.forEach(function(q){
     if(!CAT_META[q.cat]) CAT_META[q.cat] = {label:q.catLabel, count:0, letter:catLetter(q.cat)};
     CAT_META[q.cat].count++;
@@ -43,56 +42,70 @@
 
   function showScreen(name){
     Object.keys(screens).forEach(function(k){
-      screens[k].classList.toggle('active', k === name);
+      if(screens[k]) screens[k].classList.toggle('active', k === name);
     });
-    homeLink.style.display = (name === 'home') ? 'none' : 'inline-block';
+    if(homeLink) homeLink.style.display = (name === 'home') ? 'none' : 'inline-block';
     window.scrollTo({top:0, behavior:'auto'});
   }
 
   function renderHome(){
-    headerTitle.textContent = "America Bowl";
-    headerSub.textContent = "Comprehensive practice suite covering all categories.";
+    if(headerTitle) headerTitle.textContent = "America Bowl workbook";
+    if(headerSub) headerSub.textContent = "Comprehensive practice that covers vast categories.";
 
     var statsLine = document.getElementById('stats-line');
-    if(totals.answered > 0){
-      statsLine.textContent = 'Cumulative Stats: ' + totals.correct + ' / ' + totals.answered + ' Correct (' + Math.round(totals.correct/totals.answered*100) + '% Rate)';
-    } else {
-      statsLine.textContent = '';
+    if(statsLine){
+      if(totals.answered > 0){
+        statsLine.textContent = 'Cumulative Stats: ' + totals.correct + ' / ' + totals.answered + ' Correct (' + Math.round(totals.correct/totals.answered*100) + '% Rate)';
+      } else {
+        statsLine.textContent = '';
+      }
     }
 
     var reviewCard = document.getElementById('card-review');
     var reviewCount = document.getElementById('review-count');
-    if(missed.length > 0){
-      reviewCard.style.display = '';
-      reviewCount.textContent = missed.length;
-    } else {
-      reviewCard.style.display = 'none';
+    if(reviewCard && reviewCount){
+      if(missed.length > 0){
+        reviewCard.style.display = '';
+        reviewCount.textContent = missed.length;
+      } else {
+        reviewCard.style.display = 'none';
+      }
     }
 
     var grid = document.getElementById('cat-grid');
-    grid.innerHTML = '';
-    CAT_ORDER.forEach(function(cat){
-      var meta = CAT_META[cat];
-      if(!meta) return;
-      var best = bestScores[cat];
-      var card = document.createElement('button');
-      card.type = 'button';
-      card.className = 'cat-card';
-      var bestText = best ? ('Best: ' + best.correct + ' / ' + best.total) : (meta.count + ' Questions');
-      card.innerHTML =
-        '<span class="letter">' + meta.letter + '</span>' +
-        '<span class="info"><p class="name">' + escapeHTML(meta.label) + '</p>' +
-        '<p class="meta">' + escapeHTML(bestText) + '</p></span>';
-      card.addEventListener('click', function(){ startQuiz(cat); });
-      grid.appendChild(card);
-    });
+    if(grid){
+      grid.innerHTML = '';
+      CAT_ORDER.forEach(function(cat){
+        var meta = CAT_META[cat];
+        if(!meta) return;
+        var best = bestScores[cat];
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'cat-card';
+        var bestText = best ? ('Best: ' + best.correct + ' / ' + best.total) : (meta.count + ' Questions');
+        card.innerHTML =
+          '<span class="letter">' + meta.letter + '</span>' +
+          '<span class="info"><p class="name">' + escapeHTML(meta.label) + '</p>' +
+          '<p class="meta">' + escapeHTML(bestText) + '</p></span>';
+        card.addEventListener('click', function(){ startQuiz(cat); });
+        grid.appendChild(card);
+      });
+    }
   }
 
-  document.getElementById('card-mix').addEventListener('click', function(){ startQuiz('__mix__'); });
-  document.getElementById('card-review').addEventListener('click', function(){ startQuiz('__review__'); });
-  document.getElementById('home-link').addEventListener('click', function(){ renderHome(); showScreen('home'); });
-  document.getElementById('quit-link').addEventListener('click', function(){ renderHome(); showScreen('home'); });
-  document.getElementById('btn-back').addEventListener('click', function(){ renderHome(); showScreen('home'); });
+  var btnMix = document.getElementById('card-mix');
+  if(btnMix) btnMix.addEventListener('click', function(){ startQuiz('__mix__'); });
+
+  var btnReview = document.getElementById('card-review');
+  if(btnReview) btnReview.addEventListener('click', function(){ startQuiz('__review__'); });
+
+  if(homeLink) homeLink.addEventListener('click', function(){ renderHome(); showScreen('home'); });
+
+  var quitLink = document.getElementById('quit-link');
+  if(quitLink) quitLink.addEventListener('click', function(){ renderHome(); showScreen('home'); });
+
+  var btnBack = document.getElementById('btn-back');
+  if(btnBack) btnBack.addEventListener('click', function(){ renderHome(); showScreen('home'); });
 
   function escapeHTML(s){
     return String(s).replace(/[&<>"']/g, function(c){
@@ -122,7 +135,7 @@
       label = 'Review Missed';
     } else {
       pool = shuffle(ALL_Q.filter(function(q){ return q.cat === catKey; }));
-      label = CAT_META[catKey].label;
+      label = CAT_META[catKey] ? CAT_META[catKey].label : 'Quiz';
     }
     if(pool.length === 0){ return; }
     session = {
@@ -135,8 +148,8 @@
       wrongIds: [],
       perCatStats: {}
     };
-    headerTitle.textContent = label;
-    headerSub.textContent = pool.length + ' Questions Total';
+    if(headerTitle) headerTitle.textContent = label;
+    if(headerSub) headerSub.textContent = pool.length + ' Questions Total';
     showScreen('quiz');
     renderQuestion();
   }
@@ -214,14 +227,17 @@
     document.getElementById('next-btn').classList.add('show');
   }
 
-  document.getElementById('next-btn').addEventListener('click', function(){
-    session.index++;
-    if(session.index >= session.questions.length){
-      finishQuiz();
-    } else {
-      renderQuestion();
-    }
-  });
+  var nextBtn = document.getElementById('next-btn');
+  if(nextBtn){
+    nextBtn.addEventListener('click', function(){
+      session.index++;
+      if(session.index >= session.questions.length){
+        finishQuiz();
+      } else {
+        renderQuestion();
+      }
+    });
+  }
 
   function finishQuiz(){
     document.getElementById('progress-fill').style.width = '100%';
@@ -270,8 +286,8 @@
           catKey: '__review__', label: 'Review Session Missed', questions: pool,
           index: 0, score: 0, answered:false, wrongIds: [], perCatStats: {}
         };
-        headerTitle.textContent = session.label;
-        headerSub.textContent = pool.length + ' Questions';
+        if(headerTitle) headerTitle.textContent = session.label;
+        if(headerSub) headerSub.textContent = pool.length + ' Questions';
         showScreen('quiz');
         renderQuestion();
       };
