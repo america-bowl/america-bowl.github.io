@@ -65,7 +65,8 @@ body {
 
 /* Header */
 header.top {
-  border-bottom: 1px solid var(--border);
+  border-bottom: none;
+  box-shadow: none;
   padding: 32px 0 24px;
 }
 
