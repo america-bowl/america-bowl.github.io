@@ -20,7 +20,7 @@
 body {
   margin: 0;
   background-color: var(--bg);
-  /* ドットマトリクス背景 */
+  /* ドットマトリクス背景（画面全体に固定） */
   background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
   background-attachment: fixed;
@@ -34,15 +34,13 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 24px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  /* 縦伸ばし（min-height, flex）を解除してコンテンツに応じた自然な高さにする */
 }
 
 /* Header */
 header.top {
   border-bottom: 1px solid var(--border);
-  padding: 40px 0 30px;
+  padding: 32px 0 24px;
 }
 
 header .brand {
@@ -87,15 +85,17 @@ header .sub {
 
 /* Navigation & Layout */
 main {
-  flex: 1; /* 余白を下に逃がしてコンテンツを上に寄せる */
-  padding: 40px 0 80px;
-}.screen {
+  padding: 28px 0 60px; /* flex: 1 を削除し、ヘッダー直下に自然に配置 */
+}
+
+.screen {
   display: none !important; 
 }
 
 .screen.active {
   display: block !important;
 }
+
 .intro-text {
   font-size: 1rem;
   color: var(--text-muted);
