@@ -3,7 +3,7 @@
 
   var ALL_Q = window.ALL_Q || [];
 
-  var CAT_ORDER = ["prereq","A","B","C","D","E","F","G","H","I","appendix"];
+  var CAT_ORDER = ["prereq","A","B","C","D","E","F","G","H","I","appendix","US_Trivia"];
   var CAT_META = {};
   
   ALL_Q.forEach(function(q){
@@ -12,7 +12,7 @@
   });
 
   function catLetter(cat){
-    var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", H:"08", I:"09", appendix:"10"};
+    var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", H:"08", I:"09", appendix:"10", US_Trivia:"11"};
     return map[cat] || "--";
   }
 
