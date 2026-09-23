@@ -168,6 +168,8 @@ main { padding: 40px 0 80px; }
 }
 
 .cat-card {
+  position: relative; /* 左端ラインの基準点 */
+  overflow: hidden;
   background: var(--bg);
   border: none;
   padding: 20px 24px;
@@ -177,11 +179,30 @@ main { padding: 40px 0 80px; }
   cursor: pointer;
   text-align: left;
   color: var(--text);
-  transition: background-color 0.15s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 左端のバー（初期状態は透明） */
+.cat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px; /* バーの太さ */
+  height: 100%;
+  background: transparent;
+  transition: background-color 0.2s ease;
 }
 
 .cat-card:hover {
   background: var(--panel);
+  transform: translateY(-3px); /* 3px浮き上がる */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ホバー時に左端のバーを発光させる */
+.cat-card:hover::before {
+  background: #00f2fe; /* ★ここにお好みのアクセントカラーを指定 */
 }
 
 .cat-card .letter {
