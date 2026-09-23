@@ -584,3 +584,84 @@ footer.site-foot {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+/* BANNER CONTAINER */
+.ab-banner {
+  position: relative;
+  text-align: center;
+  padding: 28px 12px;
+  margin: 12px 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Background Flag Waves and Stars Layer */
+.banner-svg-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 6px 0;
+  line-height: 1.1;
+  color: currentColor;
+}
+
+/* Lines & Stars Dividers */
+.banner-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0.9;
+}
+
+.banner-divider::before,
+.banner-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 220px;
+  height: 1px;
+  background-color: currentColor;
+}
+
+.banner-divider .star {
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+/* Color Themes */
+[data-theme="light"] .ab-banner {
+  color: #111111;
+}
+
+[data-theme="dark"] .ab-banner {
+  color: #ffffff;
+}
+
+/* Responsive for Mobile Devices */
+@media (max-width: 600px) {
+  .banner-title {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+  }
+  .banner-divider::before,
+  .banner-divider::after {
+    max-width: 90px;
+  }
+}
