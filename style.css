@@ -1,20 +1,21 @@
 :root {
-  --bg: #000000;
-  --panel: rgba(13, 13, 13, 0.75);
-  --card-bg: rgba(20, 20, 20, 0.65);
+  /* ダークモード：ネイビー・サイバー系ベースへ変更 */
+  --bg: #0b1120; /* ほんのり青みのある落ち着いた深色 */
+  --panel: rgba(22, 32, 54, 0.85); /* カード背景を明るく・クッキリ */
+  --card-bg: rgba(26, 38, 64, 0.75);
   --text: #ffffff;
-  --text-muted: #999999;
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: #ffffff;
-  --accent: #d97706;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.18); /* 枠線を少し見やすく */
+  --border-strong: #38bdf8;
+  --accent: #f59e0b;
   --correct: #10b981;
   --incorrect: #ef4444;
-  --dot-color: rgba(255, 255, 255, 0.18);
-  --opt-bg: rgba(0, 0, 0, 0.4);
-  --hover-card-bg: rgba(255, 255, 255, 0.95);
-  --hover-card-text: #000000;
-  --hover-cat-bg: rgba(255, 255, 255, 0.12);
-  --shadow-color: rgba(0, 0, 0, 0.5);
+  --dot-color: rgba(255, 255, 255, 0.08); /* ドットは主張しすぎない濃さに */
+  --opt-bg: rgba(15, 23, 42, 0.6);
+  --hover-card-bg: #1e293b;
+  --hover-card-text: #ffffff;
+  --hover-cat-bg: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.4);
   --font-display: 'Syne', sans-serif;
   --font-body: 'Space Grotesk', sans-serif;
   color-scheme: dark;
@@ -23,7 +24,7 @@
 
 /* ライトモード定義 */
 [data-theme="light"] {
-  --bg: #f7f5f0; /* 白すぎない落ち着いたトーンに変更 */
+  --bg: #eef0f4;
   --panel: rgba(255, 255, 255, 0.85);
   --card-bg: rgba(255, 255, 255, 0.75);
   --text: #111111;
@@ -33,7 +34,7 @@
   --accent: #d97706;
   --correct: #059669;
   --incorrect: #dc2626;
-  --dot-color: rgba(0, 0, 0, 0.04); /* ドットを大幅に薄くしてそばかす感を防止 */
+  --dot-color: rgba(0, 0, 0, 0.04);
   --opt-bg: rgba(255, 255, 255, 0.8);
   --hover-card-bg: #111111;
   --hover-card-text: #ffffff;
@@ -652,7 +653,7 @@ footer.site-foot {
 }
 
 [data-theme="light"] .banner-svg-bg {
-  opacity: 0.25; /* ライトモード時のSVG背景も優しくなじませる */
+  opacity: 0.25;
 }
 
 [data-theme="dark"] .ab-banner {
