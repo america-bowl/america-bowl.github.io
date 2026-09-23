@@ -23,22 +23,22 @@
 
 /* ライトモード定義 */
 [data-theme="light"] {
-  --bg: #f4f4f6;
+  --bg: #eef0f4; /* 白すぎない落ち着いたトーンに変更 */
   --panel: rgba(255, 255, 255, 0.85);
   --card-bg: rgba(255, 255, 255, 0.75);
   --text: #111111;
   --text-muted: #666666;
-  --border: rgba(0, 0, 0, 0.12);
+  --border: rgba(0, 0, 0, 0.1);
   --border-strong: #111111;
   --accent: #d97706;
   --correct: #059669;
   --incorrect: #dc2626;
-  --dot-color: rgba(0, 0, 0, 0.12);
+  --dot-color: rgba(0, 0, 0, 0.04); /* ドットを大幅に薄くしてそばかす感を防止 */
   --opt-bg: rgba(255, 255, 255, 0.8);
   --hover-card-bg: #111111;
   --hover-card-text: #ffffff;
-  --hover-cat-bg: rgba(0, 0, 0, 0.06);
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --hover-cat-bg: rgba(0, 0, 0, 0.04);
+  --shadow-color: rgba(0, 0, 0, 0.06);
   color-scheme: light;
 }
 
@@ -649,6 +649,10 @@ footer.site-foot {
 /* Color Themes */
 [data-theme="light"] .ab-banner {
   color: #111111;
+}
+
+[data-theme="light"] .banner-svg-bg {
+  opacity: 0.25; /* ライトモード時のSVG背景も優しくなじませる */
 }
 
 [data-theme="dark"] .ab-banner {
