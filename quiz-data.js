@@ -1,4 +1,4 @@
-const ALL_Q = [
+window.ALL_Q = [
   {"id":1,"cat":"prereq","catLabel":"Prerequisites","q":"What is the approximate total area of the United States?","a":"Approx. 9.83 million km² (3rd in the world)","options":["Approx. 17.10 million km²","Approx. 5.50 million km²","Approx. 7.60 million km²","Approx. 9.83 million km² (3rd in the world)"]},
   {"id":2,"cat":"prereq","catLabel":"Prerequisites","q":"What is the estimated population of the United States as of 2026?","a":"Approx. 349 million","options":["Approx. 130 million","Approx. 410 million","Approx. 349 million","Approx. 280 million"]},
   {"id":3,"cat":"prereq","catLabel":"Prerequisites","q":"What is the capital city of the United States?","a":"Washington, D.C.","options":["New York City","Philadelphia","Los Angeles","Washington, D.C."]},
