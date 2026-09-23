@@ -1,10 +1,14 @@
 :root {
   --bg: #000000;
   --panel: #0d0d0d;
+  --card-bg: #141414;
   --text: #ffffff;
   --text-muted: #888888;
   --border: #262626;
   --border-strong: #ffffff;
+  --accent: #d97706;
+  --correct: #10b981;
+  --incorrect: #ef4444;
   --font-display: 'Syne', sans-serif;
   --font-body: 'Space Grotesk', sans-serif;
   color-scheme: dark;
@@ -157,19 +161,15 @@ main { padding: 40px 0 80px; }
 /* Category Grid */
 #cat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
   margin-top: 20px;
 }
 
-@media (min-width: 600px) {
-  .cat-grid { grid-template-columns: 1fr 1fr; }
-}
-
 .cat-card {
-  background: var(--bg);
-  border: 1px solid transparent; /* 枠線変化の準備 */
-  border-radius: 8px; /* 浮いたときに綺麗に見えるよう少し角を丸める */
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   padding: 20px 24px;
   display: flex;
   align-items: baseline;
@@ -177,18 +177,16 @@ main { padding: 40px 0 80px; }
   cursor: pointer;
   text-align: left;
   color: var(--text);
-  /* 浮き上がり(transform)と影(box-shadow)も滑らかに変化させる */
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .cat-card:hover {
   background: var(--panel);
-  transform: translateY(-4px); /* 上に4px浮き上がる */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* 浮いた感が出る影 */
-  border-color: rgba(255, 255, 255, 0.1); /* うっすら枠線（お好みで調整） */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ホバーしたときに「01, 02...」の数字の色も明るくする */
 .cat-card:hover .letter {
   color: var(--text);
 }
@@ -205,6 +203,7 @@ main { padding: 40px 0 80px; }
 .cat-card .info { flex: 1; }
 .cat-card .name { font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; }
 .cat-card .meta { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
 /* Quiz Interface */
 .quiz-meta {
   display: flex;
@@ -222,14 +221,9 @@ main { padding: 40px 0 80px; }
   font-weight: 600;
 }
 
-.progress-track {
-  height: 2px;
-  background: var(--border);
-  margin-bottom: 40px;
-}
 .progress-bar {
   width: 100%;
-  height: 8px;
+  height: 6px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   overflow: hidden;
@@ -239,13 +233,14 @@ main { padding: 40px 0 80px; }
 #progress-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #d97706, #f59e0b); /* お好みのグラデーション色 */
+  background: linear-gradient(90deg, var(--accent), #f59e0b);
   border-radius: 999px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .q-card {
   border: 1px solid var(--border);
+  border-radius: 12px;
   padding: 32px 24px;
   position: relative;
   background: var(--panel);
@@ -267,6 +262,13 @@ main { padding: 40px 0 80px; }
   line-height: 1.4;
 }
 
+/* Stamp Animation */
+@keyframes popIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 .stamp {
   position: absolute;
   top: 24px;
@@ -274,15 +276,29 @@ main { padding: 40px 0 80px; }
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 0.85rem;
-  padding: 4px 10px;
+  padding: 6px 14px;
+  border-radius: 20px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   display: none;
 }
 
-.stamp.show { display: block; }
-.stamp.correct { background: var(--text); color: var(--bg); }
-.stamp.incorrect { border: 1px solid var(--text); color: var(--text); }
+.stamp.show {
+  display: inline-block;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.stamp.correct {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--correct);
+  border: 1px solid var(--correct);
+}
+
+.stamp.incorrect {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--incorrect);
+  border: 1px solid var(--incorrect);
+}
 
 .options {
   display: grid;
@@ -291,44 +307,28 @@ main { padding: 40px 0 80px; }
 }
 
 .opt-btn {
-  background: var(--bg);
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 8px;
   border: 1px solid var(--border);
+  background: var(--bg);
   color: var(--text);
-  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-body);
   font-size: 0.95rem;
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-/* 選択肢ボタンの基本構造 */
-.opt-btn {
-  width: 100%;
-  padding: 14px 20px;
-  border-radius: 12px;
-  border: 1px solid var(--border, #2e374a);
-  background: var(--card-bg, #1c2230);
-  color: var(--text, #f5f2eb);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
-  cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* ホバー時：右に少し動く */
 .opt-btn:hover:not(:disabled) {
-  border-color: var(--accent, #d97706);
+  border-color: var(--accent);
   background: rgba(217, 119, 6, 0.1);
   transform: translateX(6px);
 }
 
-/* 記号部分（A, B, C, D）の装飾 */
 .opt-btn .mark {
   display: inline-flex;
   align-items: center;
@@ -339,24 +339,25 @@ main { padding: 40px 0 80px; }
   background: rgba(255, 255, 255, 0.08);
   font-weight: 700;
   font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
-/* 正解・不正解の判定アニメーション用カラー */
 .opt-btn.correct {
   background: rgba(16, 185, 129, 0.15) !important;
-  border-color: #10b981 !important;
-  color: #10b981 !important;
+  border-color: var(--correct) !important;
+  color: var(--correct) !important;
 }
 
 .opt-btn.incorrect {
   background: rgba(239, 68, 68, 0.15) !important;
-  border-color: #ef4444 !important;
-  color: #ef4444 !important;
+  border-color: var(--incorrect) !important;
+  color: var(--incorrect) !important;
 }
 
 .opt-btn.dim {
   opacity: 0.35;
 }
+
 .next-btn {
   background: var(--text);
   color: var(--bg);
@@ -370,6 +371,8 @@ main { padding: 40px 0 80px; }
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
+  margin-top: 20px;
+  border-radius: 6px;
 }
 
 .next-btn.show { opacity: 1; pointer-events: auto; }
@@ -425,7 +428,9 @@ main { padding: 40px 0 80px; }
 
 .breakdown {
   border: 1px solid var(--border);
+  border-radius: 8px;
   margin-bottom: 40px;
+  overflow: hidden;
 }
 
 .bd-row {
@@ -434,6 +439,7 @@ main { padding: 40px 0 80px; }
   padding: 12px 16px;
   border-bottom: 1px solid var(--border);
   font-size: 0.85rem;
+  background: var(--panel);
 }
 .bd-row:last-child { border-bottom: none; }
 .bd-row .bd-label { flex: 1; font-weight: 500; }
@@ -459,6 +465,7 @@ main { padding: 40px 0 80px; }
   letter-spacing: 0.05em;
   cursor: pointer;
   text-align: center;
+  border-radius: 6px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
