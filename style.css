@@ -9,10 +9,37 @@
   --accent: #d97706;
   --correct: #10b981;
   --incorrect: #ef4444;
+  --dot-color: rgba(255, 255, 255, 0.18);
+  --opt-bg: rgba(0, 0, 0, 0.4);
+  --hover-card-bg: rgba(255, 255, 255, 0.95);
+  --hover-card-text: #000000;
+  --hover-cat-bg: rgba(255, 255, 255, 0.12);
+  --shadow-color: rgba(0, 0, 0, 0.5);
   --font-display: 'Syne', sans-serif;
   --font-body: 'Space Grotesk', sans-serif;
   color-scheme: dark;
   box-sizing: border-box;
+}
+
+/* ライトモード定義 */
+[data-theme="light"] {
+  --bg: #f4f4f6;
+  --panel: rgba(255, 255, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --text: #111111;
+  --text-muted: #666666;
+  --border: rgba(0, 0, 0, 0.12);
+  --border-strong: #111111;
+  --accent: #d97706;
+  --correct: #059669;
+  --incorrect: #dc2626;
+  --dot-color: rgba(0, 0, 0, 0.12);
+  --opt-bg: rgba(255, 255, 255, 0.8);
+  --hover-card-bg: #111111;
+  --hover-card-text: #ffffff;
+  --hover-cat-bg: rgba(0, 0, 0, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  color-scheme: light;
 }
 
 *, *::before, *::after { box-sizing: inherit; }
@@ -20,13 +47,14 @@
 body {
   margin: 0;
   background-color: var(--bg);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(var(--dot-color) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .wrap {
@@ -39,6 +67,38 @@ body {
 header.top {
   border-bottom: 1px solid var(--border);
   padding: 32px 0 24px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* テーマ切り替えボタン */
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 
 header .brand {
@@ -146,13 +206,14 @@ main {
 }
 
 .feature-card:hover {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--bg);
-  border-color: #ffffff;
+  background: var(--hover-card-bg);
+  color: var(--hover-card-text);
+  border-color: var(--border-strong);
 }
 
 .feature-card:hover .desc {
-  color: #333333;
+  color: var(--hover-card-text);
+  opacity: 0.8;
 }
 
 .feature-card .ttl {
@@ -198,10 +259,10 @@ main {
 }
 
 .cat-card:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--hover-cat-bg);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  border-color: var(--border-strong);
 }
 
 .cat-card:hover .letter {
@@ -241,7 +302,7 @@ main {
 .progress-bar {
   width: 100%;
   height: 6px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border);
   border-radius: 999px;
   overflow: hidden;
   margin-bottom: 24px;
@@ -263,7 +324,7 @@ main {
   background: var(--panel);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px var(--shadow-color);
 }
 
 .q-card .qno {
@@ -309,13 +370,13 @@ main {
 }
 
 .stamp.correct {
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.15);
   color: var(--correct);
   border: 1px solid var(--correct);
 }
 
 .stamp.incorrect {
-  background: rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.15);
   color: var(--incorrect);
   border: 1px solid var(--incorrect);
 }
@@ -331,7 +392,7 @@ main {
   padding: 14px 20px;
   border-radius: 8px;
   border: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--opt-bg);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   color: var(--text);
@@ -358,7 +419,7 @@ main {
   width: 28px;
   height: 28px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border);
   font-weight: 700;
   font-size: 0.85rem;
   flex-shrink: 0;
