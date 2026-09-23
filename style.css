@@ -1,16 +1,15 @@
 :root {
-  /* ダークモード：ネイビー・サイバー系ベースへ変更 */
-  --bg: #0b1120; /* ほんのり青みのある落ち着いた深色 */
-  --panel: rgba(22, 32, 54, 0.85); /* カード背景を明るく・クッキリ */
+  --bg: #0b1120;
+  --panel: rgba(22, 32, 54, 0.85); 
   --card-bg: rgba(26, 38, 64, 0.75);
   --text: #ffffff;
   --text-muted: #94a3b8;
-  --border: rgba(255, 255, 255, 0.18); /* 枠線を少し見やすく */
+  --border: rgba(255, 255, 255, 0.18);
   --border-strong: #38bdf8;
   --accent: #f59e0b;
   --correct: #10b981;
   --incorrect: #ef4444;
-  --dot-color: rgba(255, 255, 255, 0.08); /* ドットは主張しすぎない濃さに */
+  --dot-color: rgba(255, 255, 255, 0.08); 
   --opt-bg: rgba(15, 23, 42, 0.6);
   --hover-card-bg: #1e293b;
   --hover-card-text: #ffffff;
