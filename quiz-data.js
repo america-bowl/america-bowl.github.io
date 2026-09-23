@@ -3012,4 +3012,4 @@ window.ALL_Q = [
     "a": "George Washington",
     "options": ["George Washington", "Thomas Jefferson", "John Adams", "Benjamin Franklin"]
   }
-]
+];
