@@ -30,7 +30,7 @@
   var bestScores = loadJSON('ab_best_v2', {});
   var totals = loadJSON('ab_totals_v2', {answered:0, correct:0});
 
-  // ---- Settings (explanation language / timer length) ----
+  // ---- Settings (explanation language / timer length / sound volume) ----
   var SETTINGS_KEY = 'ab_settings_v1';
   var TIMER_MIN = 3, TIMER_MAX = 20, TIMER_DEFAULT = 15;
   var LANGS = ['en', 'ja', 'both'];
@@ -42,20 +42,31 @@
   }
   function loadSettings(){
     var s = loadJSON(SETTINGS_KEY, {});
+    var vol = parseFloat(s.seVolume);
+    if (isNaN(vol)) vol = 0.5;
     return {
       lang: LANGS.indexOf(s.lang) !== -1 ? s.lang : 'both',
-      timer: clampTimer(s.timer)
+      timer: clampTimer(s.timer),
+      seVolume: Math.max(0, Math.min(1, vol)),
+      seMuted: !!s.seMuted
     };
   }
   var settings = loadSettings();
   function saveSettings(){ saveJSON(SETTINGS_KEY, settings); }
 
-  // Web Audio API による効果音再生 (Duolingo風SE)
+  // Web Audio API による効果音再生 (マスターゲインで音量・ミュート制御)
   var audioCtx = null;
+  var masterGain = null;
+
   function getAudioContext() {
     if (!audioCtx) {
       var AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      if (AudioContextClass) audioCtx = new AudioContextClass();
+      if (AudioContextClass) {
+        audioCtx = new AudioContextClass();
+        masterGain = audioCtx.createGain();
+        masterGain.connect(audioCtx.destination);
+        updateMasterGain();
+      }
     }
     if (audioCtx && audioCtx.state === 'suspended') {
       audioCtx.resume();
@@ -63,9 +74,15 @@
     return audioCtx;
   }
 
+  function updateMasterGain() {
+    if (!masterGain || !audioCtx) return;
+    var currentVol = settings.seMuted ? 0 : settings.seVolume;
+    masterGain.gain.setValueAtTime(currentVol, audioCtx.currentTime);
+  }
+
   function playCorrectSE() {
     var ctx = getAudioContext();
-    if (!ctx) return;
+    if (!ctx || !masterGain) return;
     var now = ctx.currentTime;
     // Duolingo風の爽やかな和音アルペジオ (E5 -> G5 -> C6)
     var notes = [659.25, 783.99, 1046.50];
@@ -79,7 +96,7 @@
       gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.07 + 0.22);
       
       osc.connect(gain);
-      gain.connect(ctx.destination);
+      gain.connect(masterGain); // マスターゲインへ接続
       
       osc.start(now + index * 0.07);
       osc.stop(now + index * 0.07 + 0.22);
@@ -88,7 +105,7 @@
 
   function playIncorrectSE() {
     var ctx = getAudioContext();
-    if (!ctx) return;
+    if (!ctx || !masterGain) return;
     var now = ctx.currentTime;
     // 低めの残念な音 (F3 -> Eb3)
     var notes = [174.61, 155.56];
@@ -102,7 +119,7 @@
       gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.12 + 0.28);
       
       osc.connect(gain);
-      gain.connect(ctx.destination);
+      gain.connect(masterGain); // マスターゲインへ接続
       
       osc.start(now + index * 0.12);
       osc.stop(now + index * 0.12 + 0.28);
@@ -155,7 +172,7 @@
 
     var grid = document.getElementById('cat-grid');
     if(grid){
-      grid.replaceChildren(); // innerHTML = '' の安全な代替
+      grid.replaceChildren();
       CAT_ORDER.forEach(function(cat){
         var meta = CAT_META[cat];
         if(!meta) return;
@@ -215,9 +232,8 @@
     return a;
   }
 
-  // タイマー関連変数
   var timerInterval = null;
-  var timeLeft = settings.timer; // 制限時間（秒）は設定画面で3〜20秒に変更可能
+  var timeLeft = settings.timer;
 
   function startTimer() {
     stopTimer();
@@ -244,7 +260,6 @@
     var timerEl = document.getElementById('q-timer');
     if (timerEl) {
       timerEl.textContent = '⏱️ ' + timeLeft + 's';
-      // 警告表示は残り時間が短くなったときだけ(短い制限時間でも常時点滅しないように調整)
       var warnAt = Math.max(1, Math.min(5, Math.floor(settings.timer / 3)));
       timerEl.classList.toggle('warning', timeLeft <= warnAt);
     }
@@ -289,7 +304,6 @@
     renderQuestion();
   }
 
-  // 親要素 #options への「イベントデリゲーション」設定（初期化時に1度だけバインド）
   var optsWrap = document.getElementById('options');
   if (optsWrap) {
     optsWrap.addEventListener('click', function(e) {
@@ -317,7 +331,6 @@
     stamp.className = 'stamp';
     stamp.textContent = '';
 
-    // 解説用領域の初期化
     var expBox = document.getElementById('q-explanation');
     if (!expBox) {
       expBox = document.createElement('div');
@@ -329,7 +342,6 @@
     expBox.hidden = true;
     expBox.replaceChildren();
 
-    // タイマー用表示要素の初期化
     var timerEl = document.getElementById('q-timer');
     if (!timerEl) {
       timerEl = document.createElement('div');
@@ -339,7 +351,7 @@
       if (metaBox) metaBox.appendChild(timerEl);
     }
 
-    optsWrap.replaceChildren(); // innerHTML = '' を排して要素をクリア
+    optsWrap.replaceChildren();
     var letters = ['A','B','C','D'];
     var shuffledOptions = shuffle(q.options);
     
@@ -347,7 +359,7 @@
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'opt-btn';
-      btn.setAttribute('data-opt', opt); // イベントデリゲーション用にデータを付与
+      btn.setAttribute('data-opt', opt);
 
       var markSpan = document.createElement('span');
       markSpan.className = 'mark';
@@ -362,8 +374,6 @@
     });
 
     document.getElementById('next-btn').classList.remove('show');
-
-    // タイマースタート
     startTimer();
   }
 
@@ -371,7 +381,7 @@
     if(session.answered) return;
     session.answered = true;
 
-    stopTimer(); // 時間計測をストップ
+    stopTimer();
 
     var correct = (chosen === q.a);
     var stamp = document.getElementById('stamp');
@@ -382,13 +392,13 @@
       session.score++;
       stamp.textContent = 'CORRECT';
       stamp.className = 'stamp correct show';
-      playCorrectSE(); // 正解SE
+      playCorrectSE();
       var mi = missed.indexOf(q.id);
       if(mi !== -1){ missed.splice(mi, 1); }
     } else {
       stamp.textContent = chosen === null ? 'TIME OUT' : 'INCORRECT';
       stamp.className = 'stamp incorrect show';
-      playIncorrectSE(); // 不正解SE
+      playIncorrectSE();
       session.wrongIds.push(q.id);
       if(missed.indexOf(q.id) === -1){ missed.push(q.id); }
     }
@@ -414,11 +424,9 @@
     document.getElementById('quiz-score-label').textContent = 'Score: ' + session.score;
     var nextEl = document.getElementById('next-btn');
     nextEl.classList.add('show');
-    // スマホでも解説と「Next」ボタンが見える位置までスクロール
     if (nextEl.scrollIntoView) nextEl.scrollIntoView({behavior: 'smooth', block: 'nearest'});
   }
 
-  // 解説（Explanation）の表示：設定に応じて英語 / 日本語 / 両方
   function addExpBlock(box, tag, langCode, text){
     var row = document.createElement('div');
     row.className = 'exp-block';
@@ -486,7 +494,7 @@
     document.getElementById('result-msg').textContent = msg;
 
     var bd = document.getElementById('breakdown');
-    bd.replaceChildren(); // innerHTML = '' の完全排除
+    bd.replaceChildren();
     var catKeys = Object.keys(session.perCatStats);
     if(catKeys.length > 1){
       catKeys.forEach(function(ck){
@@ -559,6 +567,9 @@
   var timerValue = document.getElementById('timer-value');
   var timerMinus = document.getElementById('timer-minus');
   var timerPlus = document.getElementById('timer-plus');
+  var seVolumeRange = document.getElementById('se-volume-range');
+  var seVolumeValue = document.getElementById('se-volume-value');
+  var seMuteBtn = document.getElementById('se-mute-btn');
   var resetBtn = document.getElementById('reset-data');
   var lastFocus = null;
 
@@ -579,10 +590,35 @@
     if (timerValue) timerValue.textContent = settings.timer + ' s';
     if (timerMinus) timerMinus.disabled = settings.timer <= TIMER_MIN;
     if (timerPlus) timerPlus.disabled = settings.timer >= TIMER_MAX;
+
+    // 音量UIの同期
+    if (seVolumeRange) seVolumeRange.value = String(settings.seVolume);
+    if (seVolumeValue) {
+      seVolumeValue.textContent = settings.seMuted ? 'Muted' : Math.round(settings.seVolume * 100) + '%';
+    }
+    if (seMuteBtn) {
+      seMuteBtn.textContent = settings.seMuted ? '🔇' : (settings.seVolume === 0 ? '🔇' : '🔊');
+    }
+    updateMasterGain();
   }
 
   function setTimer(n) {
     settings.timer = clampTimer(n);
+    saveSettings();
+    syncSettingsUI();
+  }
+
+  function setSeVolume(val) {
+    settings.seVolume = Math.max(0, Math.min(1, parseFloat(val) || 0));
+    if (settings.seVolume > 0 && settings.seMuted) {
+      settings.seMuted = false;
+    }
+    saveSettings();
+    syncSettingsUI();
+  }
+
+  function toggleMute() {
+    settings.seMuted = !settings.seMuted;
     saveSettings();
     syncSettingsUI();
   }
@@ -606,6 +642,9 @@
   if (timerRange) timerRange.addEventListener('input', function() { setTimer(timerRange.value); });
   if (timerMinus) timerMinus.addEventListener('click', function() { setTimer(settings.timer - 1); });
   if (timerPlus) timerPlus.addEventListener('click', function() { setTimer(settings.timer + 1); });
+
+  if (seVolumeRange) seVolumeRange.addEventListener('input', function() { setSeVolume(seVolumeRange.value); });
+  if (seMuteBtn) seMuteBtn.addEventListener('click', toggleMute);
 
   // 正答率データの削除（2回タップで確定）
   var resetArmed = false;
@@ -672,7 +711,6 @@
     modal.addEventListener('click', function(e) {
       if (e.target.hasAttribute('data-close')) closeSettings();
     });
-    // Tabキーがモーダルの外に出ないようにする
     modal.addEventListener('keydown', function(e) {
       if (e.key !== 'Tab') return;
       var items = modal.querySelectorAll('button:not([disabled]), input');
