@@ -729,3 +729,15 @@
 
   renderHome();
 })();
+// Service Worker 登録
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./sw.js')
+        .then(function(reg) {
+          console.log('Service Worker Registered:', reg.scope);
+        })
+        .catch(function(err) {
+          console.error('Service Worker Registration Failed:', err);
+        });
+    });
+  }
