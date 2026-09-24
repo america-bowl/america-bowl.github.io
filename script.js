@@ -767,3 +767,60 @@
       });
     });
   }
+// --- PWA 手動インストールプロンプト制御 ---
+(function initPWAInstallPrompt() {
+  let deferredPrompt = null;
+  const banner = document.getElementById('pwa-install-banner');
+  const installBtn = document.getElementById('pwa-install-btn');
+  const closeBtn = document.getElementById('pwa-close-btn');
+
+  if (!banner || !installBtn || !closeBtn) return;
+
+  // 1. すでにアプリ（スタンドアロンモード）として開いている場合は何もしない
+  if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) {
+    return;
+  }
+
+  // 2. ブラウザがインストール可能と判断したイベントをキャッチ
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // デフォルトのブラウザ標準ダイアログを阻止
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // 一度「閉じる」を押したセッションでは再表示しない配慮（オプション）
+    if (sessionStorage.getItem('pwa_banner_dismissed') !== 'true') {
+      banner.removeAttribute('hidden');
+    }
+  });
+
+  // 3. 「追加」ボタンが押された時の処理
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+
+    // バナーを隠す
+    banner.setAttribute('hidden', '');
+
+    // インストールダイアログを表示
+    deferredPrompt.prompt();
+
+    // ユーザーの選択結果を確認
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to install prompt: ${outcome}`);
+
+    deferredPrompt = null;
+  });
+
+  // 4. 「✕」ボタンが押された時
+  closeBtn.addEventListener('click', () => {
+    banner.setAttribute('hidden', '');
+    // このセッション中はもう出さない
+    sessionStorage.setItem('pwa_banner_dismissed', 'true');
+  });
+
+  // 5. インストールが成功したらバナーを消す
+  window.addEventListener('appinstalled', () => {
+    banner.setAttribute('hidden', '');
+    deferredPrompt = null;
+    console.log('PWA was installed successfully');
+  });
+})();
