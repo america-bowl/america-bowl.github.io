@@ -12,7 +12,7 @@
   });
 
   function catLetter(cat){
-var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", H:"08", I:"09", appendix:"10", US_Currency:"11", US_Units:"12", US_Geography:"13", US_Nicknames:"14", US_Civics:"15", US_History_Culture:"16"};
+    var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", H:"08", I:"09", appendix:"10", US_Currency:"11", US_Units:"12", US_Geography:"13", US_Nicknames:"14", US_Civics:"15", US_History_Culture:"16"};
     return map[cat] || "--";
   }
 
@@ -29,6 +29,65 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
   var missed = loadJSON('ab_missed_v2', []);
   var bestScores = loadJSON('ab_best_v2', {});
   var totals = loadJSON('ab_totals_v2', {answered:0, correct:0});
+
+  // Web Audio API による効果音再生 (Duolingo風SE)
+  var audioCtx = null;
+  function getAudioContext() {
+    if (!audioCtx) {
+      var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) audioCtx = new AudioContextClass();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  function playCorrectSE() {
+    var ctx = getAudioContext();
+    if (!ctx) return;
+    var now = ctx.currentTime;
+    // Duolingo風の爽やかな和音アルペジオ (E5 -> G5 -> C6)
+    var notes = [659.25, 783.99, 1046.50];
+    notes.forEach(function(freq, index) {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now + index * 0.07);
+      
+      gain.gain.setValueAtTime(0.15, now + index * 0.07);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.07 + 0.22);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      osc.start(now + index * 0.07);
+      osc.stop(now + index * 0.07 + 0.22);
+    });
+  }
+
+  function playIncorrectSE() {
+    var ctx = getAudioContext();
+    if (!ctx) return;
+    var now = ctx.currentTime;
+    // 低めの残念な音 (F3 -> Eb3)
+    var notes = [174.61, 155.56];
+    notes.forEach(function(freq, index) {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(freq, now + index * 0.12);
+      
+      gain.gain.setValueAtTime(0.12, now + index * 0.12);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.12 + 0.28);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      osc.start(now + index * 0.12);
+      osc.stop(now + index * 0.12 + 0.28);
+    });
+  }
 
   var screens = {
     home: document.getElementById('screen-home'),
@@ -48,6 +107,7 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
   }
 
   function renderHome(){
+    stopTimer();
     if(headerTitle) headerTitle.textContent = "AMERICA BOWL";
     if(headerSub) headerSub.textContent = "Comprehensive practice that covers vast categories.";
 
@@ -65,7 +125,7 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
     if(reviewCard && reviewCount){
       if(missed.length > 0){
         reviewCard.style.display = '';
-        reviewCount.textContent = missed.length;
+        reviewCount.textContent = String(missed.length);
       } else {
         reviewCard.style.display = 'none';
       }
@@ -73,19 +133,37 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
 
     var grid = document.getElementById('cat-grid');
     if(grid){
-      grid.innerHTML = '';
+      grid.replaceChildren(); // innerHTML = '' の安全な代替
       CAT_ORDER.forEach(function(cat){
         var meta = CAT_META[cat];
         if(!meta) return;
         var best = bestScores[cat];
+        
         var card = document.createElement('button');
         card.type = 'button';
         card.className = 'cat-card';
-        var bestText = best ? ('Best: ' + best.correct + ' / ' + best.total) : (meta.count + ' Questions');
-        card.innerHTML =
-          '<span class="letter">' + meta.letter + '</span>' +
-          '<span class="info"><p class="name">' + escapeHTML(meta.label) + '</p>' +
-          '<p class="meta">' + escapeHTML(bestText) + '</p></span>';
+
+        var letterSpan = document.createElement('span');
+        letterSpan.className = 'letter';
+        letterSpan.textContent = meta.letter;
+
+        var infoSpan = document.createElement('span');
+        infoSpan.className = 'info';
+
+        var nameP = document.createElement('p');
+        nameP.className = 'name';
+        nameP.textContent = meta.label;
+
+        var metaP = document.createElement('p');
+        metaP.className = 'meta';
+        metaP.textContent = best ? ('Best: ' + best.correct + ' / ' + best.total) : (meta.count + ' Questions');
+
+        infoSpan.appendChild(nameP);
+        infoSpan.appendChild(metaP);
+
+        card.appendChild(letterSpan);
+        card.appendChild(infoSpan);
+
         card.addEventListener('click', function(){ startQuiz(cat); });
         grid.appendChild(card);
       });
@@ -106,12 +184,6 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
   var btnBack = document.getElementById('btn-back');
   if(btnBack) btnBack.addEventListener('click', function(){ renderHome(); showScreen('home'); });
 
-  function escapeHTML(s){
-    return String(s).replace(/[&<>"']/g, function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-    });
-  }
-
   function shuffle(arr){
     var a = arr.slice();
     for(var i = a.length - 1; i > 0; i--){
@@ -119,6 +191,47 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
       var t = a[i]; a[i] = a[j]; a[j] = t;
     }
     return a;
+  }
+
+  // タイマー関連変数
+  var timerInterval = null;
+  var TIME_LIMIT = 15; // 制限時間（秒）
+  var timeLeft = TIME_LIMIT;
+
+  function startTimer() {
+    stopTimer();
+    timeLeft = TIME_LIMIT;
+    updateTimerUI();
+    timerInterval = setInterval(function() {
+      timeLeft--;
+      updateTimerUI();
+      if (timeLeft <= 0) {
+        stopTimer();
+        handleTimeOut();
+      }
+    }, 1000);
+  }
+
+  function stopTimer() {
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+  }
+
+  function updateTimerUI() {
+    var timerEl = document.getElementById('q-timer');
+    if (timerEl) {
+      timerEl.textContent = '⏱️ ' + timeLeft + 's';
+      timerEl.classList.toggle('warning', timeLeft <= 5);
+    }
+  }
+
+  function handleTimeOut() {
+    if (session && !session.answered) {
+      var q = session.questions[session.index];
+      selectAnswer(null, null, q);
+    }
   }
 
   var session = null;
@@ -153,6 +266,18 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
     renderQuestion();
   }
 
+  // 親要素 #options への「イベントデリゲーション」設定（初期化時に1度だけバインド）
+  var optsWrap = document.getElementById('options');
+  if (optsWrap) {
+    optsWrap.addEventListener('click', function(e) {
+      var btn = e.target.closest('.opt-btn');
+      if (!btn || !session || session.answered) return;
+      var chosen = btn.getAttribute('data-opt');
+      var q = session.questions[session.index];
+      selectAnswer(btn, chosen, q);
+    });
+  }
+
   function renderQuestion(){
     var q = session.questions[session.index];
     session.answered = false;
@@ -169,27 +294,61 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
     stamp.className = 'stamp';
     stamp.textContent = '';
 
-    var optsWrap = document.getElementById('options');
-    optsWrap.innerHTML = '';
+    // 解説用領域の初期化
+    var expBox = document.getElementById('q-explanation');
+    if (!expBox) {
+      expBox = document.createElement('div');
+      expBox.id = 'q-explanation';
+      expBox.className = 'q-explanation';
+      var qCard = document.querySelector('.q-card');
+      if (qCard) qCard.appendChild(expBox);
+    }
+    expBox.style.display = 'none';
+    expBox.textContent = '';
+
+    // タイマー用表示要素の初期化
+    var timerEl = document.getElementById('q-timer');
+    if (!timerEl) {
+      timerEl = document.createElement('div');
+      timerEl.id = 'q-timer';
+      timerEl.className = 'q-timer';
+      var metaBox = document.querySelector('.quiz-meta');
+      if (metaBox) metaBox.appendChild(timerEl);
+    }
+
+    optsWrap.replaceChildren(); // innerHTML = '' を排して要素をクリア
     var letters = ['A','B','C','D'];
-    
     var shuffledOptions = shuffle(q.options);
     
     shuffledOptions.forEach(function(opt, i){
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'opt-btn';
-      btn.innerHTML = '<span class="mark">' + letters[i] + '</span> <span>' + escapeHTML(opt) + '</span>';
-      btn.addEventListener('click', function(){ selectAnswer(btn, opt, q); });
+      btn.setAttribute('data-opt', opt); // イベントデリゲーション用にデータを付与
+
+      var markSpan = document.createElement('span');
+      markSpan.className = 'mark';
+      markSpan.textContent = letters[i];
+
+      var textSpan = document.createElement('span');
+      textSpan.textContent = opt;
+
+      btn.appendChild(markSpan);
+      btn.appendChild(textSpan);
       optsWrap.appendChild(btn);
     });
 
     document.getElementById('next-btn').classList.remove('show');
+
+    // タイマースタート
+    startTimer();
   }
 
   function selectAnswer(btn, chosen, q){
     if(session.answered) return;
     session.answered = true;
+
+    stopTimer(); // 時間計測をストップ
 
     var correct = (chosen === q.a);
     var stamp = document.getElementById('stamp');
@@ -200,11 +359,13 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
       session.score++;
       stamp.textContent = 'CORRECT';
       stamp.className = 'stamp correct show';
+      playCorrectSE(); // 正解SE
       var mi = missed.indexOf(q.id);
       if(mi !== -1){ missed.splice(mi, 1); }
     } else {
-      stamp.textContent = 'INCORRECT';
+      stamp.textContent = chosen === null ? 'TIME OUT' : 'INCORRECT';
       stamp.className = 'stamp incorrect show';
+      playIncorrectSE(); // 不正解SE
       session.wrongIds.push(q.id);
       if(missed.indexOf(q.id) === -1){ missed.push(q.id); }
     }
@@ -218,12 +379,20 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
     var allBtns = document.querySelectorAll('#options .opt-btn');
     allBtns.forEach(function(b){
       b.disabled = true;
-      var text = b.querySelector('span:last-child').textContent;
+      var text = b.getAttribute('data-opt');
       if(b === btn && correct){ b.classList.add('correct'); }
       else if(b === btn && !correct){ b.classList.add('incorrect'); }
       else if(text === q.a){ b.classList.add('correct'); }
       else { b.classList.add('dim'); }
     });
+
+    // 解説（Explanation）の表示
+    var expBox = document.getElementById('q-explanation');
+    if (expBox) {
+      var expText = q.e || q.explanation || ('正解は: ' + q.a);
+      expBox.textContent = '💡 解説: ' + expText;
+      expBox.style.display = 'block';
+    }
 
     document.getElementById('quiz-score-label').textContent = 'Score: ' + session.score;
     document.getElementById('next-btn').classList.add('show');
@@ -242,6 +411,7 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
   }
 
   function finishQuiz(){
+    stopTimer();
     document.getElementById('progress-fill').style.width = '100%';
 
     if(session.catKey !== '__mix__' && session.catKey !== '__review__'){
@@ -253,8 +423,8 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
     var correct = session.score;
     var pct = Math.round(correct / total * 100);
 
-    document.getElementById('result-correct').textContent = correct;
-    document.getElementById('result-total').textContent = total;
+    document.getElementById('result-correct').textContent = String(correct);
+    document.getElementById('result-total').textContent = String(total);
     document.getElementById('result-pct').textContent = 'Accuracy: ' + pct + '%';
 
     var msg;
@@ -265,16 +435,24 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
     document.getElementById('result-msg').textContent = msg;
 
     var bd = document.getElementById('breakdown');
-    bd.innerHTML = '';
+    bd.replaceChildren(); // innerHTML = '' の完全排除
     var catKeys = Object.keys(session.perCatStats);
     if(catKeys.length > 1){
       catKeys.forEach(function(ck){
         var s = session.perCatStats[ck];
         var row = document.createElement('div');
         row.className = 'bd-row';
-        row.innerHTML =
-          '<span class="bd-label">' + escapeHTML(s.label) + '</span>' +
-          '<span class="bd-num">' + s.correct + ' / ' + s.total + '</span>';
+
+        var labelSpan = document.createElement('span');
+        labelSpan.className = 'bd-label';
+        labelSpan.textContent = s.label;
+
+        var numSpan = document.createElement('span');
+        numSpan.className = 'bd-num';
+        numSpan.textContent = s.correct + ' / ' + s.total;
+
+        row.appendChild(labelSpan);
+        row.appendChild(numSpan);
         bd.appendChild(row);
       });
     }
