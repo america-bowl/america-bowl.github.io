@@ -66,11 +66,28 @@ body {
   padding: 0 24px;
 }
 
+/* ---------- Header & Flag Decoration Fix ---------- */
 header.top {
-  padding: 32px 0 24px;
+  position: relative;
+  padding: 40px 0 24px;
+}
+
+/* 星や波線のSVG背景装飾 */
+.decor-bg,
+header.top svg,
+.flag-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .header-inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -106,9 +123,12 @@ header.top {
   transform: translateY(0) scale(0.98);
 }
 
+/* タイトル文字（装飾の上に重ねる設定） */
 header h1 {
+  position: relative;
+  z-index: 2;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -117,6 +137,8 @@ header h1 {
 }
 
 header .sub {
+  position: relative;
+  z-index: 2;
   font-size: 0.95rem;
   color: var(--text-muted);
   margin: 0;
@@ -141,6 +163,8 @@ header .sub {
 .home-link:hover { opacity: 0.7; }
 
 main {
+  position: relative;
+  z-index: 2;
   padding: 28px 0 60px;
 }
 
@@ -175,11 +199,10 @@ main {
   border-bottom: 1px solid var(--border);
 }
 
-/* ---------- Feature / Category Cards ---------- */
-/* ---------- Feature / Category Cards ---------- */
+/* ---------- Feature / Category Cards (レイアウト修正済み) ---------- */
 .feature-row {
   display: grid;
-  /* 自動でカードの数に合わせてピッタリ並ぶように変更 */
+  /* カード数に応じて幅いっぱいにフィットさせる */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   margin-bottom: 40px;
@@ -335,7 +358,6 @@ main {
   line-height: 1.45;
 }
 
-/* スタンプとアニメーション */
 @keyframes popIn {
   0% { transform: scale(0.5); opacity: 0; }
   70% { transform: scale(1.15); }
@@ -373,7 +395,6 @@ main {
   border: 1px solid var(--incorrect);
 }
 
-/* 選択肢ボタン */
 .options {
   display: grid;
   grid-template-columns: 1fr;
@@ -424,7 +445,6 @@ main {
   flex-shrink: 0;
 }
 
-/* 正解・不正解時のアニメーションフィードバック */
 @keyframes correctBounce {
   0% { transform: scale(1); }
   40% { transform: scale(1.03); }
@@ -452,11 +472,8 @@ main {
   animation: incorrectShake 0.4s ease-in-out;
 }
 
-.opt-btn.dim {
-  opacity: 0.35;
-}
+.opt-btn.dim { opacity: 0.35; }
 
-/* 解説ボックス */
 .q-explanation {
   margin-top: 24px;
   padding: 18px 20px;
@@ -469,7 +486,6 @@ main {
   animation: fadeIn 0.3s ease;
 }
 
-/* フッター & 次へボタン */
 .q-footer {
   display: flex;
   justify-content: space-between;
@@ -685,9 +701,7 @@ body.modal-open { overflow: hidden; }
   box-shadow: 0 6px 16px var(--shadow-color);
 }
 
-.btn:active {
-  transform: translateY(0) scale(0.99);
-}
+.btn:active { transform: translateY(0) scale(0.99); }
 
 .btn.secondary {
   background: transparent;
