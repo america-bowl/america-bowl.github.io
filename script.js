@@ -30,6 +30,26 @@
   var bestScores = loadJSON('ab_best_v2', {});
   var totals = loadJSON('ab_totals_v2', {answered:0, correct:0});
 
+  // ---- Settings (explanation language / timer length) ----
+  var SETTINGS_KEY = 'ab_settings_v1';
+  var TIMER_MIN = 3, TIMER_MAX = 20, TIMER_DEFAULT = 15;
+  var LANGS = ['en', 'ja', 'both'];
+
+  function clampTimer(n){
+    n = parseInt(n, 10);
+    if(isNaN(n)) n = TIMER_DEFAULT;
+    return Math.max(TIMER_MIN, Math.min(TIMER_MAX, n));
+  }
+  function loadSettings(){
+    var s = loadJSON(SETTINGS_KEY, {});
+    return {
+      lang: LANGS.indexOf(s.lang) !== -1 ? s.lang : 'both',
+      timer: clampTimer(s.timer)
+    };
+  }
+  var settings = loadSettings();
+  function saveSettings(){ saveJSON(SETTINGS_KEY, settings); }
+
   // Web Audio API による効果音再生 (Duolingo風SE)
   var audioCtx = null;
   function getAudioContext() {
@@ -95,6 +115,7 @@
     result: document.getElementById('screen-result')
   };
   var homeLink = document.getElementById('home-link');
+  var settingsBtn = document.getElementById('settings-btn');
   var headerTitle = document.getElementById('header-title');
   var headerSub = document.getElementById('header-sub');
 
@@ -103,6 +124,7 @@
       if(screens[k]) screens[k].classList.toggle('active', k === name);
     });
     if(homeLink) homeLink.style.display = (name === 'home') ? 'none' : 'inline-block';
+    if(settingsBtn) settingsBtn.style.display = (name === 'home') ? '' : 'none';
     window.scrollTo({top:0, behavior:'auto'});
   }
 
@@ -195,12 +217,11 @@
 
   // タイマー関連変数
   var timerInterval = null;
-  var TIME_LIMIT = 15; // 制限時間（秒）
-  var timeLeft = TIME_LIMIT;
+  var timeLeft = settings.timer; // 制限時間（秒）は設定画面で3〜20秒に変更可能
 
   function startTimer() {
     stopTimer();
-    timeLeft = TIME_LIMIT;
+    timeLeft = settings.timer;
     updateTimerUI();
     timerInterval = setInterval(function() {
       timeLeft--;
@@ -223,7 +244,9 @@
     var timerEl = document.getElementById('q-timer');
     if (timerEl) {
       timerEl.textContent = '⏱️ ' + timeLeft + 's';
-      timerEl.classList.toggle('warning', timeLeft <= 5);
+      // 警告表示は残り時間が短くなったときだけ(短い制限時間でも常時点滅しないように調整)
+      var warnAt = Math.max(1, Math.min(5, Math.floor(settings.timer / 3)));
+      timerEl.classList.toggle('warning', timeLeft <= warnAt);
     }
   }
 
@@ -300,11 +323,11 @@
       expBox = document.createElement('div');
       expBox.id = 'q-explanation';
       expBox.className = 'q-explanation';
-      var qCard = document.querySelector('.q-card');
-      if (qCard) qCard.appendChild(expBox);
+      var qFooter = document.querySelector('.q-footer');
+      if (qFooter && qFooter.parentNode) qFooter.parentNode.insertBefore(expBox, qFooter);
     }
-    expBox.style.display = 'none';
-    expBox.textContent = '';
+    expBox.hidden = true;
+    expBox.replaceChildren();
 
     // タイマー用表示要素の初期化
     var timerEl = document.getElementById('q-timer');
@@ -386,16 +409,44 @@
       else { b.classList.add('dim'); }
     });
 
-    // 解説（Explanation）の表示
-    var expBox = document.getElementById('q-explanation');
-    if (expBox) {
-      var expText = q.e || q.explanation || ('正解は: ' + q.a);
-      expBox.textContent = '💡 解説: ' + expText;
-      expBox.style.display = 'block';
-    }
+    showExplanation(q);
 
     document.getElementById('quiz-score-label').textContent = 'Score: ' + session.score;
-    document.getElementById('next-btn').classList.add('show');
+    var nextEl = document.getElementById('next-btn');
+    nextEl.classList.add('show');
+    // スマホでも解説と「Next」ボタンが見える位置までスクロール
+    if (nextEl.scrollIntoView) nextEl.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  }
+
+  // 解説（Explanation）の表示：設定に応じて英語 / 日本語 / 両方
+  function addExpBlock(box, tag, langCode, text){
+    var row = document.createElement('div');
+    row.className = 'exp-block';
+
+    var tagEl = document.createElement('span');
+    tagEl.className = 'exp-tag';
+    tagEl.textContent = tag;
+
+    var textEl = document.createElement('p');
+    textEl.className = 'exp-text';
+    textEl.setAttribute('lang', langCode);
+    textEl.textContent = text;
+
+    row.appendChild(tagEl);
+    row.appendChild(textEl);
+    box.appendChild(row);
+  }
+
+  function showExplanation(q){
+    var box = document.getElementById('q-explanation');
+    if(!box) return;
+    var exp = q.exp || {};
+    var en = exp.en || ('Correct answer: ' + q.a);
+    var ja = exp.ja || ('正解: ' + q.a);
+    box.replaceChildren();
+    if(settings.lang === 'en' || settings.lang === 'both') addExpBlock(box, 'EN', 'en', en);
+    if(settings.lang === 'ja' || settings.lang === 'both') addExpBlock(box, '日本語', 'ja', ja);
+    box.hidden = false;
   }
 
   var nextBtn = document.getElementById('next-btn');
@@ -482,39 +533,161 @@
     showScreen('result');
   }
 
-  var themeToggleBtn = document.getElementById('theme-toggle');
-  var themeIcon = document.getElementById('theme-icon');
-  var themeText = document.getElementById('theme-text');
-
+  // ---------------- Theme ----------------
   function getPreferredTheme() {
-    var savedTheme = localStorage.getItem('ab_theme');
-    if (savedTheme) return savedTheme;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    try {
+      var savedTheme = localStorage.getItem('ab_theme');
+      if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+    } catch (e) {}
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
   }
 
   function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('ab_theme', theme);
-    if (themeIcon && themeText) {
-      if (theme === 'light') {
-        themeIcon.textContent = '☀️';
-        themeText.textContent = 'Light';
-      } else {
-        themeIcon.textContent = '🌙';
-        themeText.textContent = 'Dark';
+    applyTheme(theme);
+    try { localStorage.setItem('ab_theme', theme); } catch (e) {}
+    syncSettingsUI();
+  }
+
+  // ---------------- Settings modal ----------------
+  var modal = document.getElementById('settings-modal');
+  var closeBtn = document.getElementById('settings-close');
+  var timerRange = document.getElementById('timer-range');
+  var timerValue = document.getElementById('timer-value');
+  var timerMinus = document.getElementById('timer-minus');
+  var timerPlus = document.getElementById('timer-plus');
+  var resetBtn = document.getElementById('reset-data');
+  var lastFocus = null;
+
+  function setSeg(name, value) {
+    var seg = document.querySelector('.seg[data-setting="' + name + '"]');
+    if (!seg) return;
+    seg.querySelectorAll('button').forEach(function(b) {
+      var on = b.getAttribute('data-value') === value;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+  }
+
+  function syncSettingsUI() {
+    setSeg('theme', document.documentElement.getAttribute('data-theme') || 'dark');
+    setSeg('lang', settings.lang);
+    if (timerRange) timerRange.value = String(settings.timer);
+    if (timerValue) timerValue.textContent = settings.timer + ' s';
+    if (timerMinus) timerMinus.disabled = settings.timer <= TIMER_MIN;
+    if (timerPlus) timerPlus.disabled = settings.timer >= TIMER_MAX;
+  }
+
+  function setTimer(n) {
+    settings.timer = clampTimer(n);
+    saveSettings();
+    syncSettingsUI();
+  }
+
+  document.querySelectorAll('.seg').forEach(function(seg) {
+    seg.addEventListener('click', function(e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      var name = seg.getAttribute('data-setting');
+      var val = b.getAttribute('data-value');
+      if (name === 'theme') {
+        setTheme(val);
+      } else if (name === 'lang' && LANGS.indexOf(val) !== -1) {
+        settings.lang = val;
+        saveSettings();
+        syncSettingsUI();
       }
+    });
+  });
+
+  if (timerRange) timerRange.addEventListener('input', function() { setTimer(timerRange.value); });
+  if (timerMinus) timerMinus.addEventListener('click', function() { setTimer(settings.timer - 1); });
+  if (timerPlus) timerPlus.addEventListener('click', function() { setTimer(settings.timer + 1); });
+
+  // 正答率データの削除（2回タップで確定）
+  var resetArmed = false;
+  var resetTimeout = null;
+
+  function disarmReset() {
+    clearTimeout(resetTimeout);
+    resetArmed = false;
+    if (resetBtn) {
+      resetBtn.textContent = 'Delete accuracy data';
+      resetBtn.classList.remove('armed');
+      resetBtn.disabled = false;
     }
   }
 
-  setTheme(getPreferredTheme());
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', function() {
-      var currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      var nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-      setTheme(nextTheme);
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      if (!resetArmed) {
+        resetArmed = true;
+        resetBtn.textContent = 'Tap again to confirm';
+        resetBtn.classList.add('armed');
+        resetTimeout = setTimeout(disarmReset, 4000);
+        return;
+      }
+      clearTimeout(resetTimeout);
+      missed = [];
+      bestScores = {};
+      totals = {answered: 0, correct: 0};
+      try {
+        localStorage.removeItem('ab_missed_v2');
+        localStorage.removeItem('ab_best_v2');
+        localStorage.removeItem('ab_totals_v2');
+      } catch (e) {}
+      renderHome();
+      resetArmed = false;
+      resetBtn.classList.remove('armed');
+      resetBtn.textContent = '✓ Deleted';
+      resetBtn.disabled = true;
+      resetTimeout = setTimeout(disarmReset, 1800);
     });
   }
+
+  function openSettings() {
+    if (!modal) return;
+    lastFocus = document.activeElement;
+    syncSettingsUI();
+    disarmReset();
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeSettings() {
+    if (!modal || modal.hidden) return;
+    modal.hidden = true;
+    document.body.classList.remove('modal-open');
+    disarmReset();
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  if (settingsBtn) settingsBtn.addEventListener('click', openSettings);
+  if (closeBtn) closeBtn.addEventListener('click', closeSettings);
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target.hasAttribute('data-close')) closeSettings();
+    });
+    // Tabキーがモーダルの外に出ないようにする
+    modal.addEventListener('keydown', function(e) {
+      if (e.key !== 'Tab') return;
+      var items = modal.querySelectorAll('button:not([disabled]), input');
+      if (!items.length) return;
+      var first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeSettings();
+  });
+
+  applyTheme(getPreferredTheme());
+  syncSettingsUI();
 
   renderHome();
 })();
