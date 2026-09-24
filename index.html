@@ -142,6 +142,18 @@
       </div>
     </div>
 
+    <!-- 音量調整・ミュートトグル設定を追加 -->
+    <div class="set-row">
+      <div class="set-label">
+        <label for="se-volume-range">Sound volume</label>
+        <span class="set-value" id="se-volume-value">50%</span>
+      </div>
+      <div class="stepper">
+        <button type="button" id="se-mute-btn" aria-label="Toggle Mute">🔊</button>
+        <input type="range" id="se-volume-range" min="0" max="1" step="0.05" value="0.5">
+      </div>
+    </div>
+
     <div class="set-row">
       <div class="set-label">
         <label for="timer-range">Time per question</label>
@@ -163,7 +175,7 @@
   </div>
 </div>
 
-<footer class="site-foot">©️All Rights Reserved.</footer>
+<footer class="site-foot">©️西大和学園チーム All Rights Reserved.<br>本サービスを無断で複製、登用することを禁止いたします。<br>お問い合せ:202305876@edu.nishiyamato.ed.jp/</footer>
 
 </body>
 </html>
