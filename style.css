@@ -23,7 +23,6 @@
   box-sizing: border-box;
 }
 
-/* ライトモード定義 */
 [data-theme="light"] {
   --bg: #eef0f4;
   --panel: rgba(255, 255, 255, 0.85);
@@ -67,7 +66,6 @@ body {
   padding: 0 24px;
 }
 
-/* Header */
 header.top {
   border-bottom: none;
   box-shadow: none;
@@ -81,7 +79,6 @@ header.top {
   gap: 16px;
 }
 
-/* テーマ切り替えボタン */
 .theme-toggle {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -146,7 +143,6 @@ header .sub {
   border-bottom: 1px solid var(--text);
 }
 
-/* Navigation & Layout */
 main {
   padding: 28px 0 60px;
 }
@@ -186,7 +182,6 @@ main {
   border-bottom: 1px solid var(--border);
 }
 
-/* Featured / Quick Start Cards */
 .feature-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -239,7 +234,6 @@ main {
   border-style: dashed;
 }
 
-/* Category Grid */
 #cat-grid, .cat-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -287,7 +281,6 @@ main {
 .cat-card .name { font-weight: 600; font-size: 0.95rem; margin: 0 0 4px; }
 .cat-card .meta { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
 
-/* Quiz Interface */
 .quiz-meta {
   display: flex;
   justify-content: space-between;
@@ -349,7 +342,6 @@ main {
   line-height: 1.4;
 }
 
-/* Stamp Animation */
 @keyframes popIn {
   0% { transform: scale(0.6); opacity: 0; }
   70% { transform: scale(1.1); }
@@ -483,7 +475,6 @@ main {
   text-decoration: underline;
 }
 
-/* Result Screen */
 .result-score {
   text-align: center;
   padding: 40px 0 20px;
@@ -591,7 +582,6 @@ footer.site-foot {
   letter-spacing: 0.05em;
 }
 
-/* BANNER CONTAINER */
 .ab-banner {
   position: relative;
   text-align: center;
@@ -601,7 +591,6 @@ footer.site-foot {
   border-radius: 8px;
 }
 
-/* Background Flag Waves and Stars Layer */
 .banner-svg-bg {
   position: absolute;
   top: 0;
@@ -628,7 +617,6 @@ footer.site-foot {
   color: currentColor;
 }
 
-/* Lines & Stars Dividers */
 .banner-divider {
   display: flex;
   align-items: center;
@@ -651,7 +639,6 @@ footer.site-foot {
   line-height: 1;
 }
 
-/* Color Themes */
 [data-theme="light"] .ab-banner {
   color: #111111;
 }
