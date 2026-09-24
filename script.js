@@ -729,15 +729,41 @@
 
   renderHome();
 })();
-// Service Worker 登録
+// --- Service Worker 登録（即時更新・キャッシュ無視設定付き） ---
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('./sw.js')
+      // 1. updateViaCache: 'none' で sw.js 自体のブラウザキャッシュを無効化
+      navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
         .then(function(reg) {
           console.log('Service Worker Registered:', reg.scope);
+
+          // 2. ページ読み込み時に明示的に更新確認を実施
+          reg.update();
+
+          // 3. 新しい SW ファイルが検出された場合の処理
+          reg.addEventListener('updatefound', function() {
+            var newWorker = reg.installing;
+            if (!newWorker) return;
+
+            newWorker.addEventListener('statechange', function() {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // 新しいSWに「即座に交代して」と命令を送信
+                newWorker.postMessage({ action: 'skipWaiting' });
+              }
+            });
+          });
         })
         .catch(function(err) {
           console.error('Service Worker Registration Failed:', err);
         });
+
+      // 4. 新しい SW に制御が切り替わったら画面を自動で1回リロード
+      var refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', function() {
+        if (!refreshing) {
+          refreshing = true;
+          window.location.reload();
+        }
+      });
     });
   }
