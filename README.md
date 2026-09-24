@@ -1,5 +1,4 @@
-This is a project of making a Sample quiz website as a preparation for America-bowl.
-Pay me cash to use this unless you are a student from Nishiyamato Gakuen High School(jk lol but it would really encourage me.)
-This website is still undergoing a massice development, so consider it a beta edition.
-
-Beta-Access HERE:https://america-bowl.github.io/
+西大和学園の生徒による、完全オープンソースで安全に使用いただける日米協会主催のアメリカボウル大会を完全に対策できる練習用ウェブアプリです。
+オフライン環境下でもご利用いただくことができ、端末互換性も高水準で維持されています。
+こちらのURLから試用できます。https://america-bowl.github.com
+カスタムドメインは今後導入予定です。
