@@ -662,3 +662,43 @@ footer.site-foot {
     max-width: 90px;
   }
 }
+.q-timer {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+  padding: 4px 10px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.q-timer.warning {
+  color: var(--incorrect);
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--incorrect);
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.q-explanation {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.1);
+  border-left: 4px solid var(--border-strong);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
