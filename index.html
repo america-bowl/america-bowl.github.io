@@ -24,35 +24,35 @@
   <div class="wrap header-inner">
     <div>
       <div class="ab-banner">
-     <svg class="flag-bg" viewBox="0 0 1000 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="flag-bg" viewBox="0 0 1000 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- モノクロ（半透明ホワイト）のストライプグラデーション -->
+    <!-- テーマカラー（currentColor）に連動するストライプグラデーション -->
     <linearGradient id="stripe1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
-      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.03"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.12"/>
+      <stop offset="60%" stop-color="currentColor" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.0"/>
     </linearGradient>
     <linearGradient id="stripe2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.06"/>
-      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.01"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.06"/>
+      <stop offset="60%" stop-color="currentColor" stop-opacity="0.01"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.0"/>
     </linearGradient>
-    <!-- 左上のほのかな光沢 -->
+    <!-- カントン領域のグラデーション -->
     <linearGradient id="cantonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.0"/>
     </linearGradient>
     
     <!-- 5角星パーツ -->
     <g id="flag-star">
-      <polygon points="0,-7 2.1,-2.1 7.4,-2.1 3.1,1.0 4.7,6.3 0,3.1 -4.7,6.3 -3.1,1.0 -7.4,-2.1 -2.1,-2.1" fill="#ffffff"/>
+      <polygon points="0,-7 2.1,-2.1 7.4,-2.1 3.1,1.0 4.7,6.3 0,3.1 -4.7,6.3 -3.1,1.0 -7.4,-2.1 -2.1,-2.1" fill="currentColor"/>
     </g>
   </defs>
 
-  <!-- カントン領域の控えめな背景グラデーション -->
+  <!-- カントン領域 -->
   <path d="M 0,0 L 300,0 C 250,70 180,130 0,150 Z" fill="url(#cantonGlow)" />
 
-  <!-- たなびくストライプ（白・濃淡交互） -->
+  <!-- たなびくストライプ -->
   <path d="M 0,25 Q 250,5 500,35 T 1000,15 L 1000,28 Q 500,48 250,18 T 0,38 Z" fill="url(#stripe1)" />
   <path d="M 0,42 Q 250,22 500,52 T 1000,32 L 1000,45 Q 500,65 250,35 T 0,55 Z" fill="url(#stripe2)" />
   <path d="M 0,59 Q 250,39 500,69 T 1000,49 L 1000,62 Q 500,82 250,52 T 0,72 Z" fill="url(#stripe1)" />
@@ -61,7 +61,7 @@
   <path d="M 0,110 Q 250,90 500,120 T 1000,100 L 1000,113 Q 500,133 250,103 T 0,123 Z" fill="url(#stripe2)" />
   <path d="M 0,127 Q 250,107 500,137 T 1000,117 L 1000,130 Q 500,150 250,120 T 0,140 Z" fill="url(#stripe1)" />
 
-  <!-- 規則正しく並んだ白の11個の星 -->
+  <!-- 格子状の11個の星 -->
   <use href="#flag-star" x="24" y="22" opacity="0.85"/>
   <use href="#flag-star" x="64" y="22" opacity="0.85"/>
   <use href="#flag-star" x="104" y="22" opacity="0.85"/>
