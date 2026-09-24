@@ -173,7 +173,6 @@ var map = {prereq:"00", A:"01", B:"02", C:"03", D:"04", E:"05", F:"06", G:"07", 
     optsWrap.innerHTML = '';
     var letters = ['A','B','C','D'];
     
-    // 選択肢をランダムにシャッフル
     var shuffledOptions = shuffle(q.options);
     
     shuffledOptions.forEach(function(opt, i){
