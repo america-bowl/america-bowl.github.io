@@ -762,3 +762,113 @@ footer.site-foot {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+/* --- PWA インストールバナー UI --- */
+.pwa-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); /* すりガラス効果 */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 9999;
+  animation: pwaSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pwa-banner[hidden] {
+  display: none !important;
+}
+
+@keyframes pwaSlideUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.pwa-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0; /* テキスト溢れ防止 */
+}
+
+.pwa-banner-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pwa-banner-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pwa-banner-text strong {
+  font-size: 0.95rem;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pwa-banner-text span {
+  font-size: 0.75rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pwa-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pwa-btn-primary {
+  background: #2563eb; /* アプリのテーマカラーに合わせて変更OK */
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.pwa-btn-primary:active {
+  transform: scale(0.96);
+  background: #1d4ed8;
+}
+
+.pwa-btn-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1rem;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.2s;
+}
+
+.pwa-btn-close:hover {
+  color: #475569;
+}
