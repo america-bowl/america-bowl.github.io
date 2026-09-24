@@ -11,7 +11,9 @@
   --accent: #f59e0b;
   --correct: #10b981;
   --incorrect: #ef4444;
-  --dot-color: rgba(255, 255, 255, 0.05); 
+  --dot-color: rgba(148, 163, 184, 0.20);
+  --flag-red: #f0526a; --flag-blue: #6b8cff; --flag-star: #ffffff;
+  --fr-o: 0.17; --fb-o: 0.26; --fs-o: 0.6;
   --opt-bg: rgba(15, 23, 42, 0.5);
   --hover-card-bg: rgba(30, 41, 59, 0.8);
   --hover-card-text: #ffffff;
@@ -36,7 +38,9 @@
   --accent: #d97706;
   --correct: #059669;
   --incorrect: #dc2626;
-  --dot-color: rgba(0, 0, 0, 0.03);
+  --dot-color: rgba(71, 85, 105, 0.17);
+  --flag-red: #d33a4d; --flag-blue: #3b57b5; --flag-star: #3b57b5;
+  --fr-o: 0.12; --fb-o: 0.14; --fs-o: 0.5;
   --opt-bg: rgba(255, 255, 255, 0.6);
   --hover-card-bg: rgba(241, 245, 249, 0.9);
   --hover-card-text: #0f172a;
@@ -52,7 +56,7 @@
 body {
   margin: 0;
   background-color: var(--bg);
-  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(circle at center, var(--dot-color) 1.5px, transparent 2px);
   background-size: 24px 24px;
   background-attachment: fixed;
   color: var(--text);
@@ -72,17 +76,32 @@ header.top {
   position: relative;
   padding: 36px 0 24px;
 }
-.flag-bg,
-.decor-bg,
-header.top > svg {
+/* 旗の装飾: 左(ポール側)から右へ、上から下へ背景に溶け込む */
+.flag-deco {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(100deg, #000 0%, rgba(0,0,0,.55) 45%, transparent 90%);
+          mask-image: linear-gradient(100deg, #000 0%, rgba(0,0,0,.55) 45%, transparent 90%);
+}
+.flag-bg {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  pointer-events: none;
-  z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+}
+.flag-bg .f-red  { fill: var(--flag-red);  fill-opacity: var(--fr-o); }
+.flag-bg .f-blue { fill: var(--flag-blue); fill-opacity: var(--fb-o); }
+.flag-bg .f-star { fill: var(--flag-star); fill-opacity: var(--fs-o); }
+header.top::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--flag-red), var(--flag-blue) 40%, transparent 85%);
+  opacity: 0.45;
 }
 
 .header-inner {
