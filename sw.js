@@ -1,4 +1,4 @@
-const CACHE_NAME = 'america-bowl-v2';
+const CACHE_NAME = 'america-bowl-v3';
 
 const ASSETS_TO_CACHE = [
   './',
