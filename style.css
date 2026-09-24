@@ -68,12 +68,10 @@ body {
   padding: 0 24px;
 }
 
-/* ---------- Header & Background Decor ---------- */
 header.top {
   position: relative;
   padding: 36px 0 24px;
 }
-
 .flag-bg,
 .decor-bg,
 header.top > svg {
@@ -82,6 +80,7 @@ header.top > svg {
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover; 
   pointer-events: none;
   z-index: 1;
 }
