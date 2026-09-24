@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Space+Grotesk:wght@500;700&display=swap');
+
 :root {
   --bg: #0b1120;
-  --panel: rgba(22, 32, 54, 0.7); 
+  --panel: rgba(22, 32, 54, 0.75); 
   --card-bg: rgba(26, 38, 64, 0.65);
   --text: #ffffff;
   --text-muted: #94a3b8;
@@ -15,7 +17,8 @@
   --hover-card-text: #ffffff;
   --hover-cat-bg: rgba(255, 255, 255, 0.08);
   --shadow-color: rgba(0, 0, 0, 0.45);
-  --font-display: 'Syne', sans-serif;
+  /* よりスマートでスタイリッシュなフォントに変更 */
+  --font-display: 'Montserrat', -apple-system, sans-serif;
   --font-body: 'Space Grotesk', -apple-system, sans-serif;
   --progress-gradient: linear-gradient(90deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
   --progress-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
@@ -25,8 +28,8 @@
 
 [data-theme="light"] {
   --bg: #f8fafc;
-  --panel: rgba(255, 255, 255, 0.8);
-  --card-bg: rgba(255, 255, 255, 0.7);
+  --panel: rgba(255, 255, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.75);
   --text: #0f172a;
   --text-muted: #64748b;
   --border: rgba(0, 0, 0, 0.08);
@@ -66,13 +69,13 @@ body {
   padding: 0 24px;
 }
 
-/* ---------- Header & Flag Decoration Fix ---------- */
+/* ---------- Header & Settings Fix ---------- */
 header.top {
   position: relative;
-  padding: 40px 0 24px;
+  padding: 36px 0 24px;
 }
 
-/* 星や波線のSVG背景装飾 */
+/* 背景装飾線（文字やボタンの後ろに配置） */
 .decor-bg,
 header.top svg,
 .flag-bg {
@@ -94,8 +97,11 @@ header.top svg,
   gap: 16px;
 }
 
+/* Settingsボタンのレイアウト崩れ・被り防止 */
 .settings-btn {
-  background: var(--card-bg);
+  position: relative;
+  z-index: 10; /* 背景線より手前に表示 */
+  background: var(--panel);
   border: 1px solid var(--border);
   color: var(--text);
   padding: 8px 16px;
@@ -104,36 +110,46 @@ header.top svg,
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  justify-content: center;
+  gap: 8px; /* アイコンとテキストの間隔 */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.settings-btn svg,
+.settings-btn i,
+.settings-btn img {
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
 }
 
 .settings-btn:hover {
   border-color: var(--border-strong);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow-color);
+  box-shadow: 0 6px 16px var(--shadow-color);
 }
 
 .settings-btn:active {
   transform: translateY(0) scale(0.98);
 }
 
-/* タイトル文字（装飾の上に重ねる設定） */
+/* タイトルフォント（横潰れを解消しスマートで洗練されたスタイルへ） */
 header h1 {
   position: relative;
   z-index: 2;
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.02em; /* 横伸ばし感を抑えて可読性アップ */
   text-transform: uppercase;
   margin: 0 0 12px 0;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 header .sub {
@@ -199,10 +215,9 @@ main {
   border-bottom: 1px solid var(--border);
 }
 
-/* ---------- Feature / Category Cards (レイアウト修正済み) ---------- */
+/* ---------- Feature / Category Cards ---------- */
 .feature-row {
   display: grid;
-  /* カード数に応じて幅いっぱいにフィットさせる */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   margin-bottom: 40px;
@@ -236,7 +251,7 @@ main {
 .feature-card .ttl {
   font-family: var(--font-display);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   margin: 0 0 8px;
 }
