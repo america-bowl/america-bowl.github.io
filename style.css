@@ -176,15 +176,13 @@ main {
 }
 
 /* ---------- Feature / Category Cards ---------- */
+/* ---------- Feature / Category Cards ---------- */
 .feature-row {
   display: grid;
-  grid-template-columns: 1fr;
+  /* 自動でカードの数に合わせてピッタリ並ぶように変更 */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   margin-bottom: 40px;
-}
-
-@media (min-width: 600px) {
-  .feature-row { grid-template-columns: 1fr 1fr; }
 }
 
 .feature-card {
