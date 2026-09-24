@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="アメリカンボウル">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <title>America Bowl Practice</title>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -167,6 +171,19 @@
 </div>
 
 <footer class="site-foot">©️西大和学園チーム<br>本サービスの無許複製、転用を固く禁じます。<br>お問合せ:202305876@edu.nishiyamato.ed.jp/</footer>
-
+<!-- PWAインストール案内バナー（初期状態は非表示） -->
+<div id="pwa-install-banner" class="pwa-banner" hidden>
+  <div class="pwa-banner-content">
+    <div class="pwa-banner-icon">📱</div>
+    <div class="pwa-banner-text">
+      <strong>アプリをインストール</strong>
+      <span>ホーム画面に追加して快適にプレイ！</span>
+    </div>
+  </div>
+  <div class="pwa-banner-actions">
+    <button id="pwa-install-btn" class="pwa-btn-primary">追加</button>
+    <button id="pwa-close-btn" class="pwa-btn-close" aria-label="閉じる">✕</button>
+  </div>
+</div>
 </body>
 </html>
