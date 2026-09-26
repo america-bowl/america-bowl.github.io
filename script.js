@@ -176,17 +176,12 @@ function showScreen(name){
   window.scrollTo({top:0, behavior:'auto'});
 }
 
-// ---- 掲示板 (BBS) 機能 ----
-// (旧バージョンではこの一式が initPWAInstallPrompt() という別の関数の中に
-//  誤って入っており、loadJSON / saveJSON / showScreen / tabHomeBtn / tabBbsBtn
-//  といった変数に一切アクセスできず ReferenceError で全滅していました。
-//  screens 等と同じスコープに移動して修正しています。)
 var BBS_KEY = 'ab_bbs_posts_v1';
 var defaultPosts = [
   {
     id: 'default-1',
     name: '運営',
-    text: 'America Bowl 練習アプリへようこそ！クイズの感想や学習メモなどをご自由に書き込んでください。',
+    text: '掲示板機能は開発途中です。自作クイズ投稿機能と、他の人とのコミュニケーション機能が実装予定です。',
     time: '2026/09/26 12:00'
   }
 ];
