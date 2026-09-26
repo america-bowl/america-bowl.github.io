@@ -126,24 +126,48 @@
     });
   }
 
-  var screens = {
-    home: document.getElementById('screen-home'),
-    quiz: document.getElementById('screen-quiz'),
-    result: document.getElementById('screen-result')
-  };
-  var homeLink = document.getElementById('home-link');
-  var settingsBtn = document.getElementById('settings-btn');
-  var headerTitle = document.getElementById('header-title');
-  var headerSub = document.getElementById('header-sub');
+  // ...（上のコード）...
 
-  function showScreen(name){
-    Object.keys(screens).forEach(function(k){
-      if(screens[k]) screens[k].classList.toggle('active', k === name);
-    });
-    if(homeLink) homeLink.style.display = (name === 'home') ? 'none' : 'inline-block';
-    if(settingsBtn) settingsBtn.style.display = (name === 'home') ? '' : 'none';
-    window.scrollTo({top:0, behavior:'auto'});
+var screens = {
+  home: document.getElementById('screen-home'),
+  bbs: document.getElementById('screen-bbs'), // ← 掲示板画面を追加
+  quiz: document.getElementById('screen-quiz'),
+  result: document.getElementById('screen-result')
+};
+var tabBar = document.getElementById('tab-bar');
+var tabHomeBtn = document.getElementById('tab-home');
+var tabBbsBtn = document.getElementById('tab-bbs');
+
+function showScreen(name){
+  Object.keys(screens).forEach(function(k){
+    if(screens[k]) screens[k].classList.toggle('active', k === name);
+  });
+  
+  // ホームまたは掲示板画面の場合のみヘッダーのリンクやタブバーを表示
+  var isMainTab = (name === 'home' || name === 'bbs');
+  if(homeLink) homeLink.style.display = isMainTab ? 'none' : 'inline-block';
+  if(settingsBtn) settingsBtn.style.display = isMainTab ? '' : 'none';
+
+  if(tabBar) {
+    if (isMainTab) {
+      tabBar.classList.remove('hidden');
+    } else {
+      tabBar.classList.add('hidden'); // クイズ中・結果画面ではタブバーを非表示
+    }
   }
+
+  if(tabHomeBtn) tabHomeBtn.classList.toggle('active', name === 'home');
+  if(tabBbsBtn) tabBbsBtn.classList.toggle('active', name === 'bbs');
+
+  // 掲示板画面を開いたときは投稿一覧を再読み込み
+  if (name === 'bbs') {
+    renderBBS();
+  }
+
+  window.scrollTo({top:0, behavior:'auto'});
+}
+
+// ...（下のコード）...
 
   function renderHome(){
     stopTimer();
