@@ -75,6 +75,27 @@
     <h2 class="section-label">Select Category</h2>
     <div class="cat-grid" id="cat-grid"></div>
   </section>
+  <!-- 掲示板画面 -->
+<section id="screen-bbs" class="screen">
+  <h2 class="section-label">掲示板</h2>
+  <p class="intro-text">学習のメモや質問、感想などを自由に投稿・共有できます。</p>
+  
+  <!-- 投稿フォーム -->
+  <form id="bbs-form" class="bbs-form">
+    <div class="form-group">
+      <input type="text" id="bbs-name" placeholder="お名前 / ニックネーム" maxlength="20" required />
+    </div>
+    <div class="form-group">
+      <textarea id="bbs-text" placeholder="メッセージを入力してください..." rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn">投稿する</button>
+  </form>
+
+  <!-- 投稿一覧 -->
+  <div id="bbs-list" class="bbs-list">
+    <!-- JSで投稿が表示されます -->
+  </div>
+</section>
 
   <section id="screen-quiz" class="screen">
     <div class="quiz-meta">
@@ -185,5 +206,16 @@
     <button id="pwa-close-btn" class="pwa-btn-close" aria-label="閉じる">✕</button>
   </div>
 </div>
+  <!-- タブナビゲーションバー -->
+<nav id="tab-bar" class="tab-bar">
+  <button type="button" class="tab-btn active" id="tab-home">
+    <span class="icon">🏠</span>
+    <span class="label">ホーム</span>
+  </button>
+  <button type="button" class="tab-btn" id="tab-bbs">
+    <span class="icon">💬</span>
+    <span class="label">掲示板</span>
+  </button>
+</nav>
 </body>
 </html>
