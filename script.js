@@ -138,6 +138,15 @@ var tabBar = document.getElementById('tab-bar');
 var tabHomeBtn = document.getElementById('tab-home');
 var tabBbsBtn = document.getElementById('tab-bbs');
 
+// ← ここが丸ごと抜けていたのが今回の全崩壊の元凶:
+// settingsBtn が未定義のまま script.js 中盤 (旧732行目) で参照され、
+// ページ読み込み時に ReferenceError で処理全体が停止 → renderHome() まで
+// 到達できず、カテゴリー選択画面が空のまま表示されていました。
+var homeLink = document.getElementById('home-link');
+var headerTitle = document.getElementById('header-title');
+var headerSub = document.getElementById('header-sub');
+var settingsBtn = document.getElementById('settings-btn');
+
 function showScreen(name){
   Object.keys(screens).forEach(function(k){
     if(screens[k]) screens[k].classList.toggle('active', k === name);
@@ -165,6 +174,176 @@ function showScreen(name){
   }
 
   window.scrollTo({top:0, behavior:'auto'});
+}
+
+// ---- 掲示板 (BBS) 機能 ----
+// (旧バージョンではこの一式が initPWAInstallPrompt() という別の関数の中に
+//  誤って入っており、loadJSON / saveJSON / showScreen / tabHomeBtn / tabBbsBtn
+//  といった変数に一切アクセスできず ReferenceError で全滅していました。
+//  screens 等と同じスコープに移動して修正しています。)
+var BBS_KEY = 'ab_bbs_posts_v1';
+var defaultPosts = [
+  {
+    id: 'default-1',
+    name: '運営',
+    text: 'America Bowl 練習アプリへようこそ！クイズの感想や学習メモなどをご自由に書き込んでください。',
+    time: '2026/09/26 12:00'
+  }
+];
+
+function loadBBSPosts() {
+  return loadJSON(BBS_KEY, defaultPosts);
+}
+
+function saveBBSPosts(posts) {
+  saveJSON(BBS_KEY, posts);
+}
+
+// 本文中の URL を検出する正規表現（末尾の句読点・括弧はリンクに含めない）
+var URL_REGEX = /https?:\/\/[^\s<>"']+[^\s<>"'.,!?)\]]/g;
+
+// テキストを描画しつつ、URL 部分だけ <a> タグ化する（innerHTML を使わず安全に）
+function appendLinkifiedText(container, text) {
+  var re = new RegExp(URL_REGEX.source, 'g');
+  var lastIndex = 0, match;
+  while ((match = re.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      container.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+    }
+    var a = document.createElement('a');
+    a.href = match[0];
+    a.textContent = match[0];
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = 'bbs-post-link';
+    container.appendChild(a);
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) {
+    container.appendChild(document.createTextNode(text.slice(lastIndex)));
+  }
+}
+
+function extractFirstUrl(text) {
+  var re = new RegExp(URL_REGEX.source, 'g');
+  var match = re.exec(text);
+  return match ? match[0] : null;
+}
+
+function renderBBS() {
+  var listEl = document.getElementById('bbs-list');
+  if (!listEl) return;
+
+  var posts = loadBBSPosts();
+  listEl.replaceChildren();
+
+  if (posts.length === 0) {
+    var emptyEl = document.createElement('p');
+    emptyEl.className = 'intro-text';
+    emptyEl.textContent = 'まだ投稿はありません。最初のメッセージを投稿してみましょう！';
+    listEl.appendChild(emptyEl);
+    return;
+  }
+
+  posts.forEach(function(post) {
+    var card = document.createElement('div');
+    card.className = 'bbs-post';
+
+    var header = document.createElement('div');
+    header.className = 'bbs-post-header';
+
+    var author = document.createElement('span');
+    author.className = 'bbs-post-author';
+    author.textContent = post.name;
+
+    var time = document.createElement('span');
+    time.className = 'bbs-post-time';
+    time.textContent = post.time;
+
+    header.appendChild(author);
+    header.appendChild(time);
+
+    var content = document.createElement('div');
+    content.className = 'bbs-post-content';
+    appendLinkifiedText(content, post.text);
+
+    card.appendChild(header);
+    card.appendChild(content);
+
+    // 本文にリンクが含まれていれば iframe でその場プレビュー
+    var firstUrl = extractFirstUrl(post.text);
+    if (firstUrl) {
+      var embedWrap = document.createElement('div');
+      embedWrap.className = 'bbs-post-embed';
+      var iframe = document.createElement('iframe');
+      iframe.src = firstUrl;
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer';
+      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms');
+      embedWrap.appendChild(iframe);
+      card.appendChild(embedWrap);
+
+      var embedNote = document.createElement('p');
+      embedNote.className = 'bbs-embed-note';
+      embedNote.textContent = 'サイト側の設定によっては、この場でプレビューできない場合があります。';
+      card.appendChild(embedNote);
+    }
+
+    var footer = document.createElement('div');
+    footer.className = 'bbs-post-footer';
+
+    var delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.className = 'bbs-post-delete';
+    delBtn.textContent = '削除';
+    delBtn.addEventListener('click', function() {
+      if (confirm('この投稿を削除しますか？')) {
+        var updated = loadBBSPosts().filter(function(p) { return p.id !== post.id; });
+        saveBBSPosts(updated);
+        renderBBS();
+      }
+    });
+
+    footer.appendChild(delBtn);
+    card.appendChild(footer);
+    listEl.appendChild(card);
+  });
+}
+
+// 投稿フォーム送信時の処理
+var bbsForm = document.getElementById('bbs-form');
+if (bbsForm) {
+  bbsForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var nameInput = document.getElementById('bbs-name');
+    var textInput = document.getElementById('bbs-text');
+
+    var name = nameInput ? nameInput.value.trim() : '';
+    var text = textInput ? textInput.value.trim() : '';
+
+    if (!name || !text) return;
+
+    var now = new Date();
+    var timeStr = now.getFullYear() + '/' +
+      String(now.getMonth() + 1).padStart(2, '0') + '/' +
+      String(now.getDate()).padStart(2, '0') + ' ' +
+      String(now.getHours()).padStart(2, '0') + ':' +
+      String(now.getMinutes()).padStart(2, '0');
+
+    var newPost = {
+      id: 'post_' + Date.now(),
+      name: name,
+      text: text,
+      time: timeStr
+    };
+
+    var posts = loadBBSPosts();
+    posts.unshift(newPost); // 新しい投稿を一番上に追加
+    saveBBSPosts(posts);
+
+    if (textInput) textInput.value = '';
+    renderBBS();
+  });
 }
 
 // ...（下のコード）...
@@ -246,6 +425,10 @@ function showScreen(name){
 
   var btnBack = document.getElementById('btn-back');
   if(btnBack) btnBack.addEventListener('click', function(){ renderHome(); showScreen('home'); });
+
+  // タブバー（ホーム／掲示板）
+  if(tabHomeBtn) tabHomeBtn.addEventListener('click', function(){ renderHome(); showScreen('home'); });
+  if(tabBbsBtn) tabBbsBtn.addEventListener('click', function(){ showScreen('bbs'); });
 
   function shuffle(arr){
     var a = arr.slice();
@@ -848,133 +1031,4 @@ function showScreen(name){
     console.log('PWA was installed successfully');
   });
 
-  // ---- 掲示板 (BBS) 機能 ----
-  var BBS_KEY = 'ab_bbs_posts_v1';
-  var defaultPosts = [
-    {
-      id: 'default-1',
-      name: '運営',
-      text: 'America Bowl 練習アプリへようこそ！クイズの感想や学習メモなどをご自由に書き込んでください。',
-      time: '2026/09/26 12:00'
-    }
-  ];
-
-  function loadBBSPosts() {
-    return loadJSON(BBS_KEY, defaultPosts);
-  }
-
-  function saveBBSPosts(posts) {
-    saveJSON(BBS_KEY, posts);
-  }
-
-  function renderBBS() {
-    var listEl = document.getElementById('bbs-list');
-    if (!listEl) return;
-
-    var posts = loadBBSPosts();
-    listEl.replaceChildren();
-
-    if (posts.length === 0) {
-      var emptyEl = document.createElement('p');
-      emptyEl.className = 'intro-text';
-      emptyEl.textContent = 'まだ投稿はありません。最初のメッセージを投稿してみましょう！';
-      listEl.appendChild(emptyEl);
-      return;
-    }
-
-    posts.forEach(function(post) {
-      var card = document.createElement('div');
-      card.className = 'bbs-post';
-
-      var header = document.createElement('div');
-      header.className = 'bbs-post-header';
-
-      var author = document.createElement('span');
-      author.className = 'bbs-post-author';
-      author.textContent = post.name;
-
-      var time = document.createElement('span');
-      time.className = 'bbs-post-time';
-      time.textContent = post.time;
-
-      header.appendChild(author);
-      header.appendChild(time);
-
-      var content = document.createElement('div');
-      content.className = 'bbs-post-content';
-      content.textContent = post.text;
-
-      card.appendChild(header);
-      card.appendChild(content);
-
-      var footer = document.createElement('div');
-      footer.className = 'bbs-post-footer';
-
-      var delBtn = document.createElement('button');
-      delBtn.type = 'button';
-      delBtn.className = 'bbs-post-delete';
-      delBtn.textContent = '削除';
-      delBtn.addEventListener('click', function() {
-        if (confirm('この投稿を削除しますか？')) {
-          var updated = loadBBSPosts().filter(function(p) { return p.id !== post.id; });
-          saveBBSPosts(updated);
-          renderBBS();
-        }
-      });
-
-      footer.appendChild(delBtn);
-      card.appendChild(footer);
-      listEl.appendChild(card);
-    });
-  }
-
-  // 投稿フォーム送信時の処理
-  var bbsForm = document.getElementById('bbs-form');
-  if (bbsForm) {
-    bbsForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var nameInput = document.getElementById('bbs-name');
-      var textInput = document.getElementById('bbs-text');
-
-      var name = nameInput ? nameInput.value.trim() : '';
-      var text = textInput ? textInput.value.trim() : '';
-
-      if (!name || !text) return;
-
-      var now = new Date();
-      var timeStr = now.getFullYear() + '/' +
-        String(now.getMonth() + 1).padStart(2, '0') + '/' +
-        String(now.getDate()).padStart(2, '0') + ' ' +
-        String(now.getHours()).padStart(2, '0') + ':' +
-        String(now.getMinutes()).padStart(2, '0');
-
-      var newPost = {
-        id: 'post_' + Date.now(),
-        name: name,
-        text: text,
-        time: timeStr
-      };
-
-      var posts = loadBBSPosts();
-      posts.unshift(newPost); // 新しい投稿を一番上に追加
-      saveBBSPosts(posts);
-
-      if (textInput) textInput.value = '';
-      renderBBS();
-    });
-  }
-
-  // タブボタンイベント
-  if (tabHomeBtn) {
-    tabHomeBtn.addEventListener('click', function() {
-      renderHome();
-      showScreen('home');
-    });
-  }
-  if (tabBbsBtn) {
-    tabBbsBtn.addEventListener('click', function() {
-      showScreen('bbs');
-    });
-  }
-  　
 })();
