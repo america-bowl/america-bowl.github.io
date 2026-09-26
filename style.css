@@ -872,3 +872,164 @@ footer.site-foot {
 .pwa-btn-close:hover {
   color: #475569;
 }
+/* ---------- Tab Navigation Bar ---------- */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 8px 16px max(8px, env(safe-area-inset-bottom, 8px));
+  box-shadow: 0 -4px 20px var(--shadow-color);
+}
+
+.tab-bar.hidden {
+  display: none !important;
+}
+
+.tab-btn {
+  flex: 1;
+  max-width: 160px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.tab-btn .icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.tab-btn.active {
+  color: var(--border-strong);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.tab-btn:hover:not(.active) {
+  color: var(--text);
+}
+
+/* ナビゲーションバーの高さ分、下部に十分なパディングを確保 */
+main {
+  padding-bottom: 90px !important;
+}
+
+/* PWAインストールバナーの位置をタブバーの上に調整 */
+.pwa-banner {
+  bottom: 80px !important;
+}
+
+/* ---------- Bulletin Board (BBS) ---------- */
+.bbs-form {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 16px var(--shadow-color);
+}
+
+.bbs-form .form-group {
+  margin-bottom: 12px;
+}
+
+.bbs-form input[type="text"],
+.bbs-form textarea {
+  width: 100%;
+  background: var(--opt-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.bbs-form input[type="text"]:focus,
+.bbs-form textarea:focus {
+  border-color: var(--border-strong);
+}
+
+.bbs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bbs-post {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.bbs-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.bbs-post-author {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.bbs-post-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.bbs-post-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bbs-post-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.bbs-post-delete {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.bbs-post-delete:hover {
+  color: var(--incorrect);
+  background: rgba(239, 68, 68, 0.1);
+}
